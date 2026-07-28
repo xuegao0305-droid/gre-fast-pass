@@ -2,21 +2,15 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import words from "./data/words.json";
+import {
+  normalizeProgress,
+  type SavedProgress,
+  type Scope,
+  type WordStatus,
+} from "./lib/progress";
 import { buildQueue, summarize } from "./lib/review-logic";
 
-type WordStatus = "unknown" | "known" | "mastered";
-type Scope = "all" | "1" | "2" | "3" | "4" | "5";
 type Word = (typeof words)[number];
-
-type SavedProgress = {
-  version: 1;
-  round: number;
-  statuses: Record<string, WordStatus>;
-  scope: Scope;
-  queue: string[];
-  cursor: number;
-  shuffle: boolean;
-};
 
 type LastAction = {
   id: string;
@@ -43,20 +37,6 @@ const statusMeta: Record<
   mastered: { label: "完全熟悉", short: "熟悉", key: "3" },
 };
 
-function isSavedProgress(value: unknown): value is SavedProgress {
-  if (!value || typeof value !== "object") return false;
-  const candidate = value as Partial<SavedProgress>;
-  return (
-    candidate.version === 1 &&
-    typeof candidate.round === "number" &&
-    typeof candidate.statuses === "object" &&
-    Array.isArray(candidate.queue) &&
-    typeof candidate.cursor === "number" &&
-    typeof candidate.shuffle === "boolean" &&
-    ["all", "1", "2", "3", "4", "5"].includes(candidate.scope ?? "")
-  );
-}
-
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const [round, setRound] = useState(1);
@@ -71,7 +51,13 @@ export default function Home() {
   const [libraryStatus, setLibraryStatus] =
     useState<WordStatus>("known");
   const [search, setSearch] = useState("");
+  const [syncState, setSyncState] = useState<
+    "loading" | "saving" | "saved" | "offline"
+  >("loading");
+  const [accountLabel, setAccountLabel] = useState("当前 ChatGPT 账号");
   const importInputRef = useRef<HTMLInputElement>(null);
+  const revisionRef = useRef(0);
+  const pendingProgressRef = useRef<SavedProgress | null>(null);
 
   const wordById = useMemo(
     () => new Map<string, Word>(words.map((word) => [word.id, word])),
@@ -102,6 +88,31 @@ export default function Home() {
   const roundProgress =
     queue.length === 0 ? 100 : Math.round((cursor / queue.length) * 100);
 
+  const syncToCloud = useCallback(async (payload: SavedProgress) => {
+    pendingProgressRef.current = payload;
+    setSyncState("saving");
+    try {
+      const response = await fetch("/api/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ progress: payload }),
+        cache: "no-store",
+        keepalive: true,
+      });
+      if (!response.ok) throw new Error("save failed");
+      if (revisionRef.current === payload.revision) {
+        pendingProgressRef.current = null;
+        setSyncState("saved");
+      }
+      return true;
+    } catch {
+      if (revisionRef.current === payload.revision) {
+        setSyncState("offline");
+      }
+      return false;
+    }
+  }, []);
+
   const persist = useCallback(
     (
       nextStatuses = statuses,
@@ -111,8 +122,11 @@ export default function Home() {
       nextScope = scope,
       nextShuffle = shuffle,
     ) => {
+      const nextRevision = revisionRef.current + 1;
+      revisionRef.current = nextRevision;
       const payload: SavedProgress = {
-        version: 1,
+        version: 2,
+        revision: nextRevision,
         round: nextRound,
         statuses: nextStatuses,
         scope: nextScope,
@@ -121,44 +135,134 @@ export default function Home() {
         shuffle: nextShuffle,
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      void syncToCloud(payload);
     },
-    [cursor, queue, round, scope, shuffle, statuses],
+    [cursor, queue, round, scope, shuffle, statuses, syncToCloud],
   );
 
-  /* Loading browser-only saved progress after hydration is intentional. */
-  /* eslint-disable react-hooks/set-state-in-effect */
+  /* Loading browser and cloud progress after hydration is intentional. */
   useEffect(() => {
-    let saved: SavedProgress | null = null;
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed: unknown = JSON.parse(raw);
-        if (isSavedProgress(parsed)) saved = parsed;
+    let cancelled = false;
+
+    const loadProgress = async () => {
+      let localProgress: SavedProgress | null = null;
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) localProgress = normalizeProgress(JSON.parse(raw));
+      } catch {
+        localProgress = null;
       }
-    } catch {
-      saved = null;
-    }
 
-    if (saved) {
-      const validIds = new Set(words.map((word) => word.id));
-      const restoredQueue = saved.queue.filter((id) => validIds.has(id));
-      setRound(Math.max(1, saved.round));
-      setStatuses(saved.statuses);
-      setScope(saved.scope);
-      setShuffle(saved.shuffle);
-      setQueue(restoredQueue);
-      setCursor(Math.min(saved.cursor, restoredQueue.length));
-    } else {
-      setQueue(buildQueue(words, {}, false));
-    }
-    setLoaded(true);
-  }, []);
-  /* eslint-enable react-hooks/set-state-in-effect */
+      let cloudProgress: SavedProgress | null = null;
+      let cloudAvailable = false;
+      try {
+        const response = await fetch("/api/progress", {
+          cache: "no-store",
+        });
+        if (!response.ok) throw new Error("load failed");
+        const data = (await response.json()) as {
+          progress?: unknown;
+          account?: string;
+        };
+        cloudProgress = normalizeProgress(data.progress);
+        cloudAvailable = true;
+        if (data.account) setAccountLabel(data.account);
+      } catch {
+        cloudAvailable = false;
+      }
 
+      if (cancelled) return;
+
+      const saved =
+        cloudProgress &&
+        (!localProgress || cloudProgress.revision >= localProgress.revision)
+          ? cloudProgress
+          : localProgress;
+
+      if (saved) {
+        const validIds = new Set(words.map((word) => word.id));
+        const restoredQueue = saved.queue.filter((id) => validIds.has(id));
+        const restored: SavedProgress = {
+          ...saved,
+          queue: restoredQueue,
+          cursor: Math.min(saved.cursor, restoredQueue.length),
+        };
+        revisionRef.current = restored.revision;
+        setRound(Math.max(1, restored.round));
+        setStatuses(restored.statuses);
+        setScope(restored.scope);
+        setShuffle(restored.shuffle);
+        setQueue(restored.queue);
+        setCursor(restored.cursor);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(restored));
+
+        if (
+          cloudAvailable &&
+          (!cloudProgress || restored.revision > cloudProgress.revision)
+        ) {
+          const migrated = {
+            ...restored,
+            revision: restored.revision + 1,
+          };
+          revisionRef.current = migrated.revision;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+          void syncToCloud(migrated);
+        } else {
+          setSyncState(cloudAvailable ? "saved" : "offline");
+          if (!cloudAvailable) pendingProgressRef.current = restored;
+        }
+      } else {
+        const initial: SavedProgress = {
+          version: 2,
+          revision: 1,
+          round: 1,
+          statuses: {},
+          scope: "all",
+          queue: buildQueue(words, {}, false),
+          cursor: 0,
+          shuffle: false,
+        };
+        revisionRef.current = initial.revision;
+        setQueue(initial.queue);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(initial));
+        if (cloudAvailable) void syncToCloud(initial);
+        else {
+          pendingProgressRef.current = initial;
+          setSyncState("offline");
+        }
+      }
+      setLoaded(true);
+    };
+
+    void loadProgress();
+    return () => {
+      cancelled = true;
+    };
+  }, [syncToCloud]);
   useEffect(() => {
-    if (!loaded) return;
-    persist();
-  }, [loaded, persist]);
+    const retryPendingSave = () => {
+      const pending = pendingProgressRef.current;
+      if (pending) void syncToCloud(pending);
+    };
+    const saveBeforeLeaving = () => {
+      if (document.visibilityState !== "hidden") return;
+      const pending = pendingProgressRef.current;
+      if (!pending || !navigator.sendBeacon) return;
+      navigator.sendBeacon(
+        "/api/progress",
+        new Blob([JSON.stringify({ progress: pending })], {
+          type: "application/json",
+        }),
+      );
+    };
+
+    window.addEventListener("online", retryPendingSave);
+    document.addEventListener("visibilitychange", saveBeforeLeaving);
+    return () => {
+      window.removeEventListener("online", retryPendingSave);
+      document.removeEventListener("visibilitychange", saveBeforeLeaving);
+    };
+  }, [syncToCloud]);
 
   const classify = useCallback(
     (status: WordStatus) => {
@@ -277,20 +381,37 @@ export default function Home() {
     if (!file) return;
     try {
       const parsed: unknown = JSON.parse(await file.text());
-      if (!isSavedProgress(parsed)) throw new Error("invalid");
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+      const imported = normalizeProgress(parsed);
+      if (!imported) throw new Error("invalid");
+      const nextProgress: SavedProgress = {
+        ...imported,
+        revision: revisionRef.current + 1,
+      };
+      revisionRef.current = nextProgress.revision;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(nextProgress));
+      const saved = await syncToCloud(nextProgress);
+      if (!saved) throw new Error("save failed");
       window.location.reload();
     } catch {
-      window.alert("这个文件不是有效的进度备份。");
+      window.alert("暂时无法导入这个备份。请检查文件或网络后再试。");
     } finally {
       event.target.value = "";
     }
   };
 
-  const resetProgress = () => {
+  const resetProgress = async () => {
     if (!window.confirm("确定清空全部学习进度吗？这一步不能撤销。")) return;
-    localStorage.removeItem(STORAGE_KEY);
-    window.location.reload();
+    try {
+      const response = await fetch("/api/progress", {
+        method: "DELETE",
+        cache: "no-store",
+      });
+      if (!response.ok) throw new Error("delete failed");
+      localStorage.removeItem(STORAGE_KEY);
+      window.location.reload();
+    } catch {
+      window.alert("云端进度暂时无法清空。请稍后再试。");
+    }
   };
 
   useEffect(() => {
@@ -332,7 +453,7 @@ export default function Home() {
     return (
       <main className="loading-shell" aria-live="polite">
         <div className="loading-mark">GRE</div>
-        <p>正在读取你的进度</p>
+        <p>正在读取云端进度</p>
       </main>
     );
   }
@@ -493,7 +614,12 @@ export default function Home() {
         <span>
           已完全熟悉 <strong>{totalSummary.mastered}</strong> / 905
         </span>
-        <span className="footer-save">进度已自动保存在这台设备</span>
+        <span className={`footer-save sync-${syncState}`}>
+          {syncState === "loading" && "正在读取云端进度"}
+          {syncState === "saving" && "正在保存到云端"}
+          {syncState === "saved" && "进度已保存到云端"}
+          {syncState === "offline" && "离线，进度已先保存在本机"}
+        </span>
       </footer>
 
       {panel && (
@@ -600,9 +726,15 @@ export default function Home() {
                   </button>
                 </section>
 
+                <section className="account-section">
+                  <span className="settings-label">云端账户</span>
+                  <strong>{accountLabel}</strong>
+                  <p>轮次、当前位置和每个单词的状态都会自动保存到这个账户。</p>
+                </section>
+
                 <section className="backup-section">
                   <span className="settings-label">进度备份</span>
-                  <p>进度保存在当前浏览器。换设备前请先下载备份。</p>
+                  <p>云端会自动保存。你也可以下载一份手动备份。</p>
                   <div>
                     <button onClick={exportProgress}>下载备份</button>
                     <button onClick={() => importInputRef.current?.click()}>

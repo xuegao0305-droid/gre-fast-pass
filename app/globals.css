@@ -520,7 +520,31 @@ kbd {
 }
 
 .footer-save {
+  align-items: center;
+  display: inline-flex;
+  gap: 7px;
   margin-left: auto;
+}
+
+.footer-save::before {
+  background: currentColor;
+  border-radius: 50%;
+  content: "";
+  height: 6px;
+  width: 6px;
+}
+
+.footer-save.sync-saved {
+  color: var(--mastered);
+}
+
+.footer-save.sync-saving,
+.footer-save.sync-loading {
+  color: var(--known);
+}
+
+.footer-save.sync-offline {
+  color: var(--unknown);
 }
 
 .round-summary {
@@ -875,12 +899,22 @@ kbd {
 }
 
 .toggle-section p,
+.account-section p,
 .backup-section p,
 .source-note p {
   color: var(--muted);
   font-size: 12px;
   line-height: 1.65;
   margin: 0;
+}
+
+.account-section strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: 560;
+  margin: -2px 0 6px;
+  overflow-wrap: anywhere;
 }
 
 .toggle {
