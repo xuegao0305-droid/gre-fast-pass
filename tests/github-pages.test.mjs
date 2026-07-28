@@ -47,6 +47,9 @@ test("the GitHub Pages files are complete and use browser persistence", () => {
   assert.match(html, /id="subgroupList"/);
   assert.match(html, /id="typeList"/);
   assert.match(html, /id="statusStudyButton"/);
+  assert.match(html, /id="customWordsButton"/);
+  assert.match(html, /id="customWordForm"/);
+  assert.match(html, /id="customWordList"/);
   assert.match(html, /rel="manifest"/);
   assert.match(app, /localStorage\.setItem/);
   assert.match(app, /buildQueue/);
@@ -60,6 +63,24 @@ test("the GitHub Pages files are complete and use browser persistence", () => {
   assert.match(app, /function changeStudyMode/);
   assert.match(app, /logicGroup/);
   assert.match(app, /expressionType/);
+  assert.match(app, /function saveCustomWord/);
+  assert.match(app, /function editCustomWord/);
+  assert.match(app, /function deleteCustomWord/);
+  assert.match(app, /customWords/);
+  assert.match(app, /function loadCloudState/);
+  assert.match(app, /function syncCloudNow/);
+});
+
+test("the account progress API accepts the multi-library format", () => {
+  const route = readFileSync("app/api/progress/route.ts", "utf8");
+  const validator = readFileSync("app/lib/cloud-progress.ts", "utf8");
+  assert.match(route, /normalizeCloudProgress/);
+  assert.match(route, /normalizeStoredProgress/);
+  assert.match(route, /1_000_000/);
+  assert.match(validator, /maxCustomWords/);
+  assert.match(validator, /my-added-words/);
+  assert.match(validator, /customWords/);
+  assert.match(validator, /migrateLegacyProgress/);
 });
 
 test("the static JavaScript files pass syntax checks", () => {

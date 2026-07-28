@@ -1,5 +1,8 @@
 const STORAGE_KEY = "word-fast-pass-pages-v2";
 const LEGACY_STORAGE_KEY = "gre-fast-pass-pages-v1";
+const APP_STATE_VERSION = 3;
+const CUSTOM_SCOPE = "my-added-words";
+const MAX_CUSTOM_WORDS = 500;
 const validStatuses = new Set(["unknown", "known", "mastered"]);
 const validStudyModes = new Set(["all", "unknown", "known", "unseen"]);
 const studyModeLabels = {
@@ -17,6 +20,8 @@ const elements = Object.fromEntries(
     "brandSubtitle",
     "vocabularyButton",
     "currentLibraryName",
+    "customWordsButton",
+    "customWordCount",
     "libraryButton",
     "settingsButton",
     "scopeButton",
@@ -79,6 +84,19 @@ const elements = Object.fromEntries(
     "libraryMasteredCount",
     "searchInput",
     "libraryList",
+    "customWordsPanel",
+    "customLibraryName",
+    "customWordForm",
+    "customWordId",
+    "customWordInput",
+    "customMeaningInput",
+    "customExtraInput",
+    "customSaveButton",
+    "customCancelButton",
+    "customFormMessage",
+    "customListCount",
+    "customSearchInput",
+    "customWordList",
     "modeList",
     "scopeList",
     "subgroupSection",
@@ -113,28 +131,39 @@ try {
   legacyState = null;
 }
 
+function normalizeAppStateContainer(saved) {
+  if (
+    (saved?.version !== 2 && saved?.version !== APP_STATE_VERSION) ||
+    !saved.libraries ||
+    typeof saved.libraries !== "object" ||
+    Array.isArray(saved.libraries)
+  ) {
+    return null;
+  }
+  return {
+    version: APP_STATE_VERSION,
+    revision:
+      Number.isInteger(saved.revision) && saved.revision >= 0
+        ? saved.revision
+        : 0,
+    activeLibraryId: libraryById.has(saved.activeLibraryId)
+      ? saved.activeLibraryId
+      : libraries[0].id,
+    libraries: saved.libraries,
+  };
+}
+
 function loadAppState() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "null");
-    if (
-      saved?.version === 2 &&
-      saved.libraries &&
-      typeof saved.libraries === "object"
-    ) {
-      return {
-        version: 2,
-        activeLibraryId: libraryById.has(saved.activeLibraryId)
-          ? saved.activeLibraryId
-          : libraries[0].id,
-        libraries: saved.libraries,
-      };
-    }
+    const normalized = normalizeAppStateContainer(saved);
+    if (normalized) return normalized;
   } catch {
     // A damaged record is ignored. Other browser data is not touched.
   }
-
   return {
-    version: 2,
+    version: APP_STATE_VERSION,
+    revision: 0,
     activeLibraryId: legacyState ? "gre-equivalents" : libraries[0].id,
     libraries: {},
   };
@@ -142,6 +171,7 @@ function loadAppState() {
 
 let appState = loadAppState();
 let activeLibrary = null;
+let baseWords = [];
 let words = [];
 let wordById = new Map();
 let state = null;
@@ -151,6 +181,69 @@ let libraryStatus = "known";
 let historyOffset = 0;
 let loadingLibraryId = null;
 let summaryNextMode = null;
+let cloudAvailable = false;
+let cloudSaveTimer = null;
+let cloudSaveInFlight = false;
+let cloudSavePending = false;
+
+function cleanCustomText(value, maxLength) {
+  return typeof value === "string"
+    ? value.trim().slice(0, maxLength)
+    : "";
+}
+
+function normalizeCustomWords(value, libraryId, baseIds) {
+  if (!Array.isArray(value)) return [];
+  const result = [];
+  const seen = new Set();
+  const idPrefix = `custom-${libraryId}-`;
+  for (const item of value.slice(0, MAX_CUSTOM_WORDS)) {
+    if (!item || typeof item !== "object") continue;
+    const id = cleanCustomText(item.id, 180);
+    const word = cleanCustomText(item.word, 120);
+    const meaning = cleanCustomText(item.meaning, 500);
+    if (
+      !id.startsWith(idPrefix) ||
+      !/^[a-z0-9-]+$/i.test(id) ||
+      !word ||
+      !meaning ||
+      seen.has(id) ||
+      baseIds.has(id)
+    ) {
+      continue;
+    }
+    seen.add(id);
+    const createdAt =
+      Number.isInteger(item.createdAt) && item.createdAt > 0
+        ? item.createdAt
+        : Date.now();
+    result.push({
+      id,
+      day: 9999,
+      word,
+      equivalents: cleanCustomText(item.equivalents, 500),
+      meaning,
+      scope: CUSTOM_SCOPE,
+      scopeLabel: "我的添加",
+      scopeOrder: 9999,
+      isCustom: true,
+      createdAt,
+      updatedAt:
+        Number.isInteger(item.updatedAt) && item.updatedAt >= createdAt
+          ? item.updatedAt
+          : createdAt,
+    });
+  }
+  return result;
+}
+
+function createCustomWordId() {
+  const suffix =
+    typeof globalThis.crypto?.randomUUID === "function"
+      ? globalThis.crypto.randomUUID().replaceAll("-", "")
+      : `${Date.now().toString(36)}${Math.random().toString(36).slice(2)}`;
+  return `custom-${activeLibrary.id}-${suffix}`;
+}
 
 function wordScopeKey(word) {
   return word.scope || String(word.day);
@@ -214,6 +307,7 @@ function createDefaultState() {
     cursor: 0,
     shuffle: false,
     dataVersion: activeLibrary?.dataVersion || 1,
+    customWords: words.filter((word) => word.isCustom),
   };
 }
 
@@ -247,8 +341,11 @@ function normalizeState(value) {
     : words.length;
   const start = Math.min(Math.max(rawStart, 1), words.length);
   const end = Math.min(Math.max(rawEnd, 1), words.length);
+  const customWords = words.filter((word) => word.isCustom);
 
-  if (!queue.length && !Object.keys(statuses).length) return null;
+  if (!queue.length && !Object.keys(statuses).length && !customWords.length) {
+    return null;
+  }
 
   return {
     version: 2,
@@ -268,6 +365,7 @@ function normalizeState(value) {
     ),
     shuffle: Boolean(value.shuffle),
     dataVersion: Number.isInteger(value.dataVersion) ? value.dataVersion : 1,
+    customWords,
   };
 }
 
@@ -280,14 +378,97 @@ async function getWords(library) {
   return result;
 }
 
-function persist() {
+function canUseCloud() {
+  return (
+    window.location.hostname.endsWith(".chatgpt.site") ||
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+  );
+}
+
+function setSaveStatus(message, className) {
+  elements.saveStatus.textContent = message;
+  elements.saveStatus.className = `footer-save ${className}`;
+}
+
+async function loadCloudState() {
+  if (!canUseCloud()) return;
+  setSaveStatus("正在读取账号进度", "sync-loading");
+  try {
+    const response = await fetch("/api/progress", {
+      headers: { Accept: "application/json" },
+      cache: "no-store",
+    });
+    if (!response.ok) throw new Error("cloud unavailable");
+    const result = await response.json();
+    cloudAvailable = true;
+    const cloudState = normalizeAppStateContainer(result.progress);
+    if (cloudState && cloudState.revision >= appState.revision) {
+      appState = cloudState;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+    }
+    setSaveStatus("进度已同步到账号", "sync-saved");
+  } catch {
+    cloudAvailable = false;
+    setSaveStatus("账号同步暂时不可用，已保存在此浏览器", "sync-offline");
+  }
+}
+
+async function syncCloudNow(payload = appState) {
+  if (!canUseCloud()) return false;
+  if (cloudSaveInFlight) {
+    cloudSavePending = true;
+    return false;
+  }
+  cloudSaveInFlight = true;
+  setSaveStatus("正在同步账号进度", "sync-saving");
+  try {
+    const response = await fetch("/api/progress", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ progress: payload }),
+    });
+    if (!response.ok) throw new Error("cloud save failed");
+    cloudAvailable = true;
+    setSaveStatus("进度已同步到账号", "sync-saved");
+    return true;
+  } catch {
+    cloudAvailable = false;
+    setSaveStatus("账号同步暂时不可用，已保存在此浏览器", "sync-offline");
+    return false;
+  } finally {
+    cloudSaveInFlight = false;
+    if (cloudSavePending) {
+      cloudSavePending = false;
+      scheduleCloudSave();
+    }
+  }
+}
+
+function scheduleCloudSave() {
+  if (!canUseCloud()) return;
+  window.clearTimeout(cloudSaveTimer);
+  cloudSaveTimer = window.setTimeout(() => {
+    cloudSaveTimer = null;
+    syncCloudNow();
+  }, 450);
+}
+
+function persist({ bumpRevision = true, syncCloud = true } = {}) {
   if (activeLibrary && state) {
+    state.customWords = words.filter((word) => word.isCustom);
     appState.activeLibraryId = activeLibrary.id;
     appState.libraries[activeLibrary.id] = state;
   }
+  appState.version = APP_STATE_VERSION;
+  if (bumpRevision) appState.revision += 1;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
-  elements.saveStatus.textContent = "所有词库进度已保存在此浏览器";
-  elements.saveStatus.className = "footer-save sync-saved";
+  if (cloudAvailable) {
+    setSaveStatus("进度已保存在此设备，等待账号同步", "sync-saving");
+  } else if (!canUseCloud()) {
+    setSaveStatus("所有词库进度已保存在此浏览器", "sync-saved");
+  }
+  if (syncCloud) scheduleCloudSave();
 }
 
 async function activateLibrary(id, { initial = false } = {}) {
@@ -304,8 +485,7 @@ async function activateLibrary(id, { initial = false } = {}) {
   try {
     const nextWords = await getWords(library);
     activeLibrary = library;
-    words = nextWords;
-    wordById = new Map(words.map((word) => [word.id, word]));
+    baseWords = [...nextWords];
 
     let saved = appState.libraries[library.id];
     if (
@@ -315,7 +495,15 @@ async function activateLibrary(id, { initial = false } = {}) {
     ) {
       saved = legacyState;
     }
+    const customWords = normalizeCustomWords(
+      saved?.customWords,
+      library.id,
+      new Set(baseWords.map((word) => word.id)),
+    );
+    words = [...baseWords, ...customWords];
+    wordById = new Map(words.map((word) => [word.id, word]));
     state = normalizeState(saved) || createDefaultState();
+    state.customWords = customWords;
     if (
       activeLibrary.dataVersion &&
       (saved?.dataVersion || 1) < activeLibrary.dataVersion
@@ -332,8 +520,10 @@ async function activateLibrary(id, { initial = false } = {}) {
     historyOffset = 0;
     libraryStatus = "known";
     elements.searchInput.value = "";
+    elements.customSearchInput.value = "";
+    resetCustomWordForm();
     setRevealed(false);
-    persist();
+    persist({ bumpRevision: !initial });
     closePanel();
     render();
   } catch (error) {
@@ -378,13 +568,24 @@ function summarize(list = words, targetState = state) {
 
 function summarizeSavedLibrary(library) {
   const saved = appState.libraries[library.id];
-  const counts = { unknown: 0, known: 0, mastered: 0, unseen: library.count };
+  const customCount = Array.isArray(saved?.customWords)
+    ? saved.customWords.length
+    : 0;
+  const total = library.count + customCount;
+  const counts = {
+    unknown: 0,
+    known: 0,
+    mastered: 0,
+    unseen: total,
+    total,
+    customCount,
+  };
   if (!saved?.statuses || typeof saved.statuses !== "object") return counts;
   for (const status of Object.values(saved.statuses)) {
     if (validStatuses.has(status)) counts[status] += 1;
   }
   counts.unseen = Math.max(
-    library.count - counts.unknown - counts.known - counts.mastered,
+    total - counts.unknown - counts.known - counts.mastered,
     0,
   );
   return counts;
@@ -463,7 +664,9 @@ function scopeDescription() {
 function renderCardTags(word) {
   elements.cardTags.replaceChildren();
   const labels = [];
-  if (word.chapterName) {
+  if (word.isCustom) {
+    labels.push("我添加的词");
+  } else if (word.chapterName) {
     labels.push(word.logicGroupLabel);
     labels.push(`本词群 ${word.positionInGroup} / ${word.groupSize}`);
   } else if (word.part) {
@@ -517,6 +720,7 @@ function render() {
   elements.masteredCount.textContent = String(totalSummary.mastered);
   elements.totalWordCount.textContent = String(words.length);
   elements.knownCount.textContent = String(totalSummary.known);
+  elements.customWordCount.textContent = String(state.customWords.length);
   elements.libraryKnownCount.textContent = String(totalSummary.known);
   elements.libraryUnknownCount.textContent = String(totalSummary.unknown);
   elements.libraryMasteredCount.textContent = String(totalSummary.mastered);
@@ -530,11 +734,13 @@ function render() {
     state.queue.length === 0 ||
     (historyOffset === 0 && displayIndex >= state.queue.length - 1);
   elements.summaryPreviousButton.disabled = state.cursor === 0;
-  elements.answerLabel.textContent = activeLibrary.answerLabel;
   elements.sourceNote.textContent = `${activeLibrary.sourceLabel}。${activeLibrary.description}。每套词库的进度分开保存。`;
 
   if (!finished && currentWord()) {
     const word = currentWord();
+    elements.answerLabel.textContent = word.isCustom
+      ? "同义词或补充"
+      : activeLibrary.answerLabel;
     elements.studyView.classList.remove("hidden");
     elements.summaryView.classList.add("hidden");
     elements.dayLabel.textContent =
@@ -732,11 +938,18 @@ function statusMatchesMode(status) {
 }
 
 function changeLibraryStatus(id, status) {
-  if (!wordById.has(id) || !validStatuses.has(status)) return;
+  if (
+    !wordById.has(id) ||
+    (status !== "unseen" && !validStatuses.has(status))
+  ) {
+    return;
+  }
   const previousStatus = state.statuses[id];
-  state.statuses[id] = status;
+  if (status === "unseen") delete state.statuses[id];
+  else state.statuses[id] = status;
+  const nextStatus = state.statuses[id];
   const removedIndex = state.queue.indexOf(id);
-  if (!statusMatchesMode(status)) {
+  if (!statusMatchesMode(nextStatus)) {
     state.queue = state.queue.filter((queueId) => queueId !== id);
     if (removedIndex !== -1 && removedIndex < state.cursor) {
       state.cursor = Math.max(0, state.cursor - 1);
@@ -794,10 +1007,12 @@ function openPanel(type) {
   elements.panelBackdrop.classList.remove("hidden");
   elements.catalogPanel.classList.toggle("hidden", type !== "catalog");
   elements.libraryPanel.classList.toggle("hidden", type !== "library");
+  elements.customWordsPanel.classList.toggle("hidden", type !== "custom");
   elements.settingsPanel.classList.toggle("hidden", type !== "settings");
   const labels = {
     catalog: ["学习词库", "选择一套词库"],
     library: ["学习状态", "查看本词库状态"],
+    custom: ["我的词", "添加和管理自己的词"],
     settings: ["学习设置", "设置本轮范围"],
   };
   elements.panelKicker.textContent = labels[type][0];
@@ -813,6 +1028,9 @@ function closePanel() {
 function renderPanel() {
   if (!elements.catalogPanel.classList.contains("hidden")) renderCatalog();
   if (!elements.libraryPanel.classList.contains("hidden")) renderLibrary();
+  if (!elements.customWordsPanel.classList.contains("hidden")) {
+    renderCustomWords();
+  }
   if (!elements.settingsPanel.classList.contains("hidden")) renderSettings();
 }
 
@@ -820,8 +1038,10 @@ function renderCatalog() {
   elements.catalogList.replaceChildren();
   for (const library of libraries) {
     const counts = summarizeSavedLibrary(library);
-    const seen = library.count - counts.unseen;
-    const percent = Math.round((counts.mastered / library.count) * 100);
+    const seen = counts.total - counts.unseen;
+    const percent = counts.total
+      ? Math.round((counts.mastered / counts.total) * 100)
+      : 0;
     const button = document.createElement("button");
     button.className = "catalog-card";
     button.classList.toggle("active", library.id === activeLibrary.id);
@@ -847,7 +1067,10 @@ function renderCatalog() {
 
     const detail = document.createElement("span");
     detail.className = "catalog-detail";
-    detail.textContent = `已看 ${seen}，完全熟悉 ${counts.mastered}，进度 ${percent}%`;
+    const customDetail = counts.customCount
+      ? `，我的词 ${counts.customCount}`
+      : "";
+    detail.textContent = `共 ${counts.total}，已看 ${seen}，完全熟悉 ${counts.mastered}${customDetail}，进度 ${percent}%`;
 
     button.append(top, track, detail);
     button.addEventListener("click", () => activateLibrary(library.id));
@@ -931,6 +1154,243 @@ function renderLibrary() {
   }
 }
 
+function setCustomFormMessage(message = "", kind = "success") {
+  elements.customFormMessage.textContent = message;
+  elements.customFormMessage.classList.toggle("hidden", !message);
+  elements.customFormMessage.classList.toggle("error", kind === "error");
+}
+
+function resetCustomWordForm(message = "") {
+  elements.customWordForm.reset();
+  elements.customWordId.value = "";
+  elements.customSaveButton.textContent = "添加到当前词库";
+  elements.customCancelButton.classList.add("hidden");
+  setCustomFormMessage(message);
+}
+
+function editCustomWord(id) {
+  const word = wordById.get(id);
+  if (!word?.isCustom) return;
+  elements.customWordId.value = word.id;
+  elements.customWordInput.value = word.word;
+  elements.customMeaningInput.value = word.meaning;
+  elements.customExtraInput.value = word.equivalents;
+  elements.customSaveButton.textContent = "保存修改";
+  elements.customCancelButton.classList.remove("hidden");
+  setCustomFormMessage();
+  elements.customWordInput.focus();
+  elements.customWordForm.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function saveCustomWord(event) {
+  event.preventDefault();
+  const editingId = elements.customWordId.value;
+  const wordText = cleanCustomText(elements.customWordInput.value, 120);
+  const meaning = cleanCustomText(elements.customMeaningInput.value, 500);
+  const equivalents = cleanCustomText(elements.customExtraInput.value, 500);
+
+  if (!wordText || !meaning) {
+    setCustomFormMessage("请填写单词和中文意思。", "error");
+    return;
+  }
+  const duplicate = words.find(
+    (word) =>
+      word.id !== editingId &&
+      word.word.trim().toLocaleLowerCase() ===
+        wordText.toLocaleLowerCase(),
+  );
+  if (duplicate) {
+    setCustomFormMessage(
+      `“${duplicate.word}”已经在当前词库里。`,
+      "error",
+    );
+    return;
+  }
+
+  if (editingId) {
+    const previous = wordById.get(editingId);
+    if (!previous?.isCustom) return;
+    const updated = {
+      ...previous,
+      word: wordText,
+      meaning,
+      equivalents,
+      updatedAt: Date.now(),
+    };
+    words = words.map((word) => (word.id === editingId ? updated : word));
+    state.customWords = state.customWords.map((word) =>
+      word.id === editingId ? updated : word,
+    );
+    wordById.set(editingId, updated);
+    resetCustomWordForm("修改已保存。");
+  } else {
+    if (state.customWords.length >= MAX_CUSTOM_WORDS) {
+      setCustomFormMessage(
+        `每套词库最多可以添加 ${MAX_CUSTOM_WORDS} 个词。`,
+        "error",
+      );
+      return;
+    }
+    const now = Date.now();
+    const customWord = {
+      id: createCustomWordId(),
+      day: 9999,
+      word: wordText,
+      equivalents,
+      meaning,
+      scope: CUSTOM_SCOPE,
+      scopeLabel: "我的添加",
+      scopeOrder: 9999,
+      isCustom: true,
+      createdAt: now,
+      updatedAt: now,
+    };
+    const previousLength = words.length;
+    words = [...words, customWord];
+    state.customWords = [...state.customWords, customWord];
+    wordById.set(customWord.id, customWord);
+    if (state.scope === "custom" && state.rangeEnd === previousLength) {
+      state.rangeEnd = words.length;
+    }
+    if (
+      statusMatchesMode(undefined) &&
+      activeWords().some((word) => word.id === customWord.id) &&
+      !state.queue.includes(customWord.id)
+    ) {
+      state.queue.push(customWord.id);
+    }
+    resetCustomWordForm("已添加，并进入当前词库的学习队列。");
+  }
+  persist();
+  render();
+}
+
+function deleteCustomWord(id) {
+  const word = wordById.get(id);
+  if (
+    !word?.isCustom ||
+    !window.confirm(`确定删除“${word.word}”吗？它的学习状态也会一起删除。`)
+  ) {
+    return;
+  }
+
+  const queueIndex = state.queue.indexOf(id);
+  words = words.filter((item) => item.id !== id);
+  state.customWords = state.customWords.filter((item) => item.id !== id);
+  state.queue = state.queue.filter((queueId) => queueId !== id);
+  delete state.statuses[id];
+  wordById.delete(id);
+  if (queueIndex !== -1 && queueIndex < state.cursor) {
+    state.cursor = Math.max(0, state.cursor - 1);
+  }
+  state.cursor = Math.min(state.cursor, state.queue.length);
+  historyOffset = Math.min(historyOffset, state.cursor);
+  if (state.scope === CUSTOM_SCOPE && !state.customWords.length) {
+    state.scope = "all";
+    state.queue = buildQueue(activeWords());
+    state.cursor = 0;
+    historyOffset = 0;
+  }
+  state.rangeEnd = Math.min(Math.max(state.rangeEnd, 1), words.length);
+  state.rangeStart = Math.min(
+    Math.max(state.rangeStart, 1),
+    state.rangeEnd,
+  );
+  if (lastAction?.id === id) lastAction = null;
+  if (elements.customWordId.value === id) {
+    resetCustomWordForm(`已删除“${word.word}”。`);
+  } else {
+    setCustomFormMessage(`已删除“${word.word}”。`);
+  }
+  setRevealed(false);
+  persist();
+  render();
+}
+
+function renderCustomWords() {
+  elements.customLibraryName.textContent = activeLibrary.name;
+  elements.customWordCount.textContent = String(state.customWords.length);
+  elements.customListCount.textContent =
+    `${state.customWords.length.toLocaleString("zh-CN")} 个`;
+  const query = elements.customSearchInput.value.trim().toLocaleLowerCase();
+  const matchingWords = [...state.customWords]
+    .sort((left, right) => right.createdAt - left.createdAt)
+    .filter(
+      (word) =>
+        !query ||
+        word.word.toLocaleLowerCase().includes(query) ||
+        word.meaning.toLocaleLowerCase().includes(query) ||
+        word.equivalents.toLocaleLowerCase().includes(query),
+    );
+
+  elements.customWordList.replaceChildren();
+  if (!matchingWords.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty-library";
+    const number = document.createElement("span");
+    number.textContent = query ? "0" : "+";
+    const message = document.createElement("p");
+    message.textContent = query
+      ? "没有找到匹配的词"
+      : "还没有自己添加的词";
+    empty.append(number, message);
+    elements.customWordList.append(empty);
+    return;
+  }
+
+  for (const word of matchingWords) {
+    const row = document.createElement("article");
+    row.className = "custom-word-row";
+    const copy = document.createElement("div");
+    const title = document.createElement("strong");
+    title.textContent = word.word;
+    const meaning = document.createElement("p");
+    meaning.textContent = word.meaning;
+    copy.append(title, meaning);
+    if (word.equivalents) {
+      const extra = document.createElement("small");
+      extra.textContent = word.equivalents;
+      copy.append(extra);
+    }
+
+    const controls = document.createElement("div");
+    controls.className = "custom-word-controls";
+    const select = document.createElement("select");
+    select.setAttribute("aria-label", `修改 ${word.word} 的状态`);
+    for (const [value, label] of [
+      ["unseen", "未看过"],
+      ["unknown", "不认识"],
+      ["known", "认识"],
+      ["mastered", "完全熟悉"],
+    ]) {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = label;
+      select.append(option);
+    }
+    select.value = state.statuses[word.id] || "unseen";
+    select.addEventListener("change", () =>
+      changeLibraryStatus(word.id, select.value),
+    );
+
+    const actions = document.createElement("div");
+    actions.className = "custom-row-actions";
+    const editButton = document.createElement("button");
+    editButton.type = "button";
+    editButton.textContent = "修改";
+    editButton.addEventListener("click", () => editCustomWord(word.id));
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.className = "delete";
+    deleteButton.textContent = "删除";
+    deleteButton.addEventListener("click", () => deleteCustomWord(word.id));
+    actions.append(editButton, deleteButton);
+    controls.append(select, actions);
+    row.append(copy, controls);
+    elements.customWordList.append(row);
+  }
+}
+
 function renderSettings() {
   const counts = summarize(activeWords());
   const modeCounts = {
@@ -968,6 +1428,16 @@ function renderSettings() {
   for (const scope of scopes) {
     if (
       activeLibrary.scopeStyle === "writing" &&
+      scope.id === CUSTOM_SCOPE
+    ) {
+      const heading = document.createElement("div");
+      heading.className = "scope-heading";
+      heading.textContent = "我的词";
+      elements.scopeList.append(heading);
+      lastPart = "";
+    }
+    if (
+      activeLibrary.scopeStyle === "writing" &&
       scope.part &&
       scope.part !== lastPart
     ) {
@@ -997,7 +1467,8 @@ function renderSettings() {
   const showSubgroups =
     activeLibrary.scopeStyle === "bible" &&
     state.scope !== "all" &&
-    state.scope !== "custom";
+    state.scope !== "custom" &&
+    scopeWords().some((word) => word.logicGroup);
   elements.subgroupSection.classList.toggle("hidden", !showSubgroups);
   elements.subgroupList.replaceChildren();
   if (showSubgroups) {
@@ -1040,7 +1511,9 @@ function renderSettings() {
     }
   }
 
-  const showTypes = activeLibrary.scopeStyle === "writing";
+  const showTypes =
+    activeLibrary.scopeStyle === "writing" &&
+    state.scope !== CUSTOM_SCOPE;
   elements.typeSection.classList.toggle("hidden", !showTypes);
   elements.typeList.replaceChildren();
   if (showTypes) {
@@ -1121,6 +1594,7 @@ function exportProgress() {
 
 elements.brandButton.addEventListener("click", () => openPanel("catalog"));
 elements.vocabularyButton.addEventListener("click", () => openPanel("catalog"));
+elements.customWordsButton.addEventListener("click", () => openPanel("custom"));
 elements.libraryButton.addEventListener("click", () => openPanel("library"));
 elements.settingsButton.addEventListener("click", () => openPanel("settings"));
 elements.scopeButton.addEventListener("click", () => openPanel("settings"));
@@ -1168,6 +1642,11 @@ elements.statusStudyButton.addEventListener("click", () => {
   }
 });
 elements.searchInput.addEventListener("input", renderLibrary);
+elements.customWordForm.addEventListener("submit", saveCustomWord);
+elements.customCancelButton.addEventListener("click", () =>
+  resetCustomWordForm(),
+);
+elements.customSearchInput.addEventListener("input", renderCustomWords);
 elements.exportButton.addEventListener("click", exportProgress);
 elements.importButton.addEventListener("click", () => elements.importInput.click());
 elements.importInput.addEventListener("change", async () => {
@@ -1175,18 +1654,20 @@ elements.importInput.addEventListener("change", async () => {
   if (!file) return;
   try {
     const imported = JSON.parse(await file.text());
-    if (
-      imported?.version === 2 &&
-      imported.libraries &&
-      typeof imported.libraries === "object"
-    ) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(imported));
+    const importedAppState = normalizeAppStateContainer(imported);
+    if (importedAppState) {
+      importedAppState.revision =
+        Math.max(appState.revision, importedAppState.revision) + 1;
+      appState = importedAppState;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
     } else {
       const importedState = normalizeState(imported);
       if (!importedState) throw new Error("invalid");
       appState.libraries[activeLibrary.id] = importedState;
+      appState.revision += 1;
       localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
     }
+    await syncCloudNow(appState);
     window.location.reload();
   } catch {
     window.alert("这个文件不是有效的进度备份。");
@@ -1194,8 +1675,22 @@ elements.importInput.addEventListener("change", async () => {
     elements.importInput.value = "";
   }
 });
-elements.resetButton.addEventListener("click", () => {
-  if (!window.confirm("确定清空全部词库的学习进度吗？这一步不能撤销。")) return;
+elements.resetButton.addEventListener("click", async () => {
+  if (
+    !window.confirm(
+      "确定清空全部词库的学习进度和你添加的词吗？这一步不能撤销。",
+    )
+  ) {
+    return;
+  }
+  window.clearTimeout(cloudSaveTimer);
+  if (canUseCloud()) {
+    try {
+      await fetch("/api/progress", { method: "DELETE" });
+    } catch {
+      // The local reset still goes ahead when account sync is unavailable.
+    }
+  }
   localStorage.removeItem(STORAGE_KEY);
   localStorage.removeItem(LEGACY_STORAGE_KEY);
   window.location.reload();
@@ -1238,6 +1733,7 @@ elements.installButton.addEventListener("click", async () => {
   elements.installButton.classList.add("hidden");
 });
 
+await loadCloudState();
 await activateLibrary(appState.activeLibraryId, { initial: true });
 elements.loadingView.classList.add("hidden");
 elements.appView.classList.remove("hidden");

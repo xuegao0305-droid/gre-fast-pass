@@ -35,7 +35,8 @@ body {
 
 button,
 input,
-select {
+select,
+textarea {
   font: inherit;
 }
 
@@ -49,7 +50,8 @@ button {
 
 button:focus-visible,
 input:focus-visible,
-select:focus-visible {
+select:focus-visible,
+textarea:focus-visible {
   outline: 3px solid rgba(37, 112, 92, 0.26);
   outline-offset: 3px;
 }
@@ -238,6 +240,11 @@ kbd {
   justify-content: center;
   min-width: 20px;
   padding: 0 5px;
+}
+
+.custom-count {
+  background: var(--mastered-soft);
+  color: var(--mastered);
 }
 
 .study-stage {
@@ -1144,6 +1151,19 @@ kbd {
   padding-right: 3px;
 }
 
+#libraryPanel:not(.hidden),
+.custom-words-panel:not(.hidden) {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.custom-words-panel:not(.hidden) {
+  overflow-y: auto;
+  padding-right: 3px;
+}
+
 .library-row {
   align-items: center;
   border-bottom: 1px solid rgba(23, 34, 37, 0.09);
@@ -1207,6 +1227,183 @@ kbd {
 
 .empty-library p {
   font-size: 13px;
+}
+
+.custom-words-intro {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 13px 0;
+}
+
+.custom-word-form {
+  background: var(--paper);
+  border-radius: 12px;
+  display: grid;
+  gap: 11px;
+  padding: 14px;
+}
+
+.custom-word-form label {
+  display: grid;
+  gap: 6px;
+}
+
+.custom-word-form label > span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 680;
+}
+
+.custom-word-form input,
+.custom-word-form textarea {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 13px;
+  min-height: 42px;
+  padding: 9px 10px;
+  resize: vertical;
+  width: 100%;
+}
+
+.custom-word-form textarea {
+  line-height: 1.5;
+  min-height: 66px;
+}
+
+.custom-form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.custom-form-actions button {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  min-height: 42px;
+  padding: 0 13px;
+}
+
+.custom-form-actions button:first-child {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: white;
+  flex: 1;
+}
+
+.custom-form-message {
+  color: var(--mastered);
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.custom-form-message.error {
+  color: var(--unknown);
+}
+
+.custom-list-heading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.custom-list-heading strong {
+  font-size: 13px;
+}
+
+.custom-list-heading span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.custom-search {
+  margin-top: 10px;
+}
+
+.custom-word-list {
+  flex: 0 0 auto;
+  min-height: 0;
+  padding-right: 3px;
+}
+
+.custom-word-row {
+  border-bottom: 1px solid rgba(23, 34, 37, 0.09);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 15px 1px;
+}
+
+.custom-word-row > div:first-child {
+  min-width: 0;
+}
+
+.custom-word-row strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+}
+
+.custom-word-row p,
+.custom-word-row small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.custom-word-row p {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 4px 0 2px;
+}
+
+.custom-word-row small {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.custom-word-controls {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.custom-word-controls select {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 11px;
+  min-height: 34px;
+  padding: 5px 7px;
+}
+
+.custom-row-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.custom-row-actions button {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 11px;
+  min-height: 30px;
+  padding: 4px 6px;
+}
+
+.custom-row-actions button.delete {
+  color: var(--unknown);
 }
 
 .settings-content {
@@ -1555,8 +1752,9 @@ kbd {
   }
 
   .quiet-button {
+    font-size: 12px;
     min-height: 36px;
-    padding: 0 11px;
+    padding: 0 9px;
   }
 
   .library-picker {
@@ -1737,6 +1935,16 @@ kbd {
 
   .mode-list {
     grid-template-columns: 1fr;
+  }
+
+  .custom-word-row {
+    grid-template-columns: 1fr;
+  }
+
+  .custom-word-controls {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 

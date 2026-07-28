@@ -1,5 +1,8 @@
 import { getChatGPTUser } from "../../chatgpt-auth";
-import { normalizeProgress } from "../../lib/progress";
+import {
+  normalizeCloudProgress,
+  normalizeStoredProgress,
+} from "../../lib/cloud-progress";
 import { getRawDb } from "../../../db";
 
 export const dynamic = "force-dynamic";
@@ -64,7 +67,7 @@ export async function GET(request: Request) {
     let progress = null;
     if (row) {
       try {
-        progress = normalizeProgress(JSON.parse(row.progress_json));
+        progress = normalizeStoredProgress(JSON.parse(row.progress_json));
       } catch {
         progress = null;
       }
@@ -91,12 +94,12 @@ export async function POST(request: Request) {
     }
 
     const contentLength = Number(request.headers.get("content-length") ?? "0");
-    if (contentLength > 250_000) {
+    if (contentLength > 1_000_000) {
       return noStoreJson({ error: "进度数据过大。" }, { status: 413 });
     }
 
     const body = (await request.json()) as { progress?: unknown };
-    const progress = normalizeProgress(body.progress);
+    const progress = normalizeCloudProgress(body.progress);
     if (!progress) {
       return noStoreJson({ error: "进度数据无效。" }, { status: 400 });
     }

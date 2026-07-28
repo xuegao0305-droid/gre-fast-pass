@@ -22,9 +22,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="词汇快刷" />
     <title>词汇快刷</title>
-    <link rel="manifest" href="./manifest.webmanifest?v=6" />
-    <link rel="apple-touch-icon" href="./icon-180.png?v=6" />
-    <link rel="stylesheet" href="./styles.css?v=6" />
+    <link rel="manifest" href="./manifest.webmanifest?v=10" />
+    <link rel="apple-touch-icon" href="./icon-180.png?v=10" />
+    <link rel="stylesheet" href="./styles.css?v=10" />
   </head>
   <body>
     <main class="loading-shell" id="loadingView" aria-live="polite">
@@ -49,6 +49,10 @@
         </button>
 
         <div class="top-actions">
+          <button class="quiet-button" id="customWordsButton">
+            我的词
+            <span class="button-count custom-count" id="customWordCount">0</span>
+          </button>
           <button class="quiet-button" id="libraryButton">
             状态
             <span class="button-count" id="knownCount">0</span>
@@ -254,6 +258,63 @@
           <div class="library-list" id="libraryList"></div>
         </div>
 
+        <div id="customWordsPanel" class="custom-words-panel hidden">
+          <div class="status-library-context">
+            <span>当前词库</span>
+            <strong id="customLibraryName"></strong>
+          </div>
+          <p class="custom-words-intro">
+            你添加的词会进入当前词库，并使用相同的学习状态和复习规则。
+          </p>
+          <form class="custom-word-form" id="customWordForm">
+            <input id="customWordId" type="hidden" />
+            <label>
+              <span>单词或词组</span>
+              <input
+                id="customWordInput"
+                maxlength="120"
+                autocomplete="off"
+                required
+                placeholder="例如 academic integrity"
+              />
+            </label>
+            <label>
+              <span>中文意思</span>
+              <textarea
+                id="customMeaningInput"
+                maxlength="500"
+                required
+                placeholder="填写这个词的意思"
+              ></textarea>
+            </label>
+            <label>
+              <span>同义词或补充，可不填</span>
+              <textarea
+                id="customExtraInput"
+                maxlength="500"
+                placeholder="填写同义词、搭配或其他补充"
+              ></textarea>
+            </label>
+            <div class="custom-form-actions">
+              <button type="submit" id="customSaveButton">添加到当前词库</button>
+              <button class="hidden" type="button" id="customCancelButton">
+                取消修改
+              </button>
+            </div>
+            <p class="custom-form-message hidden" id="customFormMessage"></p>
+          </form>
+
+          <div class="custom-list-heading">
+            <strong>我添加的词</strong>
+            <span id="customListCount">0 个</span>
+          </div>
+          <label class="search-field custom-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="customSearchInput" placeholder="搜索我添加的词" />
+          </label>
+          <div class="custom-word-list" id="customWordList"></div>
+        </div>
+
         <div class="settings-content hidden" id="settingsPanel">
           <section>
             <span class="settings-label">复习模式</span>
@@ -344,6 +405,6 @@
       </aside>
     </div>
 
-    <script type="module" src="./app-v2.js?v=6"></script>
+    <script type="module" src="./app-v2.js?v=10"></script>
   </body>
 </html>

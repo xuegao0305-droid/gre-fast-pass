@@ -1,9 +1,9 @@
-const CACHE_NAME = "word-fast-pass-v6";
+const CACHE_NAME = "word-fast-pass-v10";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=6",
-  "./app-v2.js?v=6",
+  "./styles.css?v=10",
+  "./app-v2.js?v=10",
   "./libraries.json",
   "./data/gre-equivalents.json",
   "./data/ielts-synonyms.json",
@@ -12,8 +12,8 @@ const ASSETS = [
   "./data/gre-emergency-1400.json",
   "./data/gre-3000.json",
   "./og.png",
-  "./manifest.webmanifest?v=6",
-  "./icon-180.png?v=6",
+  "./manifest.webmanifest?v=10",
+  "./icon-180.png?v=10",
   "./icon-192.png",
   "./icon-512.png",
 ];
