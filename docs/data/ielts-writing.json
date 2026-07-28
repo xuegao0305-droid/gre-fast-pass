@@ -1,0 +1,1003 @@
+[
+  {
+    "id": "ielts-writing-0001",
+    "word": "It is widely believed that",
+    "equivalents": "It is commonly argued that; A widespread view is that",
+    "meaning": "人们普遍认为",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0002",
+    "word": "There is no doubt that",
+    "equivalents": "It is undeniable that; There can be little doubt that",
+    "meaning": "毫无疑问",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0003",
+    "word": "From my perspective",
+    "equivalents": "In my view; I would argue that",
+    "meaning": "在我看来",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0004",
+    "word": "This essay will discuss both views",
+    "equivalents": "This essay examines both perspectives before presenting a conclusion",
+    "meaning": "本文将讨论双方观点",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0005",
+    "word": "I completely agree with this view",
+    "equivalents": "I fully support this position",
+    "meaning": "我完全同意这一观点",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0006",
+    "word": "I partly agree with this view",
+    "equivalents": "I agree with this position to a certain extent",
+    "meaning": "我在一定程度上同意",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0007",
+    "word": "The main reason is that",
+    "equivalents": "The primary explanation is that",
+    "meaning": "主要原因是",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0008",
+    "word": "One possible explanation is that",
+    "equivalents": "One plausible reason is that",
+    "meaning": "一个可能的解释是",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0009",
+    "word": "This can be attributed to",
+    "equivalents": "This is largely due to",
+    "meaning": "这可以归因于",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0010",
+    "word": "This stems from",
+    "equivalents": "This arises from; This originates in",
+    "meaning": "这源于",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0011",
+    "word": "lead to",
+    "equivalents": "result in; give rise to; bring about",
+    "meaning": "导致",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0012",
+    "word": "contribute to",
+    "equivalents": "play a part in; be a factor in",
+    "meaning": "促成；导致",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0013",
+    "word": "have a positive impact on",
+    "equivalents": "benefit; exert a favorable influence on",
+    "meaning": "对……有积极影响",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0014",
+    "word": "have a negative impact on",
+    "equivalents": "harm; exert an adverse influence on",
+    "meaning": "对……有负面影响",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0015",
+    "word": "pose a threat to",
+    "equivalents": "endanger; create a risk for",
+    "meaning": "对……构成威胁",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0016",
+    "word": "place pressure on",
+    "equivalents": "put a strain on; increase the burden on",
+    "meaning": "给……带来压力",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0017",
+    "word": "play a vital role in",
+    "equivalents": "be central to; make a key contribution to",
+    "meaning": "在……中发挥重要作用",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0018",
+    "word": "provide access to",
+    "equivalents": "make available; enable people to obtain",
+    "meaning": "提供获得……的机会",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0019",
+    "word": "raise awareness of",
+    "equivalents": "improve public understanding of",
+    "meaning": "提高对……的认识",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0020",
+    "word": "take measures to",
+    "equivalents": "adopt steps to; implement action to",
+    "meaning": "采取措施",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0021",
+    "word": "address the problem",
+    "equivalents": "tackle the issue; respond to the challenge",
+    "meaning": "解决问题",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0022",
+    "word": "alleviate the problem",
+    "equivalents": "ease the issue; reduce the severity of the problem",
+    "meaning": "缓解问题",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0023",
+    "word": "solve the problem",
+    "equivalents": "resolve the issue; overcome the difficulty",
+    "meaning": "解决问题",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0024",
+    "word": "prevent the problem",
+    "equivalents": "avoid the issue; stop the problem from arising",
+    "meaning": "预防问题",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0025",
+    "word": "a practical solution",
+    "equivalents": "a workable remedy; a feasible response",
+    "meaning": "切实可行的解决办法",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0026",
+    "word": "a long-term solution",
+    "equivalents": "a sustainable remedy; an enduring response",
+    "meaning": "长期解决办法",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0027",
+    "word": "government intervention",
+    "equivalents": "action by public authorities",
+    "meaning": "政府干预",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0028",
+    "word": "introduce legislation",
+    "equivalents": "enact laws; adopt legal rules",
+    "meaning": "制定法律",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0029",
+    "word": "enforce the law",
+    "equivalents": "ensure compliance with legislation",
+    "meaning": "执行法律",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0030",
+    "word": "impose stricter regulations",
+    "equivalents": "adopt tighter rules",
+    "meaning": "实施更严格的规定",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0031",
+    "word": "provide financial support",
+    "equivalents": "offer funding; allocate subsidies",
+    "meaning": "提供财政支持",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0032",
+    "word": "invest in infrastructure",
+    "equivalents": "fund public facilities and systems",
+    "meaning": "投资基础设施",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0033",
+    "word": "improve public services",
+    "equivalents": "enhance government-provided services",
+    "meaning": "改善公共服务",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0034",
+    "word": "promote equal opportunities",
+    "equivalents": "advance fairness of access",
+    "meaning": "促进机会平等",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0035",
+    "word": "reduce social inequality",
+    "equivalents": "narrow social disparities",
+    "meaning": "减少社会不平等",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0036",
+    "word": "improve quality of life",
+    "equivalents": "enhance living standards",
+    "meaning": "提高生活质量",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0037",
+    "word": "meet basic needs",
+    "equivalents": "satisfy essential requirements",
+    "meaning": "满足基本需求",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0038",
+    "word": "protect vulnerable groups",
+    "equivalents": "safeguard disadvantaged people",
+    "meaning": "保护弱势群体",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0039",
+    "word": "the wider community",
+    "equivalents": "society as a whole; the general public",
+    "meaning": "整个社会；公众",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0040",
+    "word": "future generations",
+    "equivalents": "people in the years to come",
+    "meaning": "后代",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0041",
+    "word": "an ageing population",
+    "equivalents": "a growing proportion of older people",
+    "meaning": "老龄化人口",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0042",
+    "word": "population growth",
+    "equivalents": "an increase in the number of residents",
+    "meaning": "人口增长",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0043",
+    "word": "urbanization",
+    "equivalents": "the movement of people toward cities",
+    "meaning": "城市化",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0044",
+    "word": "overcrowded cities",
+    "equivalents": "densely populated urban areas",
+    "meaning": "拥挤的城市",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0045",
+    "word": "public transport",
+    "equivalents": "mass transit; shared transport services",
+    "meaning": "公共交通",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0046",
+    "word": "traffic congestion",
+    "equivalents": "road overcrowding; heavy traffic",
+    "meaning": "交通拥堵",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0047",
+    "word": "reduce car dependency",
+    "equivalents": "limit reliance on private vehicles",
+    "meaning": "减少对私家车的依赖",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0048",
+    "word": "commuting time",
+    "equivalents": "time spent traveling to and from work",
+    "meaning": "通勤时间",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0049",
+    "word": "carbon emissions",
+    "equivalents": "greenhouse-gas output",
+    "meaning": "碳排放",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0050",
+    "word": "renewable energy",
+    "equivalents": "clean energy; sustainable power",
+    "meaning": "可再生能源",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0051",
+    "word": "fossil fuels",
+    "equivalents": "coal, oil and natural gas",
+    "meaning": "化石燃料",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0052",
+    "word": "environmental degradation",
+    "equivalents": "damage to the natural environment",
+    "meaning": "环境恶化",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0053",
+    "word": "protect natural resources",
+    "equivalents": "conserve finite resources",
+    "meaning": "保护自然资源",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0054",
+    "word": "maintain biodiversity",
+    "equivalents": "preserve the variety of living species",
+    "meaning": "保持生物多样性",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0055",
+    "word": "sustainable development",
+    "equivalents": "growth that can continue without exhausting resources",
+    "meaning": "可持续发展",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0056",
+    "word": "tackle climate change",
+    "equivalents": "address global warming",
+    "meaning": "应对气候变化",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0057",
+    "word": "reduce the carbon footprint",
+    "equivalents": "lower the amount of emissions produced",
+    "meaning": "减少碳足迹",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0058",
+    "word": "waste management",
+    "equivalents": "the collection, treatment and disposal of waste",
+    "meaning": "废物管理",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0059",
+    "word": "recycling facilities",
+    "equivalents": "systems for processing reusable materials",
+    "meaning": "回收设施",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0060",
+    "word": "academic achievement",
+    "equivalents": "educational performance",
+    "meaning": "学业成绩",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0061",
+    "word": "acquire knowledge",
+    "equivalents": "gain understanding and information",
+    "meaning": "获取知识",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0062",
+    "word": "develop practical skills",
+    "equivalents": "build useful real-world abilities",
+    "meaning": "培养实用技能",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0063",
+    "word": "critical thinking",
+    "equivalents": "the ability to assess ideas independently",
+    "meaning": "批判性思维",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0064",
+    "word": "lifelong learning",
+    "equivalents": "continued education throughout life",
+    "meaning": "终身学习",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0065",
+    "word": "equal access to education",
+    "equivalents": "fair educational opportunity",
+    "meaning": "平等的受教育机会",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0066",
+    "word": "vocational training",
+    "equivalents": "job-focused education; skills-based training",
+    "meaning": "职业培训",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0067",
+    "word": "the school curriculum",
+    "equivalents": "the subjects taught at school",
+    "meaning": "学校课程",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0068",
+    "word": "standardized tests",
+    "equivalents": "uniform examinations",
+    "meaning": "标准化考试",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0069",
+    "word": "academic pressure",
+    "equivalents": "stress caused by study demands",
+    "meaning": "学业压力",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0070",
+    "word": "distance learning",
+    "equivalents": "remote education; online learning",
+    "meaning": "远程学习",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0071",
+    "word": "face-to-face teaching",
+    "equivalents": "in-person instruction",
+    "meaning": "面对面教学",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0072",
+    "word": "technological advances",
+    "equivalents": "innovations in technology",
+    "meaning": "技术进步",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0073",
+    "word": "digital literacy",
+    "equivalents": "the ability to use digital tools effectively",
+    "meaning": "数字素养",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0074",
+    "word": "the digital divide",
+    "equivalents": "unequal access to technology",
+    "meaning": "数字鸿沟",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0075",
+    "word": "data privacy",
+    "equivalents": "the protection of personal information",
+    "meaning": "数据隐私",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0076",
+    "word": "artificial intelligence",
+    "equivalents": "AI-based systems",
+    "meaning": "人工智能",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0077",
+    "word": "labor-saving technology",
+    "equivalents": "technology that reduces human effort",
+    "meaning": "节省劳动力的技术",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0078",
+    "word": "boost productivity",
+    "equivalents": "increase output and efficiency",
+    "meaning": "提高生产率",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0079",
+    "word": "replace manual labor",
+    "equivalents": "substitute machines for human work",
+    "meaning": "取代体力劳动",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0080",
+    "word": "create job opportunities",
+    "equivalents": "generate employment",
+    "meaning": "创造就业机会",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0081",
+    "word": "job security",
+    "equivalents": "the likelihood of keeping one’s employment",
+    "meaning": "职业稳定",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0082",
+    "word": "work-life balance",
+    "equivalents": "a healthy division between work and private life",
+    "meaning": "工作与生活的平衡",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0083",
+    "word": "career prospects",
+    "equivalents": "future employment opportunities",
+    "meaning": "职业前景",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0084",
+    "word": "job satisfaction",
+    "equivalents": "fulfillment gained from work",
+    "meaning": "工作满意度",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0085",
+    "word": "a competitive labor market",
+    "equivalents": "an employment market with strong competition",
+    "meaning": "竞争激烈的劳动力市场",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0086",
+    "word": "economic growth",
+    "equivalents": "an expansion in economic activity",
+    "meaning": "经济增长",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0087",
+    "word": "economic development",
+    "equivalents": "improvement in a country’s productive capacity and living standards",
+    "meaning": "经济发展",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0088",
+    "word": "consumer spending",
+    "equivalents": "expenditure by individuals and households",
+    "meaning": "消费者支出",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0089",
+    "word": "household income",
+    "equivalents": "money earned by a family",
+    "meaning": "家庭收入",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0090",
+    "word": "the cost of living",
+    "equivalents": "the amount needed for everyday expenses",
+    "meaning": "生活成本",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0091",
+    "word": "financial burden",
+    "equivalents": "economic pressure; monetary strain",
+    "meaning": "经济负担",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0092",
+    "word": "income inequality",
+    "equivalents": "the gap between high and low earners",
+    "meaning": "收入不平等",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0093",
+    "word": "public expenditure",
+    "equivalents": "government spending",
+    "meaning": "公共支出",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0094",
+    "word": "allocate resources",
+    "equivalents": "distribute money, time or materials",
+    "meaning": "分配资源",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0095",
+    "word": "healthcare system",
+    "equivalents": "the organization of medical services",
+    "meaning": "医疗体系",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0096",
+    "word": "public health",
+    "equivalents": "the health of the population as a whole",
+    "meaning": "公共卫生",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0097",
+    "word": "mental well-being",
+    "equivalents": "psychological health",
+    "meaning": "心理健康",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0098",
+    "word": "a sedentary lifestyle",
+    "equivalents": "a way of life with little physical activity",
+    "meaning": "久坐的生活方式",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0099",
+    "word": "a balanced diet",
+    "equivalents": "a diet containing suitable amounts of different foods",
+    "meaning": "均衡饮食",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0100",
+    "word": "preventive care",
+    "equivalents": "medical action taken before illness develops",
+    "meaning": "预防性医疗",
+    "day": 1
+  },
+  {
+    "id": "ielts-writing-0101",
+    "word": "access to medical treatment",
+    "equivalents": "the ability to obtain healthcare",
+    "meaning": "获得医疗服务的机会",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0102",
+    "word": "reduce crime rates",
+    "equivalents": "lower the level of criminal activity",
+    "meaning": "降低犯罪率",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0103",
+    "word": "commit a crime",
+    "equivalents": "carry out an illegal act",
+    "meaning": "犯罪",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0104",
+    "word": "act as a deterrent",
+    "equivalents": "discourage people from offending",
+    "meaning": "起到威慑作用",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0105",
+    "word": "rehabilitate offenders",
+    "equivalents": "help criminals return to lawful life",
+    "meaning": "改造罪犯",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0106",
+    "word": "social cohesion",
+    "equivalents": "the strength of relationships within a community",
+    "meaning": "社会凝聚力",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0107",
+    "word": "cultural heritage",
+    "equivalents": "traditions and objects inherited from the past",
+    "meaning": "文化遗产",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0108",
+    "word": "cultural diversity",
+    "equivalents": "the presence of different cultures",
+    "meaning": "文化多样性",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0109",
+    "word": "preserve local traditions",
+    "equivalents": "protect community customs",
+    "meaning": "保护当地传统",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0110",
+    "word": "globalization",
+    "equivalents": "growing worldwide economic and cultural connection",
+    "meaning": "全球化",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0111",
+    "word": "In addition",
+    "equivalents": "Furthermore; Moreover; Additionally",
+    "meaning": "此外",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0112",
+    "word": "By contrast",
+    "equivalents": "In comparison; Conversely",
+    "meaning": "相比之下",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0113",
+    "word": "For example",
+    "equivalents": "For instance; To illustrate",
+    "meaning": "例如",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0114",
+    "word": "As a result",
+    "equivalents": "Consequently; Therefore; Thus",
+    "meaning": "因此",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0115",
+    "word": "Nevertheless",
+    "equivalents": "Even so; Nonetheless",
+    "meaning": "尽管如此",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0116",
+    "word": "Although this is true",
+    "equivalents": "While this point is valid",
+    "meaning": "尽管这一点成立",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0117",
+    "word": "On the one hand",
+    "equivalents": "From one perspective",
+    "meaning": "一方面",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0118",
+    "word": "On the other hand",
+    "equivalents": "From another perspective",
+    "meaning": "另一方面",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0119",
+    "word": "In the short term",
+    "equivalents": "Over a limited period",
+    "meaning": "短期内",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0120",
+    "word": "In the long term",
+    "equivalents": "Over an extended period",
+    "meaning": "长期来看",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0121",
+    "word": "to a large extent",
+    "equivalents": "largely; in most respects",
+    "meaning": "在很大程度上",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0122",
+    "word": "to a certain extent",
+    "equivalents": "partly; in some respects",
+    "meaning": "在一定程度上",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0123",
+    "word": "The figure increased",
+    "equivalents": "The number rose; The value climbed",
+    "meaning": "数值上升",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0124",
+    "word": "The figure decreased",
+    "equivalents": "The number fell; The value declined",
+    "meaning": "数值下降",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0125",
+    "word": "remain stable",
+    "equivalents": "show little or no change; stay constant",
+    "meaning": "保持稳定",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0126",
+    "word": "fluctuate",
+    "equivalents": "vary irregularly; rise and fall",
+    "meaning": "波动",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0127",
+    "word": "reach a peak of",
+    "equivalents": "hit a high of; climb to a maximum of",
+    "meaning": "达到峰值",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0128",
+    "word": "reach a low of",
+    "equivalents": "fall to a minimum of; hit a low of",
+    "meaning": "降至最低点",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0129",
+    "word": "increase sharply",
+    "equivalents": "rise dramatically; surge",
+    "meaning": "大幅上升",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0130",
+    "word": "decrease gradually",
+    "equivalents": "decline steadily; fall slowly",
+    "meaning": "逐渐下降",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0131",
+    "word": "a slight increase",
+    "equivalents": "a marginal rise; a modest growth",
+    "meaning": "小幅上升",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0132",
+    "word": "a significant decrease",
+    "equivalents": "a substantial decline; a marked fall",
+    "meaning": "显著下降",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0133",
+    "word": "account for",
+    "equivalents": "make up; constitute; represent",
+    "meaning": "占据；构成",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0134",
+    "word": "approximately",
+    "equivalents": "roughly; about; in the region of",
+    "meaning": "大约",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0135",
+    "word": "twice as high as",
+    "equivalents": "double the figure for",
+    "meaning": "是……的两倍",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0136",
+    "word": "three times the figure for",
+    "equivalents": "triple the value of",
+    "meaning": "是……的三倍",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0137",
+    "word": "the highest proportion",
+    "equivalents": "the largest share",
+    "meaning": "最高占比",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0138",
+    "word": "the lowest figure",
+    "equivalents": "the smallest value",
+    "meaning": "最低数值",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0139",
+    "word": "respectively",
+    "equivalents": "in the same order as mentioned",
+    "meaning": "分别地",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0140",
+    "word": "Overall, it is clear that",
+    "equivalents": "In general, the main feature is that",
+    "meaning": "总体而言，可以看出",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0141",
+    "word": "In conclusion",
+    "equivalents": "To conclude; Overall",
+    "meaning": "总之",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0142",
+    "word": "On balance",
+    "equivalents": "After considering both sides",
+    "meaning": "综合来看",
+    "day": 2
+  },
+  {
+    "id": "ielts-writing-0143",
+    "word": "The benefits outweigh the drawbacks",
+    "equivalents": "The advantages are greater than the disadvantages",
+    "meaning": "利大于弊",
+    "day": 2
+  }
+]

@@ -1,19 +1,15 @@
-const STORAGE_KEY = "gre-fast-pass-pages-v1";
+const STORAGE_KEY = "word-fast-pass-pages-v2";
+const LEGACY_STORAGE_KEY = "gre-fast-pass-pages-v1";
 const validStatuses = new Set(["unknown", "known", "mastered"]);
-const validScopes = new Set(["all", "1", "2", "3", "4", "5", "custom"]);
-const scopeLabels = {
-  all: "全部 905 词",
-  1: "第 1 天，180 词",
-  2: "第 2 天，182 词",
-  3: "第 3 天，181 词",
-  4: "第 4 天，177 词",
-  5: "第 5 天，185 词",
-};
 
 const elements = Object.fromEntries(
   [
     "loadingView",
     "appView",
+    "brandButton",
+    "brandSubtitle",
+    "vocabularyButton",
+    "currentLibraryName",
     "libraryButton",
     "settingsButton",
     "scopeButton",
@@ -29,6 +25,7 @@ const elements = Object.fromEntries(
     "revealButton",
     "revealLabel",
     "answerArea",
+    "answerLabel",
     "equivalentsText",
     "meaningText",
     "previousButton",
@@ -47,6 +44,7 @@ const elements = Object.fromEntries(
     "summaryUndoButton",
     "remainingCount",
     "masteredCount",
+    "totalWordCount",
     "knownCount",
     "saveStatus",
     "panelBackdrop",
@@ -54,6 +52,8 @@ const elements = Object.fromEntries(
     "panelKicker",
     "panelTitle",
     "closePanelButton",
+    "catalogPanel",
+    "catalogList",
     "libraryPanel",
     "settingsPanel",
     "libraryTabs",
@@ -71,78 +71,81 @@ const elements = Object.fromEntries(
     "exportButton",
     "importButton",
     "importInput",
+    "sourceNote",
     "resetButton",
   ].map((id) => [id, document.getElementById(id)]),
 );
 
-const response = await fetch("./words.json");
-if (!response.ok) throw new Error("词表加载失败");
-const words = await response.json();
-const wordById = new Map(words.map((word) => [word.id, word]));
+const libraryResponse = await fetch("./libraries.json");
+if (!libraryResponse.ok) throw new Error("词库目录加载失败");
+const libraries = await libraryResponse.json();
+const libraryById = new Map(libraries.map((library) => [library.id, library]));
+const wordCache = new Map();
 
-let state = loadState();
+let legacyState = null;
+try {
+  legacyState = JSON.parse(
+    localStorage.getItem(LEGACY_STORAGE_KEY) ?? "null",
+  );
+} catch {
+  legacyState = null;
+}
+
+function loadAppState() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "null");
+    if (
+      saved?.version === 2 &&
+      saved.libraries &&
+      typeof saved.libraries === "object"
+    ) {
+      return {
+        version: 2,
+        activeLibraryId: libraryById.has(saved.activeLibraryId)
+          ? saved.activeLibraryId
+          : libraries[0].id,
+        libraries: saved.libraries,
+      };
+    }
+  } catch {
+    // A damaged record is ignored. Other browser data is not touched.
+  }
+
+  return {
+    version: 2,
+    activeLibraryId: legacyState ? "gre-equivalents" : libraries[0].id,
+    libraries: {},
+  };
+}
+
+let appState = loadAppState();
+let activeLibrary = null;
+let words = [];
+let wordById = new Map();
+let state = null;
 let revealed = false;
 let lastAction = null;
 let libraryStatus = "known";
 let historyOffset = 0;
+let loadingLibraryId = null;
 
-function normalizeState(value) {
-  if (!value || typeof value !== "object") return null;
-  const rangeStart = Number.isInteger(value.rangeStart)
-    ? Math.min(Math.max(value.rangeStart, 1), words.length)
-    : 1;
-  const rangeEnd = Number.isInteger(value.rangeEnd)
-    ? Math.min(Math.max(value.rangeEnd, 1), words.length)
-    : words.length;
-  if (
-    !Number.isInteger(value.round) ||
-    value.round < 1 ||
-    !validScopes.has(value.scope) ||
-    !Array.isArray(value.queue) ||
-    !Number.isInteger(value.cursor) ||
-    value.cursor < 0 ||
-    value.cursor > value.queue.length ||
-    typeof value.shuffle !== "boolean" ||
-    !value.statuses ||
-    typeof value.statuses !== "object"
-  ) {
-    return null;
-  }
-
-  const validIds = new Set(words.map((word) => word.id));
-  const queue = value.queue.filter((id) => validIds.has(id));
-  if (new Set(queue).size !== queue.length) return null;
-
-  const statuses = {};
-  for (const [id, status] of Object.entries(value.statuses)) {
-    if (validIds.has(id) && validStatuses.has(status)) statuses[id] = status;
-  }
-
-  return {
-    version: 1,
-    round: value.round,
-    statuses,
-    scope: value.scope,
-    rangeStart: Math.min(rangeStart, rangeEnd),
-    rangeEnd: Math.max(rangeStart, rangeEnd),
-    queue,
-    cursor: Math.min(value.cursor, queue.length),
-    shuffle: value.shuffle,
-  };
+function groupNumbers() {
+  return [...new Set(words.map((word) => word.day))]
+    .filter(Number.isFinite)
+    .sort((a, b) => a - b);
 }
 
-function loadState() {
-  try {
-    const saved = normalizeState(
-      JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "null"),
-    );
-    if (saved) return saved;
-  } catch {
-    // Start clean when a damaged browser record cannot be read.
-  }
+function validScopes() {
+  return new Set([
+    "all",
+    "custom",
+    ...groupNumbers().map((group) => String(group)),
+  ]);
+}
 
+function createDefaultState() {
   return {
-    version: 1,
+    version: 2,
     round: 1,
     statuses: {},
     scope: "all",
@@ -154,10 +157,108 @@ function loadState() {
   };
 }
 
+function normalizeState(value) {
+  if (!value || typeof value !== "object") return null;
+  const validIds = new Set(words.map((word) => word.id));
+  const statuses = {};
+  for (const [id, status] of Object.entries(value.statuses || {})) {
+    if (validIds.has(id) && validStatuses.has(status)) statuses[id] = status;
+  }
+
+  const rawQueue = Array.isArray(value.queue) ? value.queue : [];
+  const queue = [
+    ...new Set(rawQueue.filter((id) => validIds.has(id))),
+  ];
+  const scope = validScopes().has(String(value.scope))
+    ? String(value.scope)
+    : "all";
+  const rawStart = Number.isInteger(value.rangeStart) ? value.rangeStart : 1;
+  const rawEnd = Number.isInteger(value.rangeEnd)
+    ? value.rangeEnd
+    : words.length;
+  const start = Math.min(Math.max(rawStart, 1), words.length);
+  const end = Math.min(Math.max(rawEnd, 1), words.length);
+
+  if (!queue.length && !Object.keys(statuses).length) return null;
+
+  return {
+    version: 2,
+    round:
+      Number.isInteger(value.round) && value.round > 0 ? value.round : 1,
+    statuses,
+    scope,
+    rangeStart: Math.min(start, end),
+    rangeEnd: Math.max(start, end),
+    queue,
+    cursor: Math.min(
+      Math.max(Number.isInteger(value.cursor) ? value.cursor : 0, 0),
+      queue.length,
+    ),
+    shuffle: Boolean(value.shuffle),
+  };
+}
+
+async function getWords(library) {
+  if (wordCache.has(library.id)) return wordCache.get(library.id);
+  const response = await fetch(library.file);
+  if (!response.ok) throw new Error(`${library.name} 加载失败`);
+  const result = await response.json();
+  wordCache.set(library.id, result);
+  return result;
+}
+
 function persist() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  elements.saveStatus.textContent = "进度已保存在此浏览器";
+  if (activeLibrary && state) {
+    appState.activeLibraryId = activeLibrary.id;
+    appState.libraries[activeLibrary.id] = state;
+  }
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+  elements.saveStatus.textContent = "所有词库进度已保存在此浏览器";
   elements.saveStatus.className = "footer-save sync-saved";
+}
+
+async function activateLibrary(id, { initial = false } = {}) {
+  const library = libraryById.get(id);
+  if (!library || loadingLibraryId) return;
+  if (!initial && activeLibrary?.id === id) {
+    closePanel();
+    return;
+  }
+
+  if (activeLibrary && state) persist();
+  loadingLibraryId = id;
+  elements.currentLibraryName.textContent = "正在切换…";
+  try {
+    const nextWords = await getWords(library);
+    activeLibrary = library;
+    words = nextWords;
+    wordById = new Map(words.map((word) => [word.id, word]));
+
+    let saved = appState.libraries[library.id];
+    if (
+      !saved &&
+      library.id === "gre-equivalents" &&
+      legacyState
+    ) {
+      saved = legacyState;
+    }
+    state = normalizeState(saved) || createDefaultState();
+    appState.libraries[library.id] = state;
+
+    revealed = false;
+    lastAction = null;
+    historyOffset = 0;
+    libraryStatus = "known";
+    elements.searchInput.value = "";
+    setRevealed(false);
+    persist();
+    closePanel();
+    render();
+  } catch (error) {
+    window.alert(error.message || "词库加载失败，请刷新后重试。");
+  } finally {
+    loadingLibraryId = null;
+  }
 }
 
 function activeWords() {
@@ -168,14 +269,28 @@ function activeWords() {
   return words.filter((word) => word.day === Number(state.scope));
 }
 
-function summarize(list = words) {
+function summarize(list = words, targetState = state) {
   const result = { unknown: 0, known: 0, mastered: 0, unseen: 0 };
   for (const word of list) {
-    const status = state.statuses[word.id];
+    const status = targetState.statuses[word.id];
     if (validStatuses.has(status)) result[status] += 1;
     else result.unseen += 1;
   }
   return result;
+}
+
+function summarizeSavedLibrary(library) {
+  const saved = appState.libraries[library.id];
+  const counts = { unknown: 0, known: 0, mastered: 0, unseen: library.count };
+  if (!saved?.statuses || typeof saved.statuses !== "object") return counts;
+  for (const status of Object.values(saved.statuses)) {
+    if (validStatuses.has(status)) counts[status] += 1;
+  }
+  counts.unseen = Math.max(
+    library.count - counts.unknown - counts.known - counts.mastered,
+    0,
+  );
+  return counts;
 }
 
 function shuffleItems(items) {
@@ -213,13 +328,24 @@ function currentWord() {
 }
 
 function setRevealed(nextValue) {
-  revealed = nextValue;
+  const hasAnswer = Boolean(currentWord()?.equivalents);
+  revealed = Boolean(nextValue && hasAnswer);
   elements.wordCard.classList.toggle("is-revealed", revealed);
+  elements.wordCard.classList.toggle("has-no-answer", !hasAnswer);
   elements.answerArea.setAttribute("aria-hidden", String(!revealed));
   elements.revealButton.setAttribute("aria-expanded", String(revealed));
+  elements.revealButton.classList.toggle("hidden", !hasAnswer);
   elements.revealLabel.textContent = revealed
-    ? "收起答案"
-    : "查看等价词";
+    ? "收起补充"
+    : `查看${activeLibrary?.answerLabel || "补充"}`;
+}
+
+function scopeDescription() {
+  if (state.scope === "all") return "全部词表";
+  if (state.scope === "custom") {
+    return `第 ${state.rangeStart} 到 ${state.rangeEnd} 词`;
+  }
+  return `第 ${state.scope} ${activeLibrary.groupLabel}`;
 }
 
 function render() {
@@ -227,14 +353,15 @@ function render() {
   const activeSummary = summarize(active);
   const totalSummary = summarize();
   const displayIndex = state.cursor - historyOffset;
-  const finished =
-    state.cursor >= state.queue.length && historyOffset === 0;
+  const finished = state.cursor >= state.queue.length && historyOffset === 0;
   const remaining = Math.max(state.queue.length - state.cursor, 0);
   const sliderIndex = Math.min(
     Math.max(displayIndex, 0),
     Math.max(state.queue.length - 1, 0),
   );
 
+  elements.currentLibraryName.textContent = activeLibrary.shortName;
+  elements.brandSubtitle.textContent = `${words.length.toLocaleString("zh-CN")} 张词卡`;
   elements.roundLabel.textContent = `第 ${state.round} 轮`;
   elements.positionLabel.innerHTML = `${
     finished ? state.queue.length : Math.min(displayIndex + 1, state.queue.length)
@@ -254,14 +381,10 @@ function render() {
       ? `拖动定位单词，当前第 ${sliderIndex + 1} 个，共 ${state.queue.length} 个`
       : "本轮没有待学单词",
   );
-  elements.scopeLabel.textContent =
-    state.scope === "all"
-      ? "全部词表"
-      : state.scope === "custom"
-        ? `第 ${state.rangeStart} 到 ${state.rangeEnd} 词`
-        : `第 ${state.scope} 天`;
+  elements.scopeLabel.textContent = scopeDescription();
   elements.remainingCount.textContent = String(remaining);
   elements.masteredCount.textContent = String(totalSummary.mastered);
+  elements.totalWordCount.textContent = String(words.length);
   elements.knownCount.textContent = String(totalSummary.known);
   elements.libraryKnownCount.textContent = String(totalSummary.known);
   elements.libraryUnknownCount.textContent = String(totalSummary.unknown);
@@ -272,18 +395,26 @@ function render() {
   elements.summaryUndoButton.disabled = !lastAction;
   elements.previousButton.disabled = displayIndex <= 0;
   elements.forwardButton.disabled =
-    state.queue.length === 0 || displayIndex >= state.queue.length - 1;
+    state.queue.length === 0 ||
+    (historyOffset === 0 && displayIndex >= state.queue.length - 1);
   elements.summaryPreviousButton.disabled = state.cursor === 0;
+  elements.answerLabel.textContent = activeLibrary.answerLabel;
+  elements.sourceNote.textContent = `${activeLibrary.sourceLabel}。${activeLibrary.description}。每套词库的进度分开保存。`;
 
   if (!finished && currentWord()) {
     const word = currentWord();
     elements.studyView.classList.remove("hidden");
     elements.summaryView.classList.add("hidden");
-    elements.dayLabel.textContent = `Day ${word.day}`;
+    elements.dayLabel.textContent = `第 ${word.day} ${activeLibrary.groupLabel}`;
     elements.wordText.textContent = word.word;
+    elements.wordText.classList.toggle(
+      "is-phrase",
+      word.word.length > 24 || word.word.includes(" "),
+    );
     elements.equivalentsText.textContent = word.equivalents;
     elements.meaningText.textContent = word.meaning;
     elements.speakButton.setAttribute("aria-label", `朗读 ${word.word}`);
+    setRevealed(revealed);
     for (const button of document.querySelectorAll(".decision-button")) {
       button.classList.toggle(
         "selected",
@@ -297,7 +428,8 @@ function render() {
   } else {
     elements.studyView.classList.add("hidden");
     elements.summaryView.classList.remove("hidden");
-    const allMastered = activeSummary.mastered === active.length;
+    const allMastered = active.length > 0 &&
+      activeSummary.mastered === active.length;
     elements.summaryKicker.textContent = allMastered
       ? "已经全部掌握"
       : `第 ${state.round} 轮完成`;
@@ -305,7 +437,7 @@ function render() {
       ? "这组词已经清空"
       : "休息一下，再过一轮";
     elements.summaryText.textContent = allMastered
-      ? "完全熟悉的词不会再次出现。你可以去词库查看，或切换学习范围。"
+      ? "完全熟悉的词不会再次出现。你可以切换词库或学习范围，原来的进度不会丢失。"
       : `下一轮先看 ${activeSummary.unknown} 个不认识的词，再看 ${activeSummary.known} 个认识的词。`;
     elements.summaryUnknown.textContent = String(activeSummary.unknown);
     elements.summaryKnown.textContent = String(activeSummary.known);
@@ -329,7 +461,7 @@ function classify(status) {
   state.statuses[word.id] = status;
   if (historyOffset > 0) historyOffset -= 1;
   else state.cursor += 1;
-  setRevealed(historyOffset > 0);
+  setRevealed(false);
   persist();
   render();
 }
@@ -361,7 +493,7 @@ function startNextRound() {
 }
 
 function changeScope(scope) {
-  if (!validScopes.has(scope)) return;
+  if (!validScopes().has(scope)) return;
   state.scope = scope;
   state.round = 1;
   state.queue = buildQueue(activeWords());
@@ -376,13 +508,20 @@ function changeScope(scope) {
 
 function changeLibraryStatus(id, status) {
   if (!wordById.has(id) || !validStatuses.has(status)) return;
+  const previousStatus = state.statuses[id];
   state.statuses[id] = status;
+  const removedIndex = state.queue.indexOf(id);
   if (status === "mastered") {
-    const removedIndex = state.queue.indexOf(id);
     state.queue = state.queue.filter((queueId) => queueId !== id);
     if (removedIndex !== -1 && removedIndex < state.cursor) {
       state.cursor = Math.max(0, state.cursor - 1);
     }
+  } else if (
+    previousStatus === "mastered" &&
+    !state.queue.includes(id) &&
+    activeWords().some((word) => word.id === id)
+  ) {
+    state.queue.push(id);
   }
   persist();
   render();
@@ -398,9 +537,13 @@ function goPrevious() {
 
 function goForward() {
   const displayIndex = state.cursor - historyOffset;
-  if (displayIndex >= state.queue.length - 1) return;
-  if (historyOffset > 0) historyOffset -= 1;
-  else state.cursor += 1;
+  if (historyOffset > 0) {
+    historyOffset -= 1;
+  } else if (displayIndex < state.queue.length - 1) {
+    state.cursor += 1;
+  } else {
+    return;
+  }
   lastAction = null;
   setRevealed(false);
   persist();
@@ -424,13 +567,17 @@ function goToQueueIndex(index) {
 
 function openPanel(type) {
   elements.panelBackdrop.classList.remove("hidden");
+  elements.catalogPanel.classList.toggle("hidden", type !== "catalog");
   elements.libraryPanel.classList.toggle("hidden", type !== "library");
   elements.settingsPanel.classList.toggle("hidden", type !== "settings");
-  elements.panelKicker.textContent =
-    type === "library" ? "我的词库" : "学习设置";
-  elements.panelTitle.textContent =
-    type === "library" ? "查看学习状态" : "设置本轮范围";
-  elements.sidePanel.setAttribute("aria-label", type === "library" ? "词库" : "设置");
+  const labels = {
+    catalog: ["学习词库", "选择一套词库"],
+    library: ["学习状态", "查看本词库状态"],
+    settings: ["学习设置", "设置本轮范围"],
+  };
+  elements.panelKicker.textContent = labels[type][0];
+  elements.panelTitle.textContent = labels[type][1];
+  elements.sidePanel.setAttribute("aria-label", labels[type][1]);
   renderPanel();
 }
 
@@ -439,8 +586,48 @@ function closePanel() {
 }
 
 function renderPanel() {
+  if (!elements.catalogPanel.classList.contains("hidden")) renderCatalog();
   if (!elements.libraryPanel.classList.contains("hidden")) renderLibrary();
   if (!elements.settingsPanel.classList.contains("hidden")) renderSettings();
+}
+
+function renderCatalog() {
+  elements.catalogList.replaceChildren();
+  for (const library of libraries) {
+    const counts = summarizeSavedLibrary(library);
+    const seen = library.count - counts.unseen;
+    const percent = Math.round((counts.mastered / library.count) * 100);
+    const button = document.createElement("button");
+    button.className = "catalog-card";
+    button.classList.toggle("active", library.id === activeLibrary.id);
+    button.disabled = loadingLibraryId === library.id;
+
+    const top = document.createElement("div");
+    const copy = document.createElement("span");
+    const title = document.createElement("strong");
+    title.textContent = library.name;
+    const description = document.createElement("small");
+    description.textContent = library.description;
+    copy.append(title, description);
+    const action = document.createElement("i");
+    action.textContent =
+      library.id === activeLibrary.id ? "正在学习" : seen ? "继续" : "开始";
+    top.append(copy, action);
+
+    const track = document.createElement("span");
+    track.className = "catalog-progress";
+    const fill = document.createElement("span");
+    fill.style.width = `${percent}%`;
+    track.append(fill);
+
+    const detail = document.createElement("span");
+    detail.className = "catalog-detail";
+    detail.textContent = `已看 ${seen}，完全熟悉 ${counts.mastered}，进度 ${percent}%`;
+
+    button.append(top, track, detail);
+    button.addEventListener("click", () => activateLibrary(library.id));
+    elements.catalogList.append(button);
+  }
 }
 
 function renderLibrary() {
@@ -456,9 +643,9 @@ function renderLibrary() {
     if (state.statuses[word.id] !== libraryStatus) return false;
     if (!query) return true;
     return (
-      word.word.includes(query) ||
-      word.equivalents.includes(query) ||
-      word.meaning.includes(query)
+      word.word.toLowerCase().includes(query) ||
+      word.equivalents.toLowerCase().includes(query) ||
+      word.meaning.toLowerCase().includes(query)
     );
   });
 
@@ -483,6 +670,7 @@ function renderLibrary() {
     title.textContent = word.word;
     const equivalents = document.createElement("p");
     equivalents.textContent = word.equivalents;
+    equivalents.classList.toggle("hidden", !word.equivalents);
     const meaning = document.createElement("small");
     meaning.textContent = word.meaning;
     copy.append(title, equivalents, meaning);
@@ -510,15 +698,28 @@ function renderLibrary() {
 
 function renderSettings() {
   elements.scopeList.replaceChildren();
-  for (const scope of ["all", "1", "2", "3", "4", "5"]) {
+  const scopes = [
+    {
+      id: "all",
+      label: `全部 ${words.length.toLocaleString("zh-CN")} 词`,
+    },
+    ...groupNumbers().map((group) => {
+      const count = words.filter((word) => word.day === group).length;
+      return {
+        id: String(group),
+        label: `第 ${group} ${activeLibrary.groupLabel}，${count} 词`,
+      };
+    }),
+  ];
+  for (const scope of scopes) {
     const button = document.createElement("button");
-    button.classList.toggle("active", state.scope === scope);
+    button.classList.toggle("active", state.scope === scope.id);
     const label = document.createElement("span");
-    label.textContent = scopeLabels[scope];
+    label.textContent = scope.label;
     const check = document.createElement("i");
-    check.textContent = state.scope === scope ? "✓" : "";
+    check.textContent = state.scope === scope.id ? "✓" : "";
     button.append(label, check);
-    button.addEventListener("click", () => changeScope(scope));
+    button.addEventListener("click", () => changeScope(scope.id));
     elements.scopeList.append(button);
   }
   elements.rangeStartInput.value = String(state.rangeStart);
@@ -554,17 +755,20 @@ function applyCustomRange() {
 }
 
 function exportProgress() {
-  const blob = new Blob([JSON.stringify(state, null, 2)], {
+  persist();
+  const blob = new Blob([JSON.stringify(appState, null, 2)], {
     type: "application/json",
   });
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement("a");
   anchor.href = url;
-  anchor.download = `gre-progress-${new Date().toISOString().slice(0, 10)}.json`;
+  anchor.download = `word-progress-${new Date().toISOString().slice(0, 10)}.json`;
   anchor.click();
   URL.revokeObjectURL(url);
 }
 
+elements.brandButton.addEventListener("click", () => openPanel("catalog"));
+elements.vocabularyButton.addEventListener("click", () => openPanel("catalog"));
 elements.libraryButton.addEventListener("click", () => openPanel("library"));
 elements.settingsButton.addEventListener("click", () => openPanel("settings"));
 elements.scopeButton.addEventListener("click", () => openPanel("settings"));
@@ -613,10 +817,19 @@ elements.importInput.addEventListener("change", async () => {
   const file = elements.importInput.files?.[0];
   if (!file) return;
   try {
-    const imported = normalizeState(JSON.parse(await file.text()));
-    if (!imported) throw new Error("invalid");
-    state = imported;
-    persist();
+    const imported = JSON.parse(await file.text());
+    if (
+      imported?.version === 2 &&
+      imported.libraries &&
+      typeof imported.libraries === "object"
+    ) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(imported));
+    } else {
+      const importedState = normalizeState(imported);
+      if (!importedState) throw new Error("invalid");
+      appState.libraries[activeLibrary.id] = importedState;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+    }
     window.location.reload();
   } catch {
     window.alert("这个文件不是有效的进度备份。");
@@ -625,8 +838,9 @@ elements.importInput.addEventListener("change", async () => {
   }
 });
 elements.resetButton.addEventListener("click", () => {
-  if (!window.confirm("确定清空全部学习进度吗？这一步不能撤销。")) return;
+  if (!window.confirm("确定清空全部词库的学习进度吗？这一步不能撤销。")) return;
   localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(LEGACY_STORAGE_KEY);
   window.location.reload();
 });
 window.addEventListener("keydown", (event) => {
@@ -667,8 +881,7 @@ elements.installButton.addEventListener("click", async () => {
   elements.installButton.classList.add("hidden");
 });
 
-persist();
-render();
+await activateLibrary(appState.activeLibraryId, { initial: true });
 elements.loadingView.classList.add("hidden");
 elements.appView.classList.remove("hidden");
 

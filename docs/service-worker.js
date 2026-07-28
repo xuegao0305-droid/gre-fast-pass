@@ -1,13 +1,19 @@
-const CACHE_NAME = "gre-fast-pass-v4";
+const CACHE_NAME = "word-fast-pass-v5";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=4",
-  "./app.js?v=4",
-  "./words.json",
+  "./styles.css?v=5",
+  "./app-v2.js?v=5",
+  "./libraries.json",
+  "./data/gre-equivalents.json",
+  "./data/ielts-synonyms.json",
+  "./data/ielts-vocabulary-bible.json",
+  "./data/ielts-writing.json",
+  "./data/gre-emergency-1400.json",
+  "./data/gre-3000.json",
   "./og.png",
-  "./manifest.webmanifest?v=4",
-  "./icon-180.png?v=4",
+  "./manifest.webmanifest?v=5",
+  "./icon-180.png?v=5",
   "./icon-192.png",
   "./icon-512.png",
 ];

@@ -1,7 +1,7 @@
 {
-  "name": "GRE 等价词快刷",
-  "short_name": "等价词快刷",
-  "description": "快速复习 905 个 GRE 等价词，保存学习进度并支持离线使用。",
+  "name": "GRE 与雅思词汇快刷",
+  "short_name": "词汇快刷",
+  "description": "自由切换 GRE 与雅思词库，分别保存学习进度并支持离线使用。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "gre-equivalents",
+    "name": "GRE 等价词 905",
+    "shortName": "GRE 等价词",
+    "description": "主词、中文释义和等价词组合",
+    "file": "./data/gre-equivalents.json",
+    "count": 905,
+    "answerLabel": "等价词",
+    "groupLabel": "天",
+    "sourceLabel": "公开整理的 GRE 等价词资料"
+  },
+  {
+    "id": "ielts-synonyms",
+    "name": "雅思高级同义替换 114",
+    "shortName": "雅思同义替换",
+    "description": "写作和阅读常用高级替换",
+    "file": "./data/ielts-synonyms.json",
+    "count": 114,
+    "answerLabel": "同义替换",
+    "groupLabel": "组",
+    "sourceLabel": "公开资料整理版"
+  },
+  {
+    "id": "ielts-vocabulary-bible",
+    "name": "雅思词汇真经 3673",
+    "shortName": "雅思词汇真经",
+    "description": "核心雅思词汇与中文释义",
+    "file": "./data/ielts-vocabulary-bible.json",
+    "count": 3673,
+    "answerLabel": "美式发音",
+    "groupLabel": "组",
+    "sourceLabel": "Qwerty Learner 公开词表"
+  },
+  {
+    "id": "ielts-writing",
+    "name": "雅思写作词汇与词组 143",
+    "shortName": "雅思写作积累",
+    "description": "议论文与图表作文常用表达",
+    "file": "./data/ielts-writing.json",
+    "count": 143,
+    "answerLabel": "替换表达",
+    "groupLabel": "组",
+    "sourceLabel": "公开资料整理版"
+  },
+  {
+    "id": "gre-emergency-1400",
+    "name": "GRE 急救高频 1400",
+    "shortName": "GRE 急救 1400",
+    "description": "公开高频词表整理版，非官方考满分词表",
+    "file": "./data/gre-emergency-1400.json",
+    "count": 1400,
+    "answerLabel": "补充与近义词",
+    "groupLabel": "组",
+    "sourceLabel": "Qwerty Learner GRE 高频公开词表整理"
+  },
+  {
+    "id": "gre-3000",
+    "name": "GRE 3000 词 3072",
+    "shortName": "GRE 3000",
+    "description": "再要你命 3000 公开电子词表",
+    "file": "./data/gre-3000.json",
+    "count": 3072,
+    "answerLabel": "补充内容",
+    "groupLabel": "组",
+    "sourceLabel": "Anthony-Yuan/GRE3000 公开词表"
+  }
+]

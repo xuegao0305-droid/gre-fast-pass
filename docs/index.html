@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="一张一张快速复习 905 个 GRE 等价词，并按熟悉程度自动安排下一轮。"
+      content="自由切换 GRE 与雅思词库，一张一张快速复习，并分别保存每套词库的学习进度。"
     />
-    <meta property="og:title" content="等价词快刷" />
+    <meta property="og:title" content="词汇快刷" />
     <meta
       property="og:description"
-      content="905 张 GRE 等价词卡，支持分轮复习和本地进度保存。"
+      content="GRE 与雅思多词库快刷，支持分轮复习和独立进度保存。"
     />
     <meta
       property="og:image"
@@ -20,15 +20,15 @@
     <meta name="theme-color" content="#f3f0e8" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="等价词快刷" />
-    <title>等价词快刷</title>
-    <link rel="manifest" href="./manifest.webmanifest?v=4" />
-    <link rel="apple-touch-icon" href="./icon-180.png?v=4" />
-    <link rel="stylesheet" href="./styles.css?v=4" />
+    <meta name="apple-mobile-web-app-title" content="词汇快刷" />
+    <title>词汇快刷</title>
+    <link rel="manifest" href="./manifest.webmanifest?v=5" />
+    <link rel="apple-touch-icon" href="./icon-180.png?v=5" />
+    <link rel="stylesheet" href="./styles.css?v=5" />
   </head>
   <body>
     <main class="loading-shell" id="loadingView" aria-live="polite">
-      <div class="loading-mark">GRE</div>
+      <div class="loading-mark">W</div>
       <p>正在读取你的进度</p>
     </main>
 
@@ -37,14 +37,20 @@
         <button class="brand" id="brandButton">
           <span class="brand-mark">G</span>
           <span>
-            <strong>等价词快刷</strong>
-            <small>905 张词卡</small>
+            <strong>词汇快刷</strong>
+            <small id="brandSubtitle">正在读取词库</small>
           </span>
+        </button>
+
+        <button class="library-picker" id="vocabularyButton">
+          <span>当前词库</span>
+          <strong id="currentLibraryName">GRE 等价词</strong>
+          <i aria-hidden="true">⌄</i>
         </button>
 
         <div class="top-actions">
           <button class="quiet-button" id="libraryButton">
-            词库
+            状态
             <span class="button-count" id="knownCount">0</span>
           </button>
           <button class="quiet-button" id="settingsButton">设置</button>
@@ -86,7 +92,7 @@
 
             <article class="word-card" id="wordCard">
               <div class="card-topline">
-                <span id="dayLabel">Day 1</span>
+                <span id="dayLabel">第 1 组</span>
                 <button class="speak-button" id="speakButton" aria-label="朗读单词">
                   <span aria-hidden="true">▶</span>
                   朗读
@@ -109,7 +115,7 @@
                 <div class="answer-rule"></div>
                 <div class="answer-grid">
                   <div>
-                    <span>等价词</span>
+                    <span id="answerLabel">等价词</span>
                     <p id="equivalentsText"></p>
                   </div>
                 </div>
@@ -180,7 +186,10 @@
       <footer class="status-footer">
         <span>本轮还剩 <strong id="remainingCount">905</strong> 个</span>
         <span class="footer-separator"></span>
-        <span>已完全熟悉 <strong id="masteredCount">0</strong> / 905</span>
+        <span>
+          已完全熟悉 <strong id="masteredCount">0</strong> /
+          <span id="totalWordCount">905</span>
+        </span>
         <span class="footer-save sync-saved" id="saveStatus">
           进度已保存在此浏览器
         </span>
@@ -195,6 +204,13 @@
             <h2 id="panelTitle">设置本轮范围</h2>
           </div>
           <button id="closePanelButton" aria-label="关闭">×</button>
+        </div>
+
+        <div id="catalogPanel" class="hidden">
+          <p class="catalog-intro">
+            每套词库都会保留自己的位置、轮次、学习范围和熟悉度。
+          </p>
+          <div class="catalog-list" id="catalogList"></div>
         </div>
 
         <div id="libraryPanel" class="hidden">
@@ -276,10 +292,7 @@
 
           <section class="source-note">
             <span class="settings-label">词表说明</span>
-            <p>
-              本站整理自公开分享的《真经 GRE 等价词汇总》和《等价词 900
-              组》。PDF 中共有 905 个主词条。本工具用于个人学习，不是官方产品。
-            </p>
+            <p id="sourceNote"></p>
           </section>
 
           <button class="reset-button" id="resetButton">清空全部进度</button>
@@ -287,6 +300,6 @@
       </aside>
     </div>
 
-    <script type="module" src="./app.js?v=4"></script>
+    <script type="module" src="./app-v2.js?v=5"></script>
   </body>
 </html>

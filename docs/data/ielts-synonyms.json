@@ -1,0 +1,800 @@
+[
+  {
+    "id": "ielts-synonym-0001",
+    "word": "important",
+    "equivalents": "crucial, vital, significant, essential, pivotal",
+    "meaning": "重要的；关键的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0002",
+    "word": "increase",
+    "equivalents": "rise, grow, climb, surge, escalate",
+    "meaning": "增加；上升",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0003",
+    "word": "decrease",
+    "equivalents": "decline, drop, fall, diminish, shrink",
+    "meaning": "减少；下降",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0004",
+    "word": "show",
+    "equivalents": "demonstrate, illustrate, reveal, indicate, display",
+    "meaning": "显示；表明",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0005",
+    "word": "think",
+    "equivalents": "believe, consider, contend, maintain, argue",
+    "meaning": "认为；思考",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0006",
+    "word": "good",
+    "equivalents": "beneficial, favorable, advantageous, positive",
+    "meaning": "有益的；良好的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0007",
+    "word": "bad",
+    "equivalents": "detrimental, adverse, harmful, unfavorable",
+    "meaning": "有害的；不利的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0008",
+    "word": "big",
+    "equivalents": "considerable, substantial, enormous, extensive",
+    "meaning": "大的；可观的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0009",
+    "word": "small",
+    "equivalents": "minor, marginal, modest, negligible",
+    "meaning": "小的；不重要的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0010",
+    "word": "change",
+    "equivalents": "alter, modify, transform, shift, vary",
+    "meaning": "改变；变化",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0011",
+    "word": "problem",
+    "equivalents": "issue, challenge, difficulty, obstacle",
+    "meaning": "问题；难题",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0012",
+    "word": "solve",
+    "equivalents": "resolve, address, tackle, overcome, remedy",
+    "meaning": "解决；处理",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0013",
+    "word": "cause",
+    "equivalents": "trigger, lead to, give rise to, bring about",
+    "meaning": "造成；引发",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0014",
+    "word": "effect",
+    "equivalents": "impact, consequence, outcome, result",
+    "meaning": "影响；结果",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0015",
+    "word": "help",
+    "equivalents": "assist, facilitate, enable, promote, foster",
+    "meaning": "帮助；促进",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0016",
+    "word": "improve",
+    "equivalents": "enhance, boost, strengthen, refine, optimize",
+    "meaning": "改善；提高",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0017",
+    "word": "use",
+    "equivalents": "employ, utilize, apply, adopt",
+    "meaning": "使用；采用",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0018",
+    "word": "get",
+    "equivalents": "obtain, acquire, gain, secure",
+    "meaning": "获得",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0019",
+    "word": "need",
+    "equivalents": "require, demand, call for, necessitate",
+    "meaning": "需要",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0020",
+    "word": "many",
+    "equivalents": "numerous, abundant, ample, a host of",
+    "meaning": "许多的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0021",
+    "word": "few",
+    "equivalents": "scarce, limited, a handful of",
+    "meaning": "少量的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0022",
+    "word": "common",
+    "equivalents": "widespread, prevalent, ubiquitous",
+    "meaning": "常见的；普遍的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0023",
+    "word": "rare",
+    "equivalents": "uncommon, infrequent, scarce, exceptional",
+    "meaning": "罕见的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0024",
+    "word": "fast",
+    "equivalents": "rapid, swift, prompt, accelerated",
+    "meaning": "快速的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0025",
+    "word": "slow",
+    "equivalents": "gradual, sluggish, unhurried",
+    "meaning": "缓慢的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0026",
+    "word": "clear",
+    "equivalents": "evident, apparent, obvious, explicit",
+    "meaning": "清楚的；明显的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0027",
+    "word": "unclear",
+    "equivalents": "ambiguous, vague, obscure, implicit",
+    "meaning": "不清楚的；模糊的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0028",
+    "word": "main",
+    "equivalents": "primary, principal, dominant, central",
+    "meaning": "主要的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0029",
+    "word": "different",
+    "equivalents": "distinct, diverse, varied, divergent",
+    "meaning": "不同的；多样的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0030",
+    "word": "similar",
+    "equivalents": "comparable, alike, analogous, equivalent",
+    "meaning": "相似的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0031",
+    "word": "choose",
+    "equivalents": "select, opt for, determine, settle on",
+    "meaning": "选择",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0032",
+    "word": "start",
+    "equivalents": "begin, commence, initiate, embark on",
+    "meaning": "开始",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0033",
+    "word": "end",
+    "equivalents": "finish, conclude, terminate, cease",
+    "meaning": "结束",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0034",
+    "word": "build",
+    "equivalents": "construct, establish, develop, set up",
+    "meaning": "建造；建立",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0035",
+    "word": "destroy",
+    "equivalents": "demolish, eradicate, devastate, eliminate",
+    "meaning": "破坏；消灭",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0036",
+    "word": "keep",
+    "equivalents": "maintain, preserve, retain, sustain",
+    "meaning": "保持；保留",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0037",
+    "word": "avoid",
+    "equivalents": "evade, prevent, circumvent, steer clear of",
+    "meaning": "避免",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0038",
+    "word": "allow",
+    "equivalents": "permit, enable, authorize, make possible",
+    "meaning": "允许；使能够",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0039",
+    "word": "ban",
+    "equivalents": "prohibit, forbid, restrict, outlaw",
+    "meaning": "禁止",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0040",
+    "word": "support",
+    "equivalents": "endorse, back, uphold, advocate",
+    "meaning": "支持",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0041",
+    "word": "oppose",
+    "equivalents": "resist, object to, reject, challenge",
+    "meaning": "反对",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0042",
+    "word": "explain",
+    "equivalents": "clarify, elaborate, account for, interpret",
+    "meaning": "解释",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0043",
+    "word": "idea",
+    "equivalents": "notion, concept, proposition, perspective",
+    "meaning": "想法；概念",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0044",
+    "word": "reason",
+    "equivalents": "rationale, cause, grounds, justification",
+    "meaning": "原因；理由",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0045",
+    "word": "result",
+    "equivalents": "outcome, consequence, repercussion, finding",
+    "meaning": "结果",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0046",
+    "word": "method",
+    "equivalents": "approach, technique, strategy, procedure",
+    "meaning": "方法",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0047",
+    "word": "way",
+    "equivalents": "manner, means, route, mode",
+    "meaning": "方式",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0048",
+    "word": "people",
+    "equivalents": "individuals, citizens, the public, population",
+    "meaning": "人们；公众",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0049",
+    "word": "young",
+    "equivalents": "adolescents, youths, the younger generation",
+    "meaning": "年轻的；年轻人",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0050",
+    "word": "old",
+    "equivalents": "elderly, senior, ageing, older adults",
+    "meaning": "年老的；老年人",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0051",
+    "word": "rich",
+    "equivalents": "affluent, wealthy, well-off, prosperous",
+    "meaning": "富有的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0052",
+    "word": "poor",
+    "equivalents": "deprived, disadvantaged, impoverished, needy",
+    "meaning": "贫穷的；弱势的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0053",
+    "word": "work",
+    "equivalents": "employment, occupation, labor, undertaking",
+    "meaning": "工作；劳动",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0054",
+    "word": "job",
+    "equivalents": "position, role, profession, post",
+    "meaning": "职位；工作",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0055",
+    "word": "money",
+    "equivalents": "funds, capital, finance, revenue",
+    "meaning": "资金；金钱",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0056",
+    "word": "government",
+    "equivalents": "authorities, administration, the state",
+    "meaning": "政府；当局",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0057",
+    "word": "company",
+    "equivalents": "firm, corporation, enterprise, business",
+    "meaning": "公司；企业",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0058",
+    "word": "school",
+    "equivalents": "educational institution, academy, campus",
+    "meaning": "学校；教育机构",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0059",
+    "word": "teacher",
+    "equivalents": "educator, instructor, tutor, lecturer",
+    "meaning": "教师",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0060",
+    "word": "student",
+    "equivalents": "learner, pupil, undergraduate, candidate",
+    "meaning": "学生；学习者",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0061",
+    "word": "city",
+    "equivalents": "urban area, metropolis, municipality",
+    "meaning": "城市；都市",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0062",
+    "word": "country",
+    "equivalents": "nation, state, homeland, territory",
+    "meaning": "国家",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0063",
+    "word": "environment",
+    "equivalents": "ecosystem, natural world, surroundings",
+    "meaning": "环境；生态系统",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0064",
+    "word": "technology",
+    "equivalents": "innovation, digital tools, technical advances",
+    "meaning": "技术；科技创新",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0065",
+    "word": "health",
+    "equivalents": "well-being, physical condition, fitness",
+    "meaning": "健康；福祉",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0066",
+    "word": "education",
+    "equivalents": "schooling, instruction, learning, tuition",
+    "meaning": "教育；学习",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0067",
+    "word": "crime",
+    "equivalents": "offence, illegal activity, misconduct",
+    "meaning": "犯罪；违法行为",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0068",
+    "word": "law",
+    "equivalents": "legislation, regulation, statute, legal rule",
+    "meaning": "法律；法规",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0069",
+    "word": "advantage",
+    "equivalents": "benefit, merit, strength, upside",
+    "meaning": "优势；好处",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0070",
+    "word": "disadvantage",
+    "equivalents": "drawback, weakness, limitation, downside",
+    "meaning": "缺点；不利之处",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0071",
+    "word": "necessary",
+    "equivalents": "essential, indispensable, imperative, required",
+    "meaning": "必要的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0072",
+    "word": "possible",
+    "equivalents": "feasible, viable, attainable, achievable",
+    "meaning": "可能的；可行的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0073",
+    "word": "impossible",
+    "equivalents": "infeasible, unattainable, impractical",
+    "meaning": "不可能的；不可行的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0074",
+    "word": "safe",
+    "equivalents": "secure, protected, low-risk, harmless",
+    "meaning": "安全的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0075",
+    "word": "dangerous",
+    "equivalents": "hazardous, risky, unsafe, threatening",
+    "meaning": "危险的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0076",
+    "word": "expensive",
+    "equivalents": "costly, unaffordable, high-priced",
+    "meaning": "昂贵的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0077",
+    "word": "cheap",
+    "equivalents": "inexpensive, affordable, low-cost",
+    "meaning": "便宜的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0078",
+    "word": "beautiful",
+    "equivalents": "attractive, appealing, aesthetically pleasing",
+    "meaning": "美丽的；有吸引力的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0079",
+    "word": "ugly",
+    "equivalents": "unattractive, unsightly, unpleasant",
+    "meaning": "难看的；令人不快的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0080",
+    "word": "happy",
+    "equivalents": "content, delighted, satisfied, cheerful",
+    "meaning": "快乐的；满意的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0081",
+    "word": "sad",
+    "equivalents": "unhappy, distressed, sorrowful, depressed",
+    "meaning": "悲伤的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0082",
+    "word": "angry",
+    "equivalents": "irritated, furious, outraged, resentful",
+    "meaning": "生气的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0083",
+    "word": "busy",
+    "equivalents": "occupied, engaged, hectic, overloaded",
+    "meaning": "忙碌的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0084",
+    "word": "easy",
+    "equivalents": "simple, straightforward, effortless",
+    "meaning": "容易的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0085",
+    "word": "hard",
+    "equivalents": "difficult, challenging, demanding, arduous",
+    "meaning": "困难的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0086",
+    "word": "smart",
+    "equivalents": "intelligent, capable, knowledgeable, astute",
+    "meaning": "聪明的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0087",
+    "word": "careful",
+    "equivalents": "cautious, attentive, meticulous, prudent",
+    "meaning": "谨慎的；细心的",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0088",
+    "word": "important role",
+    "equivalents": "central function, pivotal part, key contribution",
+    "meaning": "重要作用",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0089",
+    "word": "more and more",
+    "equivalents": "an increasing number of, a growing proportion of",
+    "meaning": "越来越多",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0090",
+    "word": "less and less",
+    "equivalents": "a declining number of, a shrinking proportion of",
+    "meaning": "越来越少",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0091",
+    "word": "nowadays",
+    "equivalents": "at present, in contemporary society, currently",
+    "meaning": "如今；目前",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0092",
+    "word": "in my opinion",
+    "equivalents": "from my perspective, in my view, I would argue that",
+    "meaning": "在我看来",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0093",
+    "word": "because",
+    "equivalents": "due to, owing to, as a result of, on account of",
+    "meaning": "因为；由于",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0094",
+    "word": "so",
+    "equivalents": "therefore, consequently, thus, as a result",
+    "meaning": "所以；因此",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0095",
+    "word": "but",
+    "equivalents": "however, nevertheless, nonetheless, whereas",
+    "meaning": "但是；然而",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0096",
+    "word": "also",
+    "equivalents": "moreover, furthermore, in addition, additionally",
+    "meaning": "而且；此外",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0097",
+    "word": "for example",
+    "equivalents": "for instance, to illustrate, a case in point is",
+    "meaning": "例如",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0098",
+    "word": "about",
+    "equivalents": "regarding, concerning, with respect to",
+    "meaning": "关于",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0099",
+    "word": "very",
+    "equivalents": "highly, extremely, particularly, remarkably",
+    "meaning": "非常；高度地",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0100",
+    "word": "often",
+    "equivalents": "frequently, regularly, repeatedly",
+    "meaning": "经常",
+    "day": 1
+  },
+  {
+    "id": "ielts-synonym-0101",
+    "word": "sometimes",
+    "equivalents": "occasionally, from time to time, in some cases",
+    "meaning": "有时",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0102",
+    "word": "always",
+    "equivalents": "consistently, invariably, at all times",
+    "meaning": "总是",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0103",
+    "word": "never",
+    "equivalents": "under no circumstances, not at any time",
+    "meaning": "从不",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0104",
+    "word": "enough",
+    "equivalents": "sufficient, adequate, ample",
+    "meaning": "足够的",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0105",
+    "word": "important factor",
+    "equivalents": "key determinant, major driver, crucial element",
+    "meaning": "重要因素",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0106",
+    "word": "make better",
+    "equivalents": "improve, enhance, upgrade, strengthen",
+    "meaning": "使变得更好",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0107",
+    "word": "make worse",
+    "equivalents": "aggravate, exacerbate, undermine, impair",
+    "meaning": "使变得更坏",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0108",
+    "word": "take part",
+    "equivalents": "participate, engage, get involved",
+    "meaning": "参加",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0109",
+    "word": "deal with",
+    "equivalents": "address, handle, tackle, respond to",
+    "meaning": "处理；应对",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0110",
+    "word": "find out",
+    "equivalents": "identify, determine, discover, ascertain",
+    "meaning": "查明；发现",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0111",
+    "word": "look at",
+    "equivalents": "examine, investigate, assess, analyze",
+    "meaning": "查看；研究",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0112",
+    "word": "talk about",
+    "equivalents": "discuss, address, elaborate on",
+    "meaning": "讨论",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0113",
+    "word": "bring benefits",
+    "equivalents": "yield benefits, generate value, produce gains",
+    "meaning": "带来好处",
+    "day": 2
+  },
+  {
+    "id": "ielts-synonym-0114",
+    "word": "create problems",
+    "equivalents": "pose challenges, cause difficulties, generate risks",
+    "meaning": "造成问题",
+    "day": 2
+  }
+]
