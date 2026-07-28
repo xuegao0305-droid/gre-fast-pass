@@ -453,6 +453,31 @@ kbd {
   text-transform: uppercase;
 }
 
+.card-topline > div:first-child {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  min-width: 0;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.card-tags span {
+  background: var(--paper);
+  border-radius: 20px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 680;
+  letter-spacing: 0;
+  padding: 4px 7px;
+  text-transform: none;
+}
+
 .speak-button {
   align-items: center;
   background: transparent;
@@ -528,6 +553,29 @@ kbd {
   margin: 7px 0 0;
 }
 
+.usage-area {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 14px;
+  max-width: 540px;
+  text-align: center;
+}
+
+.usage-area span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 720;
+  letter-spacing: 0.1em;
+}
+
+.usage-area p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 6px 0 0;
+}
+
 .reveal-button {
   align-items: center;
   background: transparent;
@@ -565,6 +613,7 @@ kbd {
 
 .answer-grid {
   display: grid;
+  gap: 18px;
   grid-template-columns: 1fr;
   padding: 23px 0 30px;
 }
@@ -581,6 +630,13 @@ kbd {
   font-size: clamp(18px, 2.4vw, 25px);
   line-height: 1.35;
   margin: 8px 0 0;
+}
+
+.answer-detail p {
+  color: var(--ink);
+  font-family: var(--font-geist-sans), "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
 }
 
 .decision-area {
@@ -996,6 +1052,25 @@ kbd {
   margin-top: 30px;
 }
 
+.status-library-context {
+  background: var(--paper);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 24px;
+  padding: 12px 14px;
+}
+
+.status-library-context span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.status-library-context strong {
+  font-size: 13px;
+}
+
 .library-tabs button {
   background: transparent;
   border: 0;
@@ -1046,6 +1121,19 @@ kbd {
   min-height: 42px;
   outline: 0;
   padding: 0 10px;
+  width: 100%;
+}
+
+.status-study-button {
+  background: var(--ink);
+  border: 0;
+  border-radius: 9px;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 4px 0 10px;
+  min-height: 42px;
   width: 100%;
 }
 
@@ -1161,9 +1249,82 @@ kbd {
   margin-bottom: 12px;
 }
 
+.settings-help {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+  margin: -5px 0 12px;
+}
+
+.mode-list,
+.subgroup-list,
+.type-list {
+  display: grid;
+  gap: 7px;
+}
+
+.mode-list {
+  grid-template-columns: 1fr 1fr;
+}
+
+.mode-list button,
+.subgroup-list button,
+.type-list button {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  cursor: pointer;
+  display: flex;
+  font-size: 12px;
+  gap: 6px;
+  justify-content: space-between;
+  min-height: 42px;
+  padding: 8px 11px;
+  text-align: left;
+}
+
+.mode-list button.active,
+.subgroup-list button.active,
+.type-list button.active {
+  background: var(--mastered-soft);
+  border-color: rgba(37, 112, 92, 0.24);
+  color: var(--mastered);
+  font-weight: 700;
+}
+
+.mode-list i,
+.subgroup-list i,
+.type-list i {
+  color: var(--muted);
+  flex: 0 0 auto;
+  font-size: 10px;
+  font-style: normal;
+}
+
 .scope-list {
   display: grid;
   gap: 7px;
+}
+
+.scope-heading {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 760;
+  margin: 11px 2px 1px;
+}
+
+.subgroup-filter,
+.type-filter {
+  background: var(--paper);
+  border-radius: 11px;
+  margin-top: 12px;
+  padding: 14px;
+}
+
+.subgroup-filter .settings-label,
+.type-filter .settings-label {
+  margin-bottom: 10px;
 }
 
 .scope-list button {
@@ -1486,6 +1647,10 @@ kbd {
     font-size: 17px;
   }
 
+  .usage-area p {
+    font-size: 12px;
+  }
+
   .answer-grid {
     gap: 20px;
     grid-template-columns: 1fr;
@@ -1567,6 +1732,10 @@ kbd {
   }
 
   .custom-range-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .mode-list {
     grid-template-columns: 1fr;
   }
 }

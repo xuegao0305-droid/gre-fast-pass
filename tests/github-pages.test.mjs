@@ -43,6 +43,10 @@ test("the GitHub Pages files are complete and use browser persistence", () => {
   assert.match(html, /id="progressSlider"/);
   assert.match(html, /id="rangeStartInput"/);
   assert.match(html, /id="rangeEndInput"/);
+  assert.match(html, /id="modeList"/);
+  assert.match(html, /id="subgroupList"/);
+  assert.match(html, /id="typeList"/);
+  assert.match(html, /id="statusStudyButton"/);
   assert.match(html, /rel="manifest"/);
   assert.match(app, /localStorage\.setItem/);
   assert.match(app, /buildQueue/);
@@ -52,6 +56,10 @@ test("the GitHub Pages files are complete and use browser persistence", () => {
   assert.match(app, /historyOffset/);
   assert.match(app, /appState\.libraries/);
   assert.match(app, /activateLibrary/);
+  assert.match(app, /studyMode/);
+  assert.match(app, /function changeStudyMode/);
+  assert.match(app, /logicGroup/);
+  assert.match(app, /expressionType/);
 });
 
 test("the static JavaScript files pass syntax checks", () => {
@@ -68,7 +76,7 @@ test("all six learning libraries have complete and unique cards", () => {
     "gre-equivalents": 905,
     "ielts-synonyms": 114,
     "ielts-vocabulary-bible": 3673,
-    "ielts-writing": 143,
+    "ielts-writing": 234,
     "gre-emergency-1400": 1400,
     "gre-3000": 3072,
   };
@@ -87,5 +95,63 @@ test("all six learning libraries have complete and unique cards", () => {
       assert.equal(typeof row.equivalents, "string");
       assert.ok(Number.isInteger(row.day));
     }
+  }
+});
+
+test("雅思词汇真经保留 22 章和原有逻辑词群", () => {
+  const rows = JSON.parse(
+    readFileSync("docs/data/ielts-vocabulary-bible.json", "utf8"),
+  );
+  const chapterCounts = [
+    241, 130, 168, 75, 401, 122, 79, 68, 176, 152, 113,
+    173, 134, 134, 149, 171, 117, 213, 121, 268, 416, 52,
+  ];
+
+  assert.deepEqual(
+    Array.from({ length: 22 }, (_, index) =>
+      rows.filter((row) => row.chapter === index + 1).length,
+    ),
+    chapterCounts,
+  );
+  assert.equal(new Set(rows.map((row) => row.scope)).size, 22);
+  assert.equal(new Set(rows.map((row) => row.logicGroup)).size, 980);
+  assert.equal(rows[0].scopeLabel, "第 1 章 自然地理");
+  assert.equal(rows.at(-1).scopeLabel, "第 22 章 时间日期");
+  for (const row of rows) {
+    assert.ok(row.logicGroup);
+    assert.ok(row.logicGroupLabel);
+    assert.ok(Number.isInteger(row.logicGroupNumber));
+    assert.ok(Number.isInteger(row.positionInGroup));
+    assert.ok(Number.isInteger(row.groupSize));
+  }
+});
+
+test("雅思写作库按任务、题材和表达类型整理", () => {
+  const rows = JSON.parse(
+    readFileSync("docs/data/ielts-writing.json", "utf8"),
+  );
+  assert.equal(rows.filter((row) => row.part === "小作文").length, 109);
+  assert.equal(rows.filter((row) => row.part === "大作文").length, 125);
+  assert.equal(new Set(rows.map((row) => row.scope)).size, 19);
+  assert.deepEqual(
+    new Set(rows.map((row) => row.expressionType)),
+    new Set(["动词短语", "名词短语", "句型", "形容词与副词", "衔接表达"]),
+  );
+  for (const topic of [
+    "折线图",
+    "柱状图",
+    "饼图",
+    "表格",
+    "地图",
+    "流程图",
+    "混合图",
+  ]) {
+    assert.ok(rows.some((row) => row.part === "小作文" && row.topic === topic));
+  }
+  for (const row of rows) {
+    assert.ok(row.part);
+    assert.ok(row.topic);
+    assert.ok(row.expressionType);
+    assert.ok(row.usage);
   }
 });

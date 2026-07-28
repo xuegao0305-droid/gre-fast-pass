@@ -22,9 +22,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="词汇快刷" />
     <title>词汇快刷</title>
-    <link rel="manifest" href="./manifest.webmanifest?v=5" />
-    <link rel="apple-touch-icon" href="./icon-180.png?v=5" />
-    <link rel="stylesheet" href="./styles.css?v=5" />
+    <link rel="manifest" href="./manifest.webmanifest?v=6" />
+    <link rel="apple-touch-icon" href="./icon-180.png?v=6" />
+    <link rel="stylesheet" href="./styles.css?v=6" />
   </head>
   <body>
     <main class="loading-shell" id="loadingView" aria-live="polite">
@@ -92,7 +92,10 @@
 
             <article class="word-card" id="wordCard">
               <div class="card-topline">
-                <span id="dayLabel">第 1 组</span>
+                <div>
+                  <span id="dayLabel">第 1 组</span>
+                  <div class="card-tags" id="cardTags"></div>
+                </div>
                 <button class="speak-button" id="speakButton" aria-label="朗读单词">
                   <span aria-hidden="true">▶</span>
                   朗读
@@ -105,6 +108,10 @@
                   <span>中文释义</span>
                   <p id="meaningText"></p>
                 </div>
+                <div class="usage-area hidden" id="usageArea">
+                  <span>使用说明</span>
+                  <p id="usageText"></p>
+                </div>
                 <button class="reveal-button" id="revealButton" aria-expanded="false">
                   <span id="revealLabel">查看等价词</span>
                   <kbd>空格</kbd>
@@ -114,9 +121,17 @@
               <div class="answer-area" id="answerArea" aria-hidden="true">
                 <div class="answer-rule"></div>
                 <div class="answer-grid">
-                  <div>
+                  <div id="answerPrimaryBlock">
                     <span id="answerLabel">等价词</span>
                     <p id="equivalentsText"></p>
+                  </div>
+                  <div class="answer-detail hidden" id="exampleBlock">
+                    <span>例句</span>
+                    <p id="exampleText"></p>
+                  </div>
+                  <div class="answer-detail hidden" id="notesBlock">
+                    <span>补充</span>
+                    <p id="notesText"></p>
                   </div>
                 </div>
               </div>
@@ -146,7 +161,7 @@
               </button>
             </div>
             <div class="decision-note">
-              <span>不认识的词下轮先出现，认识的词随后出现。</span>
+              <span>三个状态分别保存，也可以只刷不认识或认识的词。</span>
               <button id="undoButton" disabled>撤销 <kbd>Z</kbd></button>
             </div>
           </div>
@@ -214,6 +229,10 @@
         </div>
 
         <div id="libraryPanel" class="hidden">
+          <div class="status-library-context">
+            <span>当前词库</span>
+            <strong id="statusLibraryName"></strong>
+          </div>
           <div class="library-tabs" id="libraryTabs">
             <button class="active" data-library-status="known">
               认识 <span id="libraryKnownCount">0</span>
@@ -229,13 +248,38 @@
             <span aria-hidden="true">⌕</span>
             <input id="searchInput" placeholder="搜索单词、等价词或中文" />
           </label>
+          <button class="status-study-button" id="statusStudyButton">
+            只刷认识的词
+          </button>
           <div class="library-list" id="libraryList"></div>
         </div>
 
         <div class="settings-content hidden" id="settingsPanel">
           <section>
+            <span class="settings-label">复习模式</span>
+            <p class="settings-help">
+              每套词库会分别记住自己的模式和三个状态。
+            </p>
+            <div class="mode-list" id="modeList"></div>
+          </section>
+
+          <section>
             <span class="settings-label">学习范围</span>
             <div class="scope-list" id="scopeList"></div>
+            <div class="subgroup-filter hidden" id="subgroupSection">
+              <span class="settings-label">原书逻辑词群</span>
+              <p class="settings-help">
+                先选一章，再选择本章中的词群。每个词群保留原书的相邻关系。
+              </p>
+              <div class="subgroup-list" id="subgroupList"></div>
+            </div>
+            <div class="type-filter hidden" id="typeSection">
+              <span class="settings-label">表达类型</span>
+              <p class="settings-help">
+                你可以只练动词短语、名词短语、句型或衔接表达。
+              </p>
+              <div class="type-list" id="typeList"></div>
+            </div>
             <div class="custom-range">
               <span class="settings-label">自定义范围</span>
               <div class="custom-range-inputs">
@@ -300,6 +344,6 @@
       </aside>
     </div>
 
-    <script type="module" src="./app-v2.js?v=5"></script>
+    <script type="module" src="./app-v2.js?v=6"></script>
   </body>
 </html>

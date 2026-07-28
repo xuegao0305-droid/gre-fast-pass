@@ -4,7 +4,9 @@
 
 ## 雅思词汇真经
 
-数据来自 [RealKai42/qwerty-learner](https://github.com/RealKai42/qwerty-learner) 中的 `IELTSVocabularyBible.json`。原项目使用 GPL 3.0 许可。许可文件见 [QWERTY-LEARNER-GPL-3.0.txt](./LICENSES/QWERTY-LEARNER-GPL-3.0.txt)。
+词条数据来自 [RealKai42/qwerty-learner](https://github.com/RealKai42/qwerty-learner) 中的 `IELTSVocabularyBible.json`。原项目使用 GPL 3.0 许可。许可文件见 [QWERTY-LEARNER-GPL-3.0.txt](./LICENSES/QWERTY-LEARNER-GPL-3.0.txt)。
+
+22 章和逻辑词群的边界参考 [hefengxian/my-ielts](https://github.com/hefengxian/my-ielts) 的公开整理。本项目只使用章节与词群结构，没有复制该项目中的例句和补充说明。
 
 ## GRE 急救高频 1400
 

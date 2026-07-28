@@ -23,9 +23,9 @@ export async function generateMetadata(): Promise<Metadata> {
     requestHeaders.get("x-forwarded-proto") ??
     (host.startsWith("localhost") ? "http" : "https");
   const baseUrl = new URL(`${protocol}://${host}`);
-  const title = "等价词快刷";
+  const title = "词汇快刷";
   const description =
-    "一张一张快速复习 905 个 GRE 等价词，并按熟悉程度自动安排下一轮。";
+    "六套 GRE 与雅思词库，支持分章、分题材、状态循环和独立进度保存。";
 
   return {
     metadataBase: baseUrl,
@@ -39,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: new URL("/og.png", baseUrl).toString(),
           width: 1200,
           height: 630,
-          alt: "暖色纸张上的 GRE 单词卡",
+          alt: "词汇快刷单词卡",
         },
       ],
       locale: "zh_CN",

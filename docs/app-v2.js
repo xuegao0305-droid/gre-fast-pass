@@ -1,6 +1,13 @@
 const STORAGE_KEY = "word-fast-pass-pages-v2";
 const LEGACY_STORAGE_KEY = "gre-fast-pass-pages-v1";
 const validStatuses = new Set(["unknown", "known", "mastered"]);
+const validStudyModes = new Set(["all", "unknown", "known", "unseen"]);
+const studyModeLabels = {
+  all: "全部未掌握",
+  unknown: "只刷不认识",
+  known: "只刷认识",
+  unseen: "只刷未看过",
+};
 
 const elements = Object.fromEntries(
   [
@@ -20,6 +27,7 @@ const elements = Object.fromEntries(
     "studyView",
     "wordCard",
     "dayLabel",
+    "cardTags",
     "speakButton",
     "wordText",
     "revealButton",
@@ -28,6 +36,13 @@ const elements = Object.fromEntries(
     "answerLabel",
     "equivalentsText",
     "meaningText",
+    "usageArea",
+    "usageText",
+    "answerPrimaryBlock",
+    "exampleBlock",
+    "exampleText",
+    "notesBlock",
+    "notesText",
     "previousButton",
     "forwardButton",
     "undoButton",
@@ -56,13 +71,20 @@ const elements = Object.fromEntries(
     "catalogList",
     "libraryPanel",
     "settingsPanel",
+    "statusLibraryName",
+    "statusStudyButton",
     "libraryTabs",
     "libraryKnownCount",
     "libraryUnknownCount",
     "libraryMasteredCount",
     "searchInput",
     "libraryList",
+    "modeList",
     "scopeList",
+    "subgroupSection",
+    "subgroupList",
+    "typeSection",
+    "typeList",
     "rangeStartInput",
     "rangeEndInput",
     "applyRangeButton",
@@ -128,18 +150,52 @@ let lastAction = null;
 let libraryStatus = "known";
 let historyOffset = 0;
 let loadingLibraryId = null;
+let summaryNextMode = null;
 
-function groupNumbers() {
-  return [...new Set(words.map((word) => word.day))]
-    .filter(Number.isFinite)
-    .sort((a, b) => a - b);
+function wordScopeKey(word) {
+  return word.scope || String(word.day);
+}
+
+function scopeOptions() {
+  const options = new Map();
+  for (const word of words) {
+    const key = wordScopeKey(word);
+    if (!options.has(key)) {
+      options.set(key, {
+        id: key,
+        label:
+          word.scopeLabel ||
+          `第 ${word.day} ${activeLibrary.groupLabel}`,
+        order: Number.isFinite(word.scopeOrder) ? word.scopeOrder : word.day,
+        part: word.part || "",
+        count: 0,
+      });
+    }
+    options.get(key).count += 1;
+  }
+  return [...options.values()].sort(
+    (left, right) => left.order - right.order,
+  );
 }
 
 function validScopes() {
+  return new Set(["all", "custom", ...scopeOptions().map((item) => item.id)]);
+}
+
+function validSubgroups(scope = state?.scope) {
+  if (!scope || scope === "all" || scope === "custom") return new Set(["all"]);
   return new Set([
     "all",
-    "custom",
-    ...groupNumbers().map((group) => String(group)),
+    ...words
+      .filter((word) => wordScopeKey(word) === scope && word.logicGroup)
+      .map((word) => word.logicGroup),
+  ]);
+}
+
+function validExpressionTypes() {
+  return new Set([
+    "all",
+    ...words.map((word) => word.expressionType).filter(Boolean),
   ]);
 }
 
@@ -149,11 +205,15 @@ function createDefaultState() {
     round: 1,
     statuses: {},
     scope: "all",
+    subgroupFilter: "all",
+    typeFilter: "all",
+    studyMode: "all",
     rangeStart: 1,
     rangeEnd: words.length,
     queue: words.map((word) => word.id),
     cursor: 0,
     shuffle: false,
+    dataVersion: activeLibrary?.dataVersion || 1,
   };
 }
 
@@ -172,6 +232,15 @@ function normalizeState(value) {
   const scope = validScopes().has(String(value.scope))
     ? String(value.scope)
     : "all";
+  const subgroupFilter = validSubgroups(scope).has(value.subgroupFilter)
+    ? value.subgroupFilter
+    : "all";
+  const typeFilter = validExpressionTypes().has(value.typeFilter)
+    ? value.typeFilter
+    : "all";
+  const studyMode = validStudyModes.has(value.studyMode)
+    ? value.studyMode
+    : "all";
   const rawStart = Number.isInteger(value.rangeStart) ? value.rangeStart : 1;
   const rawEnd = Number.isInteger(value.rangeEnd)
     ? value.rangeEnd
@@ -187,6 +256,9 @@ function normalizeState(value) {
       Number.isInteger(value.round) && value.round > 0 ? value.round : 1,
     statuses,
     scope,
+    subgroupFilter,
+    typeFilter,
+    studyMode,
     rangeStart: Math.min(start, end),
     rangeEnd: Math.max(start, end),
     queue,
@@ -195,6 +267,7 @@ function normalizeState(value) {
       queue.length,
     ),
     shuffle: Boolean(value.shuffle),
+    dataVersion: Number.isInteger(value.dataVersion) ? value.dataVersion : 1,
   };
 }
 
@@ -243,6 +316,15 @@ async function activateLibrary(id, { initial = false } = {}) {
       saved = legacyState;
     }
     state = normalizeState(saved) || createDefaultState();
+    if (
+      activeLibrary.dataVersion &&
+      (saved?.dataVersion || 1) < activeLibrary.dataVersion
+    ) {
+      state.dataVersion = activeLibrary.dataVersion;
+      state.round = 1;
+      state.cursor = 0;
+      state.queue = buildQueue(activeWords());
+    }
     appState.libraries[library.id] = state;
 
     revealed = false;
@@ -261,12 +343,27 @@ async function activateLibrary(id, { initial = false } = {}) {
   }
 }
 
-function activeWords() {
+function scopeWords() {
   if (state.scope === "all") return words;
   if (state.scope === "custom") {
     return words.slice(state.rangeStart - 1, state.rangeEnd);
   }
-  return words.filter((word) => word.day === Number(state.scope));
+  return words.filter((word) => wordScopeKey(word) === state.scope);
+}
+
+function activeWords() {
+  let result = scopeWords();
+  if (state.subgroupFilter !== "all") {
+    result = result.filter(
+      (word) => word.logicGroup === state.subgroupFilter,
+    );
+  }
+  if (state.typeFilter !== "all") {
+    result = result.filter(
+      (word) => word.expressionType === state.typeFilter,
+    );
+  }
+  return result;
 }
 
 function summarize(list = words, targetState = state) {
@@ -310,6 +407,9 @@ function buildQueue(list) {
   for (const word of list) {
     const status = state.statuses[word.id];
     if (status === "mastered") continue;
+    if (state.studyMode === "unknown" && status !== "unknown") continue;
+    if (state.studyMode === "known" && status !== "known") continue;
+    if (state.studyMode === "unseen" && validStatuses.has(status)) continue;
     if (status === "unknown") groups.unknown.push(word.id);
     else if (status === "known") groups.known.push(word.id);
     else groups.unseen.push(word.id);
@@ -328,7 +428,10 @@ function currentWord() {
 }
 
 function setRevealed(nextValue) {
-  const hasAnswer = Boolean(currentWord()?.equivalents);
+  const word = currentWord();
+  const hasAnswer = Boolean(
+    word?.equivalents || word?.pos || word?.example || word?.notes,
+  );
   revealed = Boolean(nextValue && hasAnswer);
   elements.wordCard.classList.toggle("is-revealed", revealed);
   elements.wordCard.classList.toggle("has-no-answer", !hasAnswer);
@@ -345,7 +448,32 @@ function scopeDescription() {
   if (state.scope === "custom") {
     return `第 ${state.rangeStart} 到 ${state.rangeEnd} 词`;
   }
-  return `第 ${state.scope} ${activeLibrary.groupLabel}`;
+  const selected = scopeOptions().find((item) => item.id === state.scope);
+  let label = selected?.label || "当前范围";
+  if (state.subgroupFilter !== "all") {
+    const word = words.find(
+      (item) => item.logicGroup === state.subgroupFilter,
+    );
+    if (word) label += `，${word.logicGroupLabel}`;
+  }
+  if (state.typeFilter !== "all") label += `，${state.typeFilter}`;
+  return label;
+}
+
+function renderCardTags(word) {
+  elements.cardTags.replaceChildren();
+  const labels = [];
+  if (word.chapterName) {
+    labels.push(word.logicGroupLabel);
+    labels.push(`本词群 ${word.positionInGroup} / ${word.groupSize}`);
+  } else if (word.part) {
+    labels.push(word.topic, word.expressionType);
+  }
+  for (const text of labels.filter(Boolean)) {
+    const tag = document.createElement("span");
+    tag.textContent = text;
+    elements.cardTags.append(tag);
+  }
 }
 
 function render() {
@@ -381,7 +509,10 @@ function render() {
       ? `拖动定位单词，当前第 ${sliderIndex + 1} 个，共 ${state.queue.length} 个`
       : "本轮没有待学单词",
   );
-  elements.scopeLabel.textContent = scopeDescription();
+  elements.scopeLabel.textContent =
+    state.studyMode === "all"
+      ? scopeDescription()
+      : `${scopeDescription()}，${studyModeLabels[state.studyMode]}`;
   elements.remainingCount.textContent = String(remaining);
   elements.masteredCount.textContent = String(totalSummary.mastered);
   elements.totalWordCount.textContent = String(words.length);
@@ -389,6 +520,7 @@ function render() {
   elements.libraryKnownCount.textContent = String(totalSummary.known);
   elements.libraryUnknownCount.textContent = String(totalSummary.unknown);
   elements.libraryMasteredCount.textContent = String(totalSummary.mastered);
+  elements.statusLibraryName.textContent = activeLibrary.name;
   elements.shuffleToggle.classList.toggle("on", state.shuffle);
   elements.shuffleToggle.setAttribute("aria-pressed", String(state.shuffle));
   elements.undoButton.disabled = !lastAction;
@@ -405,14 +537,27 @@ function render() {
     const word = currentWord();
     elements.studyView.classList.remove("hidden");
     elements.summaryView.classList.add("hidden");
-    elements.dayLabel.textContent = `第 ${word.day} ${activeLibrary.groupLabel}`;
+    elements.dayLabel.textContent =
+      word.scopeLabel ||
+      `第 ${word.day} ${activeLibrary.groupLabel}`;
+    renderCardTags(word);
     elements.wordText.textContent = word.word;
     elements.wordText.classList.toggle(
       "is-phrase",
       word.word.length > 24 || word.word.includes(" "),
     );
-    elements.equivalentsText.textContent = word.equivalents;
+    const primaryAnswer = [word.pos, word.equivalents]
+      .filter(Boolean)
+      .join(" ");
+    elements.equivalentsText.textContent = primaryAnswer;
+    elements.answerPrimaryBlock.classList.toggle("hidden", !primaryAnswer);
     elements.meaningText.textContent = word.meaning;
+    elements.usageText.textContent = word.usage || "";
+    elements.usageArea.classList.toggle("hidden", !word.usage);
+    elements.exampleText.textContent = word.example || "";
+    elements.exampleBlock.classList.toggle("hidden", !word.example);
+    elements.notesText.textContent = word.notes || "";
+    elements.notesBlock.classList.toggle("hidden", !word.notes);
     elements.speakButton.setAttribute("aria-label", `朗读 ${word.word}`);
     setRevealed(revealed);
     for (const button of document.querySelectorAll(".decision-button")) {
@@ -430,20 +575,47 @@ function render() {
     elements.summaryView.classList.remove("hidden");
     const allMastered = active.length > 0 &&
       activeSummary.mastered === active.length;
-    elements.summaryKicker.textContent = allMastered
-      ? "已经全部掌握"
-      : `第 ${state.round} 轮完成`;
+    const modeCleared =
+      (state.studyMode === "unknown" && activeSummary.unknown === 0) ||
+      (state.studyMode === "known" && activeSummary.known === 0) ||
+      (state.studyMode === "unseen" && activeSummary.unseen === 0);
+    summaryNextMode = null;
+    if (state.studyMode === "unknown" && modeCleared) summaryNextMode = "known";
+    if (state.studyMode === "known" && modeCleared) summaryNextMode = "all";
+    if (state.studyMode === "unseen" && modeCleared) summaryNextMode = "unknown";
+
+    elements.summaryKicker.textContent =
+      allMastered || modeCleared
+        ? "当前练习已经完成"
+        : `第 ${state.round} 轮完成`;
     elements.summaryTitle.textContent = allMastered
       ? "这组词已经清空"
-      : "休息一下，再过一轮";
+      : modeCleared
+        ? `${studyModeLabels[state.studyMode]}已经清空`
+        : "休息一下，再过一轮";
     elements.summaryText.textContent = allMastered
       ? "完全熟悉的词不会再次出现。你可以切换词库或学习范围，原来的进度不会丢失。"
-      : `下一轮先看 ${activeSummary.unknown} 个不认识的词，再看 ${activeSummary.known} 个认识的词。`;
+      : modeCleared
+        ? state.studyMode === "unknown"
+          ? "你已经把这批不认识的词移到了认识或完全熟悉。现在可以接着刷认识的词。"
+          : "当前模式中已经没有待刷词。你可以切换复习模式继续学习。"
+        : state.studyMode === "all"
+          ? `下一轮先看 ${activeSummary.unknown} 个不认识的词，再看 ${activeSummary.known} 个认识的词。`
+          : `下一轮继续复习 ${studyModeLabels[state.studyMode]}的词。`;
     elements.summaryUnknown.textContent = String(activeSummary.unknown);
     elements.summaryKnown.textContent = String(activeSummary.known);
     elements.summaryMastered.textContent = String(activeSummary.mastered);
-    elements.nextRoundButton.classList.toggle("hidden", allMastered);
-    elements.nextRoundLabel.textContent = `开始第 ${state.round + 1} 轮`;
+    elements.nextRoundButton.classList.toggle(
+      "hidden",
+      allMastered && !summaryNextMode,
+    );
+    elements.nextRoundLabel.textContent = summaryNextMode
+      ? summaryNextMode === "known"
+        ? "接着刷认识的词"
+        : summaryNextMode === "unknown"
+          ? "接着刷不认识的词"
+          : "回到全部未掌握"
+      : `开始第 ${state.round + 1} 轮`;
   }
 
   if (!elements.panelBackdrop.classList.contains("hidden")) renderPanel();
@@ -482,6 +654,10 @@ function undo() {
 }
 
 function startNextRound() {
+  if (summaryNextMode) {
+    changeStudyMode(summaryNextMode);
+    return;
+  }
   state.round += 1;
   state.queue = buildQueue(activeWords());
   state.cursor = 0;
@@ -492,9 +668,11 @@ function startNextRound() {
   render();
 }
 
-function changeScope(scope) {
+function changeScope(scope, keepPanelOpen = false) {
   if (!validScopes().has(scope)) return;
   state.scope = scope;
+  state.subgroupFilter = "all";
+  state.typeFilter = "all";
   state.round = 1;
   state.queue = buildQueue(activeWords());
   state.cursor = 0;
@@ -502,8 +680,55 @@ function changeScope(scope) {
   lastAction = null;
   setRevealed(false);
   persist();
+  if (!keepPanelOpen) closePanel();
+  render();
+}
+
+function changeStudyMode(mode) {
+  if (!validStudyModes.has(mode)) return;
+  state.studyMode = mode;
+  state.round = 1;
+  state.queue = buildQueue(activeWords());
+  state.cursor = 0;
+  historyOffset = 0;
+  lastAction = null;
+  summaryNextMode = null;
+  setRevealed(false);
+  persist();
   closePanel();
   render();
+}
+
+function changeSubgroup(subgroup) {
+  if (!validSubgroups().has(subgroup)) return;
+  state.subgroupFilter = subgroup;
+  state.round = 1;
+  state.queue = buildQueue(activeWords());
+  state.cursor = 0;
+  historyOffset = 0;
+  lastAction = null;
+  setRevealed(false);
+  persist();
+  render();
+}
+
+function changeTypeFilter(type) {
+  if (!validExpressionTypes().has(type)) return;
+  state.typeFilter = type;
+  state.round = 1;
+  state.queue = buildQueue(activeWords());
+  state.cursor = 0;
+  historyOffset = 0;
+  lastAction = null;
+  setRevealed(false);
+  persist();
+  render();
+}
+
+function statusMatchesMode(status) {
+  if (state.studyMode === "all") return status !== "mastered";
+  if (state.studyMode === "unseen") return !validStatuses.has(status);
+  return status === state.studyMode;
 }
 
 function changeLibraryStatus(id, status) {
@@ -511,13 +736,13 @@ function changeLibraryStatus(id, status) {
   const previousStatus = state.statuses[id];
   state.statuses[id] = status;
   const removedIndex = state.queue.indexOf(id);
-  if (status === "mastered") {
+  if (!statusMatchesMode(status)) {
     state.queue = state.queue.filter((queueId) => queueId !== id);
     if (removedIndex !== -1 && removedIndex < state.cursor) {
       state.cursor = Math.max(0, state.cursor - 1);
     }
   } else if (
-    previousStatus === "mastered" &&
+    !statusMatchesMode(previousStatus) &&
     !state.queue.includes(id) &&
     activeWords().some((word) => word.id === id)
   ) {
@@ -631,12 +856,19 @@ function renderCatalog() {
 }
 
 function renderLibrary() {
+  elements.statusLibraryName.textContent = activeLibrary.name;
   for (const button of elements.libraryTabs.querySelectorAll("button")) {
     button.classList.toggle(
       "active",
       button.dataset.libraryStatus === libraryStatus,
     );
   }
+  elements.statusStudyButton.classList.toggle(
+    "hidden",
+    libraryStatus === "mastered",
+  );
+  elements.statusStudyButton.textContent =
+    libraryStatus === "unknown" ? "只刷不认识的词" : "只刷认识的词";
 
   const query = elements.searchInput.value.trim().toLowerCase();
   const matchingWords = words.filter((word) => {
@@ -645,7 +877,10 @@ function renderLibrary() {
     return (
       word.word.toLowerCase().includes(query) ||
       word.equivalents.toLowerCase().includes(query) ||
-      word.meaning.toLowerCase().includes(query)
+      word.meaning.toLowerCase().includes(query) ||
+      (word.topic || "").toLowerCase().includes(query) ||
+      (word.expressionType || "").toLowerCase().includes(query) ||
+      (word.chapterName || "").toLowerCase().includes(query)
     );
   });
 
@@ -697,21 +932,51 @@ function renderLibrary() {
 }
 
 function renderSettings() {
+  const counts = summarize(activeWords());
+  const modeCounts = {
+    all: counts.unknown + counts.known + counts.unseen,
+    unknown: counts.unknown,
+    known: counts.known,
+    unseen: counts.unseen,
+  };
+
+  elements.modeList.replaceChildren();
+  for (const mode of ["all", "unknown", "known", "unseen"]) {
+    const button = document.createElement("button");
+    button.classList.toggle("active", state.studyMode === mode);
+    const label = document.createElement("span");
+    label.textContent = studyModeLabels[mode];
+    const count = document.createElement("i");
+    count.textContent = `${modeCounts[mode].toLocaleString("zh-CN")} 词`;
+    button.append(label, count);
+    button.addEventListener("click", () => changeStudyMode(mode));
+    elements.modeList.append(button);
+  }
+
   elements.scopeList.replaceChildren();
   const scopes = [
     {
       id: "all",
       label: `全部 ${words.length.toLocaleString("zh-CN")} 词`,
     },
-    ...groupNumbers().map((group) => {
-      const count = words.filter((word) => word.day === group).length;
-      return {
-        id: String(group),
-        label: `第 ${group} ${activeLibrary.groupLabel}，${count} 词`,
-      };
-    }),
+    ...scopeOptions().map((scope) => ({
+      ...scope,
+      label: `${scope.label}，${scope.count.toLocaleString("zh-CN")} 词`,
+    })),
   ];
+  let lastPart = "";
   for (const scope of scopes) {
+    if (
+      activeLibrary.scopeStyle === "writing" &&
+      scope.part &&
+      scope.part !== lastPart
+    ) {
+      const heading = document.createElement("div");
+      heading.className = "scope-heading";
+      heading.textContent = scope.part;
+      elements.scopeList.append(heading);
+      lastPart = scope.part;
+    }
     const button = document.createElement("button");
     button.classList.toggle("active", state.scope === scope.id);
     const label = document.createElement("span");
@@ -719,9 +984,94 @@ function renderSettings() {
     const check = document.createElement("i");
     check.textContent = state.scope === scope.id ? "✓" : "";
     button.append(label, check);
-    button.addEventListener("click", () => changeScope(scope.id));
+    button.addEventListener("click", () =>
+      changeScope(
+        scope.id,
+        activeLibrary.scopeStyle === "bible" ||
+          activeLibrary.scopeStyle === "writing",
+      ),
+    );
     elements.scopeList.append(button);
   }
+
+  const showSubgroups =
+    activeLibrary.scopeStyle === "bible" &&
+    state.scope !== "all" &&
+    state.scope !== "custom";
+  elements.subgroupSection.classList.toggle("hidden", !showSubgroups);
+  elements.subgroupList.replaceChildren();
+  if (showSubgroups) {
+    const groups = new Map();
+    for (const word of scopeWords()) {
+      if (!word.logicGroup) continue;
+      const existing = groups.get(word.logicGroup);
+      if (existing) existing.count += 1;
+      else {
+        groups.set(word.logicGroup, {
+          id: word.logicGroup,
+          label: word.logicGroupLabel,
+          order: word.logicGroupNumber,
+          count: 1,
+        });
+      }
+    }
+    const subgroupOptions = [
+      {
+        id: "all",
+        label: `本章全部词群，${scopeWords().length.toLocaleString("zh-CN")} 词`,
+      },
+      ...[...groups.values()]
+        .sort((left, right) => left.order - right.order)
+        .map((group) => ({
+          id: group.id,
+          label: `${group.label}，${group.count} 词`,
+        })),
+    ];
+    for (const subgroup of subgroupOptions) {
+      const button = document.createElement("button");
+      button.classList.toggle("active", state.subgroupFilter === subgroup.id);
+      const label = document.createElement("span");
+      label.textContent = subgroup.label;
+      const check = document.createElement("i");
+      check.textContent = state.subgroupFilter === subgroup.id ? "✓" : "";
+      button.append(label, check);
+      button.addEventListener("click", () => changeSubgroup(subgroup.id));
+      elements.subgroupList.append(button);
+    }
+  }
+
+  const showTypes = activeLibrary.scopeStyle === "writing";
+  elements.typeSection.classList.toggle("hidden", !showTypes);
+  elements.typeList.replaceChildren();
+  if (showTypes) {
+    const typeCounts = new Map();
+    for (const word of scopeWords()) {
+      const type = word.expressionType || "其他";
+      typeCounts.set(type, (typeCounts.get(type) || 0) + 1);
+    }
+    const typeOptions = [
+      {
+        id: "all",
+        label: `全部表达类型，${scopeWords().length.toLocaleString("zh-CN")} 词`,
+      },
+      ...[...typeCounts.entries()].map(([type, count]) => ({
+        id: type,
+        label: `${type}，${count} 词`,
+      })),
+    ];
+    for (const type of typeOptions) {
+      const button = document.createElement("button");
+      button.classList.toggle("active", state.typeFilter === type.id);
+      const label = document.createElement("span");
+      label.textContent = type.label;
+      const check = document.createElement("i");
+      check.textContent = state.typeFilter === type.id ? "✓" : "";
+      button.append(label, check);
+      button.addEventListener("click", () => changeTypeFilter(type.id));
+      elements.typeList.append(button);
+    }
+  }
+
   elements.rangeStartInput.value = String(state.rangeStart);
   elements.rangeEndInput.value = String(state.rangeEnd);
   elements.rangeStartInput.max = String(words.length);
@@ -743,6 +1093,8 @@ function applyCustomRange() {
   state.rangeStart = Math.min(start, end);
   state.rangeEnd = Math.max(start, end);
   state.scope = "custom";
+  state.subgroupFilter = "all";
+  state.typeFilter = "all";
   state.round = 1;
   state.queue = buildQueue(activeWords());
   state.cursor = 0;
@@ -809,6 +1161,11 @@ elements.libraryTabs.addEventListener("click", (event) => {
   if (!button) return;
   libraryStatus = button.dataset.libraryStatus;
   renderLibrary();
+});
+elements.statusStudyButton.addEventListener("click", () => {
+  if (libraryStatus === "unknown" || libraryStatus === "known") {
+    changeStudyMode(libraryStatus);
+  }
 });
 elements.searchInput.addEventListener("input", renderLibrary);
 elements.exportButton.addEventListener("click", exportProgress);

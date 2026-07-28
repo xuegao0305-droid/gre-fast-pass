@@ -25,22 +25,26 @@
     "id": "ielts-vocabulary-bible",
     "name": "雅思词汇真经 3673",
     "shortName": "雅思词汇真经",
-    "description": "核心雅思词汇与中文释义",
+    "description": "按 22 章和原书逻辑词群整理",
     "file": "./data/ielts-vocabulary-bible.json",
     "count": 3673,
-    "answerLabel": "美式发音",
-    "groupLabel": "组",
-    "sourceLabel": "Qwerty Learner 公开词表"
+    "answerLabel": "词性与发音",
+    "groupLabel": "章",
+    "scopeStyle": "bible",
+    "dataVersion": 2,
+    "sourceLabel": "Qwerty Learner 词表与 My IELTS 公开分组"
   },
   {
     "id": "ielts-writing",
-    "name": "雅思写作词汇与词组 143",
+    "name": "雅思写作词汇与词组 234",
     "shortName": "雅思写作积累",
-    "description": "议论文与图表作文常用表达",
+    "description": "小作文按题材，大作文按话题整理",
     "file": "./data/ielts-writing.json",
-    "count": 143,
+    "count": 234,
     "answerLabel": "替换表达",
     "groupLabel": "组",
+    "scopeStyle": "writing",
+    "dataVersion": 2,
     "sourceLabel": "公开资料整理版"
   },
   {
