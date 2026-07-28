@@ -1,0 +1,6337 @@
+[
+  {
+    "id": "zw-0001",
+    "day": 1,
+    "word": "mitigate",
+    "equivalents": "abate, curtail, temper, ameliorate",
+    "meaning": "缓和"
+  },
+  {
+    "id": "zw-0002",
+    "day": 1,
+    "word": "anomaly",
+    "equivalents": "aberration",
+    "meaning": "异常"
+  },
+  {
+    "id": "zw-0003",
+    "day": 1,
+    "word": "quiescent",
+    "equivalents": "abeyant, calm",
+    "meaning": "不活跃的，静止的"
+  },
+  {
+    "id": "zw-0004",
+    "day": 1,
+    "word": "unprecedented",
+    "equivalents": "abnormal",
+    "meaning": "前所未有的"
+  },
+  {
+    "id": "zw-0005",
+    "day": 1,
+    "word": "proliferate",
+    "equivalents": "abound",
+    "meaning": "激增"
+  },
+  {
+    "id": "zw-0006",
+    "day": 1,
+    "word": "synoptic",
+    "equivalents": "abridged",
+    "meaning": "概要的"
+  },
+  {
+    "id": "zw-0007",
+    "day": 1,
+    "word": "exonerate",
+    "equivalents": "absolve",
+    "meaning": "免罪"
+  },
+  {
+    "id": "zw-0008",
+    "day": 1,
+    "word": "general",
+    "equivalents": "abstract",
+    "meaning": "笼统的"
+  },
+  {
+    "id": "zw-0009",
+    "day": 1,
+    "word": "regular",
+    "equivalents": "abundant",
+    "meaning": "常出现的"
+  },
+  {
+    "id": "zw-0010",
+    "day": 1,
+    "word": "misuse",
+    "equivalents": "abuse",
+    "meaning": "误用"
+  },
+  {
+    "id": "zw-0011",
+    "day": 1,
+    "word": "acquiescence",
+    "equivalents": "accession",
+    "meaning": "默许"
+  },
+  {
+    "id": "zw-0012",
+    "day": 1,
+    "word": "hail",
+    "equivalents": "acclaim",
+    "meaning": "称赞"
+  },
+  {
+    "id": "zw-0013",
+    "day": 1,
+    "word": "consensus",
+    "equivalents": "accord",
+    "meaning": "一致意见"
+  },
+  {
+    "id": "zw-0014",
+    "day": 1,
+    "word": "caustic",
+    "equivalents": "acerbic",
+    "meaning": "尖刻的"
+  },
+  {
+    "id": "zw-0015",
+    "day": 1,
+    "word": "mordant",
+    "equivalents": "acerbic",
+    "meaning": "尖刻的"
+  },
+  {
+    "id": "zw-0016",
+    "day": 1,
+    "word": "vitriolic",
+    "equivalents": "acerbic, opprobrium",
+    "meaning": "尖酸刻薄的"
+  },
+  {
+    "id": "zw-0017",
+    "day": 1,
+    "word": "realize",
+    "equivalents": "achieve",
+    "meaning": "实现"
+  },
+  {
+    "id": "zw-0018",
+    "day": 1,
+    "word": "concede",
+    "equivalents": "acknowledge",
+    "meaning": "承认"
+  },
+  {
+    "id": "zw-0019",
+    "day": 1,
+    "word": "accession",
+    "equivalents": "acquiescence",
+    "meaning": "遵守"
+  },
+  {
+    "id": "zw-0020",
+    "day": 1,
+    "word": "flexibility",
+    "equivalents": "adaptability, suppleness",
+    "meaning": "灵活性，适应性"
+  },
+  {
+    "id": "zw-0021",
+    "day": 1,
+    "word": "proficient",
+    "equivalents": "adept",
+    "meaning": "精通的"
+  },
+  {
+    "id": "zw-0022",
+    "day": 1,
+    "word": "disciple",
+    "equivalents": "adherent",
+    "meaning": "信徒"
+  },
+  {
+    "id": "zw-0023",
+    "day": 1,
+    "word": "nimble",
+    "equivalents": "adroit, dexterous, skillful",
+    "meaning": "敏捷的"
+  },
+  {
+    "id": "zw-0024",
+    "day": 1,
+    "word": "approbation",
+    "equivalents": "adulation, commendation",
+    "meaning": "赞同"
+  },
+  {
+    "id": "zw-0025",
+    "day": 1,
+    "word": "antagonistic",
+    "equivalents": "adversarial, inimical",
+    "meaning": "敌对的"
+  },
+  {
+    "id": "zw-0026",
+    "day": 1,
+    "word": "easygoing",
+    "equivalents": "affable",
+    "meaning": "悠闲的"
+  },
+  {
+    "id": "zw-0027",
+    "day": 1,
+    "word": "kindred",
+    "equivalents": "affiliated",
+    "meaning": "同类的，相似的"
+  },
+  {
+    "id": "zw-0028",
+    "day": 1,
+    "word": "opulent",
+    "equivalents": "affluent",
+    "meaning": "富裕的"
+  },
+  {
+    "id": "zw-0029",
+    "day": 1,
+    "word": "exacerbate",
+    "equivalents": "aggravate",
+    "meaning": "使恶化"
+  },
+  {
+    "id": "zw-0030",
+    "day": 1,
+    "word": "unsettle",
+    "equivalents": "alarm",
+    "meaning": "使不安"
+  },
+  {
+    "id": "zw-0031",
+    "day": 1,
+    "word": "beneficence",
+    "equivalents": "altruism",
+    "meaning": "慈善，善行"
+  },
+  {
+    "id": "zw-0032",
+    "day": 1,
+    "word": "benevolent",
+    "equivalents": "altruistic, magnanimous",
+    "meaning": "仁慈的"
+  },
+  {
+    "id": "zw-0033",
+    "day": 1,
+    "word": "wondrous",
+    "equivalents": "amazing",
+    "meaning": "奇妙的"
+  },
+  {
+    "id": "zw-0034",
+    "day": 1,
+    "word": "equivocal",
+    "equivalents": "ambiguous",
+    "meaning": "模棱两可的"
+  },
+  {
+    "id": "zw-0035",
+    "day": 1,
+    "word": "comparable",
+    "equivalents": "analogous",
+    "meaning": "相似的"
+  },
+  {
+    "id": "zw-0036",
+    "day": 1,
+    "word": "galvanize",
+    "equivalents": "animate, rouse",
+    "meaning": "激励"
+  },
+  {
+    "id": "zw-0037",
+    "day": 1,
+    "word": "aberration",
+    "equivalents": "anomaly",
+    "meaning": "异常"
+  },
+  {
+    "id": "zw-0038",
+    "day": 1,
+    "word": "irregularity",
+    "equivalents": "anomaly",
+    "meaning": "异常"
+  },
+  {
+    "id": "zw-0039",
+    "day": 1,
+    "word": "obscure",
+    "equivalents": "anonymous, opaque, obfuscate",
+    "meaning": "1.不出名的2.费解的3.使.费解"
+  },
+  {
+    "id": "zw-0040",
+    "day": 1,
+    "word": "adversarial",
+    "equivalents": "antagonistic",
+    "meaning": "对立的"
+  },
+  {
+    "id": "zw-0041",
+    "day": 1,
+    "word": "inimical",
+    "equivalents": "antagonistic, deleterious",
+    "meaning": "1.有害的2.不友好的"
+  },
+  {
+    "id": "zw-0042",
+    "day": 1,
+    "word": "predate",
+    "equivalents": "antedate, precede",
+    "meaning": "早于"
+  },
+  {
+    "id": "zw-0043",
+    "day": 1,
+    "word": "archaic",
+    "equivalents": "antediluvian, outdated",
+    "meaning": "古老的"
+  },
+  {
+    "id": "zw-0044",
+    "day": 1,
+    "word": "foresee",
+    "equivalents": "anticipate",
+    "meaning": "预见"
+  },
+  {
+    "id": "zw-0045",
+    "day": 1,
+    "word": "prefigure",
+    "equivalents": "anticipate",
+    "meaning": "预示"
+  },
+  {
+    "id": "zw-0046",
+    "day": 1,
+    "word": "indifferent",
+    "equivalents": "apathy",
+    "meaning": "冷漠"
+  },
+  {
+    "id": "zw-0047",
+    "day": 1,
+    "word": "palatable",
+    "equivalents": "appetizing",
+    "meaning": "好吃的"
+  },
+  {
+    "id": "zw-0048",
+    "day": 1,
+    "word": "extol",
+    "equivalents": "applaud",
+    "meaning": "赞扬"
+  },
+  {
+    "id": "zw-0049",
+    "day": 1,
+    "word": "fitting",
+    "equivalents": "apposite",
+    "meaning": "适合的"
+  },
+  {
+    "id": "zw-0050",
+    "day": 1,
+    "word": "commendation",
+    "equivalents": "approbation",
+    "meaning": "称赞"
+  },
+  {
+    "id": "zw-0051",
+    "day": 1,
+    "word": "adulation",
+    "equivalents": "approbation, sycophant",
+    "meaning": "谄媚"
+  },
+  {
+    "id": "zw-0052",
+    "day": 1,
+    "word": "pilfer",
+    "equivalents": "appropriate",
+    "meaning": "偷窃"
+  },
+  {
+    "id": "zw-0053",
+    "day": 1,
+    "word": "antediluvian",
+    "equivalents": "archaic",
+    "meaning": "过时的"
+  },
+  {
+    "id": "zw-0054",
+    "day": 1,
+    "word": "laborious",
+    "equivalents": "arduous",
+    "meaning": "勤劳的"
+  },
+  {
+    "id": "zw-0055",
+    "day": 1,
+    "word": "taxing",
+    "equivalents": "arduous",
+    "meaning": "费劲的"
+  },
+  {
+    "id": "zw-0056",
+    "day": 1,
+    "word": "hubris",
+    "equivalents": "arrogance",
+    "meaning": "傲慢自大的"
+  },
+  {
+    "id": "zw-0057",
+    "day": 1,
+    "word": "specious",
+    "equivalents": "artificial, forged, fabricated, spurious",
+    "meaning": "虚假的"
+  },
+  {
+    "id": "zw-0058",
+    "day": 1,
+    "word": "spurious",
+    "equivalents": "artificial, implausible",
+    "meaning": "虚假的"
+  },
+  {
+    "id": "zw-0059",
+    "day": 1,
+    "word": "simplicity",
+    "equivalents": "artlessness",
+    "meaning": "简单，简朴"
+  },
+  {
+    "id": "zw-0060",
+    "day": 1,
+    "word": "slur",
+    "equivalents": "aspersion",
+    "meaning": "贬低"
+  },
+  {
+    "id": "zw-0061",
+    "day": 1,
+    "word": "maintain",
+    "equivalents": "assert",
+    "meaning": "断言"
+  },
+  {
+    "id": "zw-0062",
+    "day": 1,
+    "word": "expansion",
+    "equivalents": "augmentation, burgeoning",
+    "meaning": "扩张，增长"
+  },
+  {
+    "id": "zw-0063",
+    "day": 1,
+    "word": "favorable",
+    "equivalents": "auspicious",
+    "meaning": "有利的"
+  },
+  {
+    "id": "zw-0064",
+    "day": 1,
+    "word": "propitious",
+    "equivalents": "auspicious",
+    "meaning": "吉利的"
+  },
+  {
+    "id": "zw-0065",
+    "day": 1,
+    "word": "spartan",
+    "equivalents": "austere",
+    "meaning": "朴素的"
+  },
+  {
+    "id": "zw-0066",
+    "day": 1,
+    "word": "abstemious",
+    "equivalents": "austere, moderate",
+    "meaning": "有节制的"
+  },
+  {
+    "id": "zw-0067",
+    "day": 1,
+    "word": "reflexive",
+    "equivalents": "automatic",
+    "meaning": "本能的，无意识的"
+  },
+  {
+    "id": "zw-0068",
+    "day": 1,
+    "word": "rapacious",
+    "equivalents": "avaricious",
+    "meaning": "贪婪的"
+  },
+  {
+    "id": "zw-0069",
+    "day": 1,
+    "word": "ungainly",
+    "equivalents": "awkward",
+    "meaning": "笨拙的，不优雅的"
+  },
+  {
+    "id": "zw-0070",
+    "day": 1,
+    "word": "stale",
+    "equivalents": "banal",
+    "meaning": "陈旧的，厌倦的"
+  },
+  {
+    "id": "zw-0071",
+    "day": 1,
+    "word": "raillery",
+    "equivalents": "banter",
+    "meaning": "开玩笑"
+  },
+  {
+    "id": "zw-0072",
+    "day": 1,
+    "word": "untenable",
+    "equivalents": "baseless",
+    "meaning": "站不住脚的"
+  },
+  {
+    "id": "zw-0073",
+    "day": 1,
+    "word": "indebted",
+    "equivalents": "beholden",
+    "meaning": "感激的"
+  },
+  {
+    "id": "zw-0074",
+    "day": 1,
+    "word": "mask",
+    "equivalents": "belie",
+    "meaning": "掩饰"
+  },
+  {
+    "id": "zw-0075",
+    "day": 1,
+    "word": "boon",
+    "equivalents": "benefit",
+    "meaning": "好处，恩惠"
+  },
+  {
+    "id": "zw-0076",
+    "day": 1,
+    "word": "altruistic",
+    "equivalents": "benevolent",
+    "meaning": "无私的"
+  },
+  {
+    "id": "zw-0077",
+    "day": 1,
+    "word": "signify",
+    "equivalents": "betoken",
+    "meaning": "表明"
+  },
+  {
+    "id": "zw-0078",
+    "day": 1,
+    "word": "orientation",
+    "equivalents": "bias",
+    "meaning": "目标，态度"
+  },
+  {
+    "id": "zw-0079",
+    "day": 1,
+    "word": "unimpeachable",
+    "equivalents": "blameless",
+    "meaning": "毋庸置疑的"
+  },
+  {
+    "id": "zw-0080",
+    "day": 1,
+    "word": "insipid",
+    "equivalents": "bland",
+    "meaning": "枯燥乏味的"
+  },
+  {
+    "id": "zw-0081",
+    "day": 1,
+    "word": "brandish",
+    "equivalents": "boast",
+    "meaning": "炫耀"
+  },
+  {
+    "id": "zw-0082",
+    "day": 1,
+    "word": "buttress",
+    "equivalents": "bolster",
+    "meaning": "支持"
+  },
+  {
+    "id": "zw-0083",
+    "day": 1,
+    "word": "appropriate",
+    "equivalents": "borrow",
+    "meaning": "挪用"
+  },
+  {
+    "id": "zw-0084",
+    "day": 1,
+    "word": "boast",
+    "equivalents": "brandish",
+    "meaning": "吹嘘，自夸"
+  },
+  {
+    "id": "zw-0085",
+    "day": 1,
+    "word": "economy",
+    "equivalents": "brevity",
+    "meaning": "节约"
+  },
+  {
+    "id": "zw-0086",
+    "day": 1,
+    "word": "splendor",
+    "equivalents": "brilliance",
+    "meaning": "华丽，显赫"
+  },
+  {
+    "id": "zw-0087",
+    "day": 1,
+    "word": "tolerate",
+    "equivalents": "brook",
+    "meaning": "容许"
+  },
+  {
+    "id": "zw-0088",
+    "day": 1,
+    "word": "pastoral",
+    "equivalents": "bucolic",
+    "meaning": "乡村的"
+  },
+  {
+    "id": "zw-0089",
+    "day": 1,
+    "word": "nascent",
+    "equivalents": "budding, unformed",
+    "meaning": "刚出现的"
+  },
+  {
+    "id": "zw-0090",
+    "day": 1,
+    "word": "insulated from",
+    "equivalents": "buffered against",
+    "meaning": "与……隔绝"
+  },
+  {
+    "id": "zw-0091",
+    "day": 1,
+    "word": "onerous",
+    "equivalents": "burdensome",
+    "meaning": "繁重的"
+  },
+  {
+    "id": "zw-0092",
+    "day": 1,
+    "word": "no-nonsense",
+    "equivalents": "businesslike",
+    "meaning": "严肃的，高效干练的"
+  },
+  {
+    "id": "zw-0093",
+    "day": 1,
+    "word": "bolster",
+    "equivalents": "buttress, prop up",
+    "meaning": "支持"
+  },
+  {
+    "id": "zw-0094",
+    "day": 1,
+    "word": "circumvent",
+    "equivalents": "bypass, sidestep, skirt",
+    "meaning": "避开"
+  },
+  {
+    "id": "zw-0095",
+    "day": 1,
+    "word": "deliberate",
+    "equivalents": "calculated",
+    "meaning": "故意的"
+  },
+  {
+    "id": "zw-0096",
+    "day": 1,
+    "word": "heartless",
+    "equivalents": "callous",
+    "meaning": "残酷的"
+  },
+  {
+    "id": "zw-0097",
+    "day": 1,
+    "word": "solidarity",
+    "equivalents": "camaraderie",
+    "meaning": "团结"
+  },
+  {
+    "id": "zw-0098",
+    "day": 1,
+    "word": "mimic",
+    "equivalents": "camouflage, replicate",
+    "meaning": "2.和……相似1.模仿"
+  },
+  {
+    "id": "zw-0099",
+    "day": 1,
+    "word": "formulaic",
+    "equivalents": "canned",
+    "meaning": "老套的，公式化的"
+  },
+  {
+    "id": "zw-0100",
+    "day": 1,
+    "word": "deft",
+    "equivalents": "canny",
+    "meaning": "灵巧的"
+  },
+  {
+    "id": "zw-0101",
+    "day": 1,
+    "word": "shrewd",
+    "equivalents": "canny, artful",
+    "meaning": "精明的"
+  },
+  {
+    "id": "zw-0102",
+    "day": 1,
+    "word": "arbitrary",
+    "equivalents": "capricious",
+    "meaning": "随意的，武断的"
+  },
+  {
+    "id": "zw-0103",
+    "day": 1,
+    "word": "whimsical",
+    "equivalents": "capricious",
+    "meaning": "难以预测的"
+  },
+  {
+    "id": "zw-0104",
+    "day": 1,
+    "word": "impulsive",
+    "equivalents": "capricious, hasty",
+    "meaning": "沖动的"
+  },
+  {
+    "id": "zw-0105",
+    "day": 1,
+    "word": "secure",
+    "equivalents": "capture, earn",
+    "meaning": "获得"
+  },
+  {
+    "id": "zw-0106",
+    "day": 1,
+    "word": "vigilant",
+    "equivalents": "careful",
+    "meaning": "警惕的"
+  },
+  {
+    "id": "zw-0107",
+    "day": 1,
+    "word": "chastise",
+    "equivalents": "castigate",
+    "meaning": "严厉批评"
+  },
+  {
+    "id": "zw-0108",
+    "day": 1,
+    "word": "shriek",
+    "equivalents": "caterwaul",
+    "meaning": "尖叫"
+  },
+  {
+    "id": "zw-0109",
+    "day": 1,
+    "word": "relinquish",
+    "equivalents": "cede",
+    "meaning": "放弃"
+  },
+  {
+    "id": "zw-0110",
+    "day": 1,
+    "word": "dispatch",
+    "equivalents": "celerity",
+    "meaning": "迅速"
+  },
+  {
+    "id": "zw-0111",
+    "day": 1,
+    "word": "disapprobation",
+    "equivalents": "censure",
+    "meaning": "谴责"
+  },
+  {
+    "id": "zw-0112",
+    "day": 1,
+    "word": "defend",
+    "equivalents": "champion",
+    "meaning": "次.做辩护"
+  },
+  {
+    "id": "zw-0113",
+    "day": 1,
+    "word": "espouse",
+    "equivalents": "champion, advocate, defend",
+    "meaning": "拥护"
+  },
+  {
+    "id": "zw-0114",
+    "day": 1,
+    "word": "allure",
+    "equivalents": "charm",
+    "meaning": "引诱"
+  },
+  {
+    "id": "zw-0115",
+    "day": 1,
+    "word": "castigate",
+    "equivalents": "chastise",
+    "meaning": "严厉批评"
+  },
+  {
+    "id": "zw-0116",
+    "day": 1,
+    "word": "stem",
+    "equivalents": "check",
+    "meaning": "阻止"
+  },
+  {
+    "id": "zw-0117",
+    "day": 1,
+    "word": "prudent",
+    "equivalents": "circumspect, provident",
+    "meaning": "审慎的"
+  },
+  {
+    "id": "zw-0118",
+    "day": 1,
+    "word": "contingent",
+    "equivalents": "circumstantial",
+    "meaning": "取决于"
+  },
+  {
+    "id": "zw-0119",
+    "day": 1,
+    "word": "sidestep",
+    "equivalents": "circumvent",
+    "meaning": "回避"
+  },
+  {
+    "id": "zw-0120",
+    "day": 1,
+    "word": "bypass",
+    "equivalents": "circumvent, skirt",
+    "meaning": "避开"
+  },
+  {
+    "id": "zw-0121",
+    "day": 1,
+    "word": "comity",
+    "equivalents": "civility",
+    "meaning": "友谊"
+  },
+  {
+    "id": "zw-0122",
+    "day": 1,
+    "word": "covert",
+    "equivalents": "clandestine",
+    "meaning": "秘密的"
+  },
+  {
+    "id": "zw-0123",
+    "day": 1,
+    "word": "archetypical",
+    "equivalents": "classic",
+    "meaning": "典型的"
+  },
+  {
+    "id": "zw-0124",
+    "day": 1,
+    "word": "orderly",
+    "equivalents": "coherent",
+    "meaning": "有秩序的"
+  },
+  {
+    "id": "zw-0125",
+    "day": 1,
+    "word": "immense",
+    "equivalents": "colossal",
+    "meaning": "巨大的"
+  },
+  {
+    "id": "zw-0126",
+    "day": 1,
+    "word": "meld",
+    "equivalents": "combine",
+    "meaning": "混合"
+  },
+  {
+    "id": "zw-0127",
+    "day": 1,
+    "word": "civility",
+    "equivalents": "comity",
+    "meaning": "礼貌"
+  },
+  {
+    "id": "zw-0128",
+    "day": 1,
+    "word": "equivalent",
+    "equivalents": "commensurate",
+    "meaning": "相同的，等价的"
+  },
+  {
+    "id": "zw-0129",
+    "day": 1,
+    "word": "unremarkable",
+    "equivalents": "commonplace",
+    "meaning": "普通的"
+  },
+  {
+    "id": "zw-0130",
+    "day": 1,
+    "word": "analogous",
+    "equivalents": "comparable",
+    "meaning": "类似的"
+  },
+  {
+    "id": "zw-0131",
+    "day": 1,
+    "word": "offset",
+    "equivalents": "compensate",
+    "meaning": "补偿，抵消"
+  },
+  {
+    "id": "zw-0132",
+    "day": 1,
+    "word": "placidity",
+    "equivalents": "complacency",
+    "meaning": "满足，平和"
+  },
+  {
+    "id": "zw-0133",
+    "day": 1,
+    "word": "tractable",
+    "equivalents": "compliant",
+    "meaning": "驯服的，温顺的"
+  },
+  {
+    "id": "zw-0134",
+    "day": 1,
+    "word": "knotty",
+    "equivalents": "complicated",
+    "meaning": "复杂的，棘手的"
+  },
+  {
+    "id": "zw-0135",
+    "day": 1,
+    "word": "acknowledge",
+    "equivalents": "concede",
+    "meaning": "承认"
+  },
+  {
+    "id": "zw-0136",
+    "day": 1,
+    "word": "plausible",
+    "equivalents": "conceivable",
+    "meaning": "1.真实的2.看似真实(但实际虚假)"
+  },
+  {
+    "id": "zw-0137",
+    "day": 1,
+    "word": "decry",
+    "equivalents": "condemn",
+    "meaning": "公开谴责"
+  },
+  {
+    "id": "zw-0138",
+    "day": 1,
+    "word": "meet",
+    "equivalents": "condign",
+    "meaning": "合适的"
+  },
+  {
+    "id": "zw-0139",
+    "day": 1,
+    "word": "circumscribe",
+    "equivalents": "confine, limit",
+    "meaning": "限制"
+  },
+  {
+    "id": "zw-0140",
+    "day": 1,
+    "word": "hew to",
+    "equivalents": "conform to",
+    "meaning": "遵守"
+  },
+  {
+    "id": "zw-0141",
+    "day": 1,
+    "word": "square with",
+    "equivalents": "conform to",
+    "meaning": "与……。一致"
+  },
+  {
+    "id": "zw-0142",
+    "day": 1,
+    "word": "flummox",
+    "equivalents": "confound",
+    "meaning": "使困惑"
+  },
+  {
+    "id": "zw-0143",
+    "day": 1,
+    "word": "perplex",
+    "equivalents": "confound",
+    "meaning": "迷惑"
+  },
+  {
+    "id": "zw-0144",
+    "day": 1,
+    "word": "muddle",
+    "equivalents": "confuse",
+    "meaning": "使.混乱"
+  },
+  {
+    "id": "zw-0145",
+    "day": 1,
+    "word": "speculation",
+    "equivalents": "conjecture",
+    "meaning": "推测"
+  },
+  {
+    "id": "zw-0146",
+    "day": 1,
+    "word": "obtrusive",
+    "equivalents": "conspicuous",
+    "meaning": "惹眼的"
+  },
+  {
+    "id": "zw-0147",
+    "day": 1,
+    "word": "prominent",
+    "equivalents": "conspicuous, salient",
+    "meaning": "显著的"
+  },
+  {
+    "id": "zw-0148",
+    "day": 1,
+    "word": "deter",
+    "equivalents": "constrain",
+    "meaning": "阻止"
+  },
+  {
+    "id": "zw-0149",
+    "day": 1,
+    "word": "ponder",
+    "equivalents": "contemplate",
+    "meaning": "深思熟虑"
+  },
+  {
+    "id": "zw-0150",
+    "day": 1,
+    "word": "competing",
+    "equivalents": "contending",
+    "meaning": "竞争的"
+  },
+  {
+    "id": "zw-0151",
+    "day": 1,
+    "word": "discordance",
+    "equivalents": "contention",
+    "meaning": "不一致"
+  },
+  {
+    "id": "zw-0152",
+    "day": 1,
+    "word": "controversial",
+    "equivalents": "contentious",
+    "meaning": "有争议的"
+  },
+  {
+    "id": "zw-0153",
+    "day": 1,
+    "word": "circumstantial",
+    "equivalents": "contingent",
+    "meaning": "依情况而定的"
+  },
+  {
+    "id": "zw-0154",
+    "day": 1,
+    "word": "dwindle",
+    "equivalents": "contract",
+    "meaning": "逐渐减小，逐渐变小"
+  },
+  {
+    "id": "zw-0155",
+    "day": 1,
+    "word": "dichotomous",
+    "equivalents": "contradictory",
+    "meaning": "矛盾的"
+  },
+  {
+    "id": "zw-0156",
+    "day": 1,
+    "word": "violate",
+    "equivalents": "contravene",
+    "meaning": "违反"
+  },
+  {
+    "id": "zw-0157",
+    "day": 1,
+    "word": "contentious",
+    "equivalents": "controversial",
+    "meaning": "好争议的"
+  },
+  {
+    "id": "zw-0158",
+    "day": 1,
+    "word": "riddle",
+    "equivalents": "conundrum, enigma, puzzle",
+    "meaning": "谜"
+  },
+  {
+    "id": "zw-0159",
+    "day": 1,
+    "word": "intricate",
+    "equivalents": "convoluted",
+    "meaning": "错综复杂的"
+  },
+  {
+    "id": "zw-0160",
+    "day": 1,
+    "word": "tortuous",
+    "equivalents": "convoluted",
+    "meaning": "冗长复杂的"
+  },
+  {
+    "id": "zw-0161",
+    "day": 1,
+    "word": "upheaval",
+    "equivalents": "convulsion",
+    "meaning": "剧变"
+  },
+  {
+    "id": "zw-0162",
+    "day": 1,
+    "word": "deleterious",
+    "equivalents": "counterproductive, detrimental, devastating",
+    "meaning": "有害的，有毒的"
+  },
+  {
+    "id": "zw-0163",
+    "day": 1,
+    "word": "clandestine",
+    "equivalents": "covert, surreptitious",
+    "meaning": "秘密的"
+  },
+  {
+    "id": "zw-0164",
+    "day": 1,
+    "word": "enviable",
+    "equivalents": "coveted",
+    "meaning": "令人羡慕的"
+  },
+  {
+    "id": "zw-0165",
+    "day": 1,
+    "word": "cunning",
+    "equivalents": "crafty",
+    "meaning": "狡猾的"
+  },
+  {
+    "id": "zw-0166",
+    "day": 1,
+    "word": "beget",
+    "equivalents": "create",
+    "meaning": "产生"
+  },
+  {
+    "id": "zw-0167",
+    "day": 1,
+    "word": "disgruntle",
+    "equivalents": "crestfallen",
+    "meaning": "使不高兴"
+  },
+  {
+    "id": "zw-0168",
+    "day": 1,
+    "word": "disintegrate",
+    "equivalents": "crumble",
+    "meaning": "瓦解"
+  },
+  {
+    "id": "zw-0169",
+    "day": 1,
+    "word": "unwieldy",
+    "equivalents": "cumbersome",
+    "meaning": "笨重的，难操作的"
+  },
+  {
+    "id": "zw-0170",
+    "day": 1,
+    "word": "perfunctory",
+    "equivalents": "cursory, casual",
+    "meaning": "敷衍的"
+  },
+  {
+    "id": "zw-0171",
+    "day": 1,
+    "word": "palliate",
+    "equivalents": "damp",
+    "meaning": "减轻"
+  },
+  {
+    "id": "zw-0172",
+    "day": 1,
+    "word": "perilous",
+    "equivalents": "dangerous, precarious",
+    "meaning": "危险的"
+  },
+  {
+    "id": "zw-0173",
+    "day": 1,
+    "word": "dim",
+    "equivalents": "darken",
+    "meaning": "使变暗"
+  },
+  {
+    "id": "zw-0174",
+    "day": 1,
+    "word": "formidable",
+    "equivalents": "daunting",
+    "meaning": "可怕的"
+  },
+  {
+    "id": "zw-0175",
+    "day": 1,
+    "word": "modicum",
+    "equivalents": "dearth",
+    "meaning": "少量"
+  },
+  {
+    "id": "zw-0176",
+    "day": 1,
+    "word": "paucity",
+    "equivalents": "dearth",
+    "meaning": "不足"
+  },
+  {
+    "id": "zw-0177",
+    "day": 1,
+    "word": "deterioration",
+    "equivalents": "decay, decline",
+    "meaning": "恶化"
+  },
+  {
+    "id": "zw-0178",
+    "day": 1,
+    "word": "prophylactic",
+    "equivalents": "inhibitory",
+    "meaning": "预防的"
+  },
+  {
+    "id": "zw-0179",
+    "day": 1,
+    "word": "overwhelming",
+    "equivalents": "irresistible",
+    "meaning": "压倒性的，难抵抗的"
+  },
+  {
+    "id": "zw-0180",
+    "day": 1,
+    "word": "interested in",
+    "equivalents": "drawn to",
+    "meaning": "对……有兴趣"
+  },
+  {
+    "id": "zw-0181",
+    "day": 2,
+    "word": "unmistakable",
+    "equivalents": "decisive",
+    "meaning": "毋庸置疑的，明显的"
+  },
+  {
+    "id": "zw-0182",
+    "day": 2,
+    "word": "senescence",
+    "equivalents": "decrepitude",
+    "meaning": "衰老，老朽"
+  },
+  {
+    "id": "zw-0183",
+    "day": 2,
+    "word": "condemn",
+    "equivalents": "decry",
+    "meaning": "谴责"
+  },
+  {
+    "id": "zw-0184",
+    "day": 2,
+    "word": "calumny",
+    "equivalents": "defamation",
+    "meaning": "诽谤"
+  },
+  {
+    "id": "zw-0185",
+    "day": 2,
+    "word": "blemish",
+    "equivalents": "defect",
+    "meaning": "1.玷污2.缺点，污点"
+  },
+  {
+    "id": "zw-0186",
+    "day": 2,
+    "word": "champion",
+    "equivalents": "defend, espouse, support",
+    "meaning": "支持"
+  },
+  {
+    "id": "zw-0187",
+    "day": 2,
+    "word": "proponent",
+    "equivalents": "defender, champion",
+    "meaning": "支持者"
+  },
+  {
+    "id": "zw-0188",
+    "day": 2,
+    "word": "scarce",
+    "equivalents": "deficient",
+    "meaning": "缺乏的"
+  },
+  {
+    "id": "zw-0189",
+    "day": 2,
+    "word": "authoritative",
+    "equivalents": "definitive, cogent",
+    "meaning": "权威的"
+  },
+  {
+    "id": "zw-0190",
+    "day": 2,
+    "word": "soothe",
+    "equivalents": "deflate",
+    "meaning": "使减少"
+  },
+  {
+    "id": "zw-0191",
+    "day": 2,
+    "word": "disregard",
+    "equivalents": "defy, contempt",
+    "meaning": "贬低"
+  },
+  {
+    "id": "zw-0192",
+    "day": 2,
+    "word": "counterproductive",
+    "equivalents": "deleterious",
+    "meaning": "事与愿违的"
+  },
+  {
+    "id": "zw-0193",
+    "day": 2,
+    "word": "detrimental",
+    "equivalents": "deleterious",
+    "meaning": "有害的"
+  },
+  {
+    "id": "zw-0194",
+    "day": 2,
+    "word": "relish",
+    "equivalents": "delight in",
+    "meaning": "享受"
+  },
+  {
+    "id": "zw-0195",
+    "day": 2,
+    "word": "lambaste",
+    "equivalents": "denounce",
+    "meaning": "严厉批评"
+  },
+  {
+    "id": "zw-0196",
+    "day": 2,
+    "word": "witless",
+    "equivalents": "dense",
+    "meaning": "愚蠢的"
+  },
+  {
+    "id": "zw-0197",
+    "day": 2,
+    "word": "reprehensible",
+    "equivalents": "deplorable",
+    "meaning": "应受谴责的"
+  },
+  {
+    "id": "zw-0198",
+    "day": 2,
+    "word": "detract",
+    "equivalents": "deprecate",
+    "meaning": "贬低"
+  },
+  {
+    "id": "zw-0199",
+    "day": 2,
+    "word": "mockery",
+    "equivalents": "derision",
+    "meaning": "嘲笑"
+  },
+  {
+    "id": "zw-0200",
+    "day": 2,
+    "word": "ridicule",
+    "equivalents": "derision",
+    "meaning": "嘲弄"
+  },
+  {
+    "id": "zw-0201",
+    "day": 2,
+    "word": "abandon",
+    "equivalents": "desert, relinquish",
+    "meaning": "放弃"
+  },
+  {
+    "id": "zw-0202",
+    "day": 2,
+    "word": "annihilate",
+    "equivalents": "destroy",
+    "meaning": "消灭，毁灭"
+  },
+  {
+    "id": "zw-0203",
+    "day": 2,
+    "word": "discern",
+    "equivalents": "detect, discover",
+    "meaning": "觉察，分辨"
+  },
+  {
+    "id": "zw-0204",
+    "day": 2,
+    "word": "constrain",
+    "equivalents": "deter",
+    "meaning": "限制"
+  },
+  {
+    "id": "zw-0205",
+    "day": 2,
+    "word": "decay",
+    "equivalents": "deterioration",
+    "meaning": "腐朽"
+  },
+  {
+    "id": "zw-0206",
+    "day": 2,
+    "word": "govern",
+    "equivalents": "determine",
+    "meaning": "决定"
+  },
+  {
+    "id": "zw-0207",
+    "day": 2,
+    "word": "deprecatory",
+    "equivalents": "detracting",
+    "meaning": "反对的"
+  },
+  {
+    "id": "zw-0208",
+    "day": 2,
+    "word": "guile",
+    "equivalents": "deviousness",
+    "meaning": "奸诈"
+  },
+  {
+    "id": "zw-0209",
+    "day": 2,
+    "word": "identify",
+    "equivalents": "diagnose",
+    "meaning": "确定"
+  },
+  {
+    "id": "zw-0210",
+    "day": 2,
+    "word": "rant",
+    "equivalents": "diatribe",
+    "meaning": "严厉批评"
+  },
+  {
+    "id": "zw-0211",
+    "day": 2,
+    "word": "contradictory",
+    "equivalents": "dichotomous",
+    "meaning": "矛盾的"
+  },
+  {
+    "id": "zw-0212",
+    "day": 2,
+    "word": "timid",
+    "equivalents": "diffident",
+    "meaning": "胆怯的，羞怯的"
+  },
+  {
+    "id": "zw-0213",
+    "day": 2,
+    "word": "remiss",
+    "equivalents": "dilatory",
+    "meaning": "懈怠的"
+  },
+  {
+    "id": "zw-0214",
+    "day": 2,
+    "word": "sluggish",
+    "equivalents": "dilatory, listless",
+    "meaning": "缓慢的"
+  },
+  {
+    "id": "zw-0215",
+    "day": 2,
+    "word": "industrious",
+    "equivalents": "diligent",
+    "meaning": "勤奋的"
+  },
+  {
+    "id": "zw-0216",
+    "day": 2,
+    "word": "darken",
+    "equivalents": "dim",
+    "meaning": "使变暗，使忧郁"
+  },
+  {
+    "id": "zw-0217",
+    "day": 2,
+    "word": "minuscule",
+    "equivalents": "diminutive",
+    "meaning": "极小的"
+  },
+  {
+    "id": "zw-0218",
+    "day": 2,
+    "word": "calamity",
+    "equivalents": "disaster",
+    "meaning": "灾难"
+  },
+  {
+    "id": "zw-0219",
+    "day": 2,
+    "word": "detect",
+    "equivalents": "discern",
+    "meaning": "发现"
+  },
+  {
+    "id": "zw-0220",
+    "day": 2,
+    "word": "perceptible",
+    "equivalents": "discernible",
+    "meaning": "可见的，可察觉的"
+  },
+  {
+    "id": "zw-0221",
+    "day": 2,
+    "word": "perspicacious",
+    "equivalents": "discernible",
+    "meaning": "有洞察力的"
+  },
+  {
+    "id": "zw-0222",
+    "day": 2,
+    "word": "inconspicuous",
+    "equivalents": "discreet",
+    "meaning": "低调的，不显眼的"
+  },
+  {
+    "id": "zw-0223",
+    "day": 2,
+    "word": "incongruity",
+    "equivalents": "discrepancy",
+    "meaning": "矛盾"
+  },
+  {
+    "id": "zw-0224",
+    "day": 2,
+    "word": "isolated",
+    "equivalents": "discrete",
+    "meaning": "分离的"
+  },
+  {
+    "id": "zw-0225",
+    "day": 2,
+    "word": "opprobrium",
+    "equivalents": "disdain, vitriol",
+    "meaning": "谴责，耻辱"
+  },
+  {
+    "id": "zw-0226",
+    "day": 2,
+    "word": "contemptuous",
+    "equivalents": "disdainful",
+    "meaning": "轻蔑的"
+  },
+  {
+    "id": "zw-0227",
+    "day": 2,
+    "word": "dump",
+    "equivalents": "disgorge",
+    "meaning": "排出"
+  },
+  {
+    "id": "zw-0228",
+    "day": 2,
+    "word": "crestfallen",
+    "equivalents": "disgruntled",
+    "meaning": "不高兴的"
+  },
+  {
+    "id": "zw-0229",
+    "day": 2,
+    "word": "crumble",
+    "equivalents": "disintegrate",
+    "meaning": "崩溃，破碎"
+  },
+  {
+    "id": "zw-0230",
+    "day": 2,
+    "word": "slight",
+    "equivalents": "disparage",
+    "meaning": "贬低"
+  },
+  {
+    "id": "zw-0231",
+    "day": 2,
+    "word": "heterogeneous",
+    "equivalents": "disparate, dissimilar",
+    "meaning": "各种各样的"
+  },
+  {
+    "id": "zw-0232",
+    "day": 2,
+    "word": "analytical",
+    "equivalents": "dispassionate",
+    "meaning": "善于分析的，冷静客观的"
+  },
+  {
+    "id": "zw-0233",
+    "day": 2,
+    "word": "temperate",
+    "equivalents": "dispassionate",
+    "meaning": "温和的，适度的"
+  },
+  {
+    "id": "zw-0234",
+    "day": 2,
+    "word": "celerity",
+    "equivalents": "dispatch",
+    "meaning": "速度，迅速"
+  },
+  {
+    "id": "zw-0235",
+    "day": 2,
+    "word": "defy",
+    "equivalents": "disregard, flout",
+    "meaning": "蔑视"
+  },
+  {
+    "id": "zw-0236",
+    "day": 2,
+    "word": "duplicity",
+    "equivalents": "dissemblance",
+    "meaning": "欺骗"
+  },
+  {
+    "id": "zw-0237",
+    "day": 2,
+    "word": "attenuate",
+    "equivalents": "dissipate, mute",
+    "meaning": "减弱，变稀"
+  },
+  {
+    "id": "zw-0238",
+    "day": 2,
+    "word": "untether",
+    "equivalents": "divorce",
+    "meaning": "脱离"
+  },
+  {
+    "id": "zw-0239",
+    "day": 2,
+    "word": "dogmatic",
+    "equivalents": "doctrinaire, rigid",
+    "meaning": "武断的，教条主义的"
+  },
+  {
+    "id": "zw-0240",
+    "day": 2,
+    "word": "doctrinaire",
+    "equivalents": "dogmatic",
+    "meaning": "教条主义的"
+  },
+  {
+    "id": "zw-0241",
+    "day": 2,
+    "word": "skepticism",
+    "equivalents": "doubt",
+    "meaning": "怀疑"
+  },
+  {
+    "id": "zw-0242",
+    "day": 2,
+    "word": "extinguish",
+    "equivalents": "douse",
+    "meaning": "熄灭，毁灭"
+  },
+  {
+    "id": "zw-0243",
+    "day": 2,
+    "word": "pacific",
+    "equivalents": "dovish",
+    "meaning": "和平主义的"
+  },
+  {
+    "id": "zw-0244",
+    "day": 2,
+    "word": "spectacular",
+    "equivalents": "dramatic",
+    "meaning": "壮观的"
+  },
+  {
+    "id": "zw-0245",
+    "day": 2,
+    "word": "elicit",
+    "equivalents": "draw out",
+    "meaning": "引出"
+  },
+  {
+    "id": "zw-0246",
+    "day": 2,
+    "word": "tedious",
+    "equivalents": "dreary, boring",
+    "meaning": "单调乏味的"
+  },
+  {
+    "id": "zw-0247",
+    "day": 2,
+    "word": "humdrum",
+    "equivalents": "dull",
+    "meaning": "单调的，乏味的"
+  },
+  {
+    "id": "zw-0248",
+    "day": 2,
+    "word": "disgorge",
+    "equivalents": "dump",
+    "meaning": "排出"
+  },
+  {
+    "id": "zw-0249",
+    "day": 2,
+    "word": "dissemble",
+    "equivalents": "duplicity",
+    "meaning": "伪装"
+  },
+  {
+    "id": "zw-0250",
+    "day": 2,
+    "word": "contract",
+    "equivalents": "dwindle",
+    "meaning": "逐渐減少，逐渐变小"
+  },
+  {
+    "id": "zw-0251",
+    "day": 2,
+    "word": "keen",
+    "equivalents": "eager",
+    "meaning": "渴望的"
+  },
+  {
+    "id": "zw-0252",
+    "day": 2,
+    "word": "affable",
+    "equivalents": "easygoing, cordial, genteel",
+    "meaning": "和蔼可亲的"
+  },
+  {
+    "id": "zw-0253",
+    "day": 2,
+    "word": "wane",
+    "equivalents": "ebb, decline",
+    "meaning": "衰落，減少，衰落期"
+  },
+  {
+    "id": "zw-0254",
+    "day": 2,
+    "word": "outdo",
+    "equivalents": "eclipse",
+    "meaning": "超过"
+  },
+  {
+    "id": "zw-0255",
+    "day": 2,
+    "word": "pecuniary",
+    "equivalents": "economic",
+    "meaning": "金钱的"
+  },
+  {
+    "id": "zw-0256",
+    "day": 2,
+    "word": "euphoria",
+    "equivalents": "ecstasy",
+    "meaning": "狂喜"
+  },
+  {
+    "id": "zw-0257",
+    "day": 2,
+    "word": "democratic",
+    "equivalents": "egalitarian",
+    "meaning": "平等主义的"
+  },
+  {
+    "id": "zw-0258",
+    "day": 2,
+    "word": "flagrant",
+    "equivalents": "egregious",
+    "meaning": "明目张胆的"
+  },
+  {
+    "id": "zw-0259",
+    "day": 2,
+    "word": "chic",
+    "equivalents": "elegant",
+    "meaning": "时髦的"
+  },
+  {
+    "id": "zw-0260",
+    "day": 2,
+    "word": "plaintive",
+    "equivalents": "elegiac",
+    "meaning": "悲伤的"
+  },
+  {
+    "id": "zw-0261",
+    "day": 2,
+    "word": "draw",
+    "equivalents": "elicit",
+    "meaning": "吸引"
+  },
+  {
+    "id": "zw-0262",
+    "day": 2,
+    "word": "extirpate",
+    "equivalents": "eliminate",
+    "meaning": "根除"
+  },
+  {
+    "id": "zw-0263",
+    "day": 2,
+    "word": "put to rest",
+    "equivalents": "eliminated",
+    "meaning": "排出"
+  },
+  {
+    "id": "zw-0264",
+    "day": 2,
+    "word": "cryptic",
+    "equivalents": "elusive",
+    "meaning": "难解的"
+  },
+  {
+    "id": "zw-0265",
+    "day": 2,
+    "word": "slippery",
+    "equivalents": "elusive",
+    "meaning": "难以抓住的，棘手的"
+  },
+  {
+    "id": "zw-0266",
+    "day": 2,
+    "word": "evasive",
+    "equivalents": "elusive, equivocal",
+    "meaning": "逃避的，闪烁其词的"
+  },
+  {
+    "id": "zw-0267",
+    "day": 2,
+    "word": "totemic",
+    "equivalents": "emblematic",
+    "meaning": "象征的"
+  },
+  {
+    "id": "zw-0268",
+    "day": 2,
+    "word": "revision",
+    "equivalents": "emendation",
+    "meaning": "修订"
+  },
+  {
+    "id": "zw-0269",
+    "day": 2,
+    "word": "effusive",
+    "equivalents": "emotional",
+    "meaning": "溢于言表的，感情丰富的"
+  },
+  {
+    "id": "zw-0270",
+    "day": 2,
+    "word": "imitate",
+    "equivalents": "emulate",
+    "meaning": "模仿"
+  },
+  {
+    "id": "zw-0271",
+    "day": 2,
+    "word": "captivate",
+    "equivalents": "enamor",
+    "meaning": "迷住"
+  },
+  {
+    "id": "zw-0272",
+    "day": 2,
+    "word": "tribute",
+    "equivalents": "encomium",
+    "meaning": "称赞，页品"
+  },
+  {
+    "id": "zw-0273",
+    "day": 2,
+    "word": "polymath",
+    "equivalents": "encyclopedic",
+    "meaning": "博学者"
+  },
+  {
+    "id": "zw-0274",
+    "day": 2,
+    "word": "exhaustive",
+    "equivalents": "encyclopedic, comprehensive",
+    "meaning": "全面的"
+  },
+  {
+    "id": "zw-0275",
+    "day": 2,
+    "word": "underwrite",
+    "equivalents": "endorse",
+    "meaning": "签署"
+  },
+  {
+    "id": "zw-0276",
+    "day": 2,
+    "word": "sanction",
+    "equivalents": "endorse",
+    "meaning": "(经济)制裁，批准"
+  },
+  {
+    "id": "zw-0277",
+    "day": 2,
+    "word": "induce",
+    "equivalents": "engender",
+    "meaning": "引起"
+  },
+  {
+    "id": "zw-0278",
+    "day": 2,
+    "word": "hone",
+    "equivalents": "enhance",
+    "meaning": "磨砺，提升"
+  },
+  {
+    "id": "zw-0279",
+    "day": 2,
+    "word": "inferable from",
+    "equivalents": "entailed by",
+    "meaning": "能从.推断的"
+  },
+  {
+    "id": "zw-0280",
+    "day": 2,
+    "word": "diverting",
+    "equivalents": "entertaining",
+    "meaning": "有趣的"
+  },
+  {
+    "id": "zw-0281",
+    "day": 2,
+    "word": "supplicate",
+    "equivalents": "entreat, solicit",
+    "meaning": "恳求"
+  },
+  {
+    "id": "zw-0282",
+    "day": 2,
+    "word": "covet",
+    "equivalents": "envy",
+    "meaning": "贪求"
+  },
+  {
+    "id": "zw-0283",
+    "day": 2,
+    "word": "short-lived",
+    "equivalents": "ephemeral",
+    "meaning": "短暂的"
+  },
+  {
+    "id": "zw-0284",
+    "day": 2,
+    "word": "transitory",
+    "equivalents": "ephemeral, evanescent",
+    "meaning": "短暂的"
+  },
+  {
+    "id": "zw-0285",
+    "day": 2,
+    "word": "parity",
+    "equivalents": "equality",
+    "meaning": "平等，相等"
+  },
+  {
+    "id": "zw-0286",
+    "day": 2,
+    "word": "wayward",
+    "equivalents": "errant, unpredictable",
+    "meaning": "任性的"
+  },
+  {
+    "id": "zw-0287",
+    "day": 2,
+    "word": "onetime",
+    "equivalents": "erstwhile",
+    "meaning": "过去的"
+  },
+  {
+    "id": "zw-0288",
+    "day": 2,
+    "word": "learned",
+    "equivalents": "erudite",
+    "meaning": "博学的"
+  },
+  {
+    "id": "zw-0289",
+    "day": 2,
+    "word": "shun",
+    "equivalents": "eschew",
+    "meaning": "避兔"
+  },
+  {
+    "id": "zw-0290",
+    "day": 2,
+    "word": "arcane",
+    "equivalents": "esoteric, recondite, abstruse",
+    "meaning": "难懂的"
+  },
+  {
+    "id": "zw-0291",
+    "day": 2,
+    "word": "recondite",
+    "equivalents": "esoteric, arcane, abstruse",
+    "meaning": "晦涩难懂的"
+  },
+  {
+    "id": "zw-0292",
+    "day": 2,
+    "word": "abstruse",
+    "equivalents": "esoteric, arcane, recondite",
+    "meaning": "难理解的"
+  },
+  {
+    "id": "zw-0293",
+    "day": 2,
+    "word": "requisite",
+    "equivalents": "essential",
+    "meaning": "必需的"
+  },
+  {
+    "id": "zw-0294",
+    "day": 2,
+    "word": "indispensable",
+    "equivalents": "essential, crucial",
+    "meaning": "不可或缺的"
+  },
+  {
+    "id": "zw-0295",
+    "day": 2,
+    "word": "lionize",
+    "equivalents": "eulogize",
+    "meaning": "崇拜，把视为名人"
+  },
+  {
+    "id": "zw-0296",
+    "day": 2,
+    "word": "ecstasy",
+    "equivalents": "euphoria",
+    "meaning": "狂喜"
+  },
+  {
+    "id": "zw-0297",
+    "day": 2,
+    "word": "momentary",
+    "equivalents": "evanescent",
+    "meaning": "短暂的"
+  },
+  {
+    "id": "zw-0298",
+    "day": 2,
+    "word": "impartial",
+    "equivalents": "evenhanded, disinterested, fair, detachment",
+    "meaning": "公正的"
+  },
+  {
+    "id": "zw-0299",
+    "day": 2,
+    "word": "patent",
+    "equivalents": "evident, manifest",
+    "meaning": "明显的"
+  },
+  {
+    "id": "zw-0300",
+    "day": 2,
+    "word": "aggravate",
+    "equivalents": "exacerbate",
+    "meaning": "加剧"
+  },
+  {
+    "id": "zw-0301",
+    "day": 2,
+    "word": "demanding",
+    "equivalents": "exacting",
+    "meaning": "苛求的"
+  },
+  {
+    "id": "zw-0302",
+    "day": 2,
+    "word": "prescriptive",
+    "equivalents": "exacting",
+    "meaning": "指定的，规定的"
+  },
+  {
+    "id": "zw-0303",
+    "day": 2,
+    "word": "overstate",
+    "equivalents": "exaggerate",
+    "meaning": "夸大"
+  },
+  {
+    "id": "zw-0304",
+    "day": 2,
+    "word": "hyperbole",
+    "equivalents": "exaggeration",
+    "meaning": "夸大"
+  },
+  {
+    "id": "zw-0305",
+    "day": 2,
+    "word": "valorize",
+    "equivalents": "exalt",
+    "meaning": "称赞"
+  },
+  {
+    "id": "zw-0306",
+    "day": 2,
+    "word": "irascible",
+    "equivalents": "exasperation",
+    "meaning": "易怒的"
+  },
+  {
+    "id": "zw-0307",
+    "day": 2,
+    "word": "preternatural",
+    "equivalents": "exceptional",
+    "meaning": "异乎寻常的"
+  },
+  {
+    "id": "zw-0308",
+    "day": 2,
+    "word": "intemperate",
+    "equivalents": "excessive",
+    "meaning": "过度的"
+  },
+  {
+    "id": "zw-0309",
+    "day": 2,
+    "word": "sole",
+    "equivalents": "exclusive",
+    "meaning": "仅有的"
+  },
+  {
+    "id": "zw-0310",
+    "day": 2,
+    "word": "crab",
+    "equivalents": "excoriate",
+    "meaning": "抱怨"
+  },
+  {
+    "id": "zw-0311",
+    "day": 2,
+    "word": "indict",
+    "equivalents": "excoriate",
+    "meaning": "控告"
+  },
+  {
+    "id": "zw-0312",
+    "day": 2,
+    "word": "wield",
+    "equivalents": "exert",
+    "meaning": "行使，施加"
+  },
+  {
+    "id": "zw-0313",
+    "day": 2,
+    "word": "encyclopedic",
+    "equivalents": "exhaustive, polymathic",
+    "meaning": "广博的，全面的"
+  },
+  {
+    "id": "zw-0314",
+    "day": 2,
+    "word": "comprehensive",
+    "equivalents": "exhaustive, sweeping, generic, inclusive",
+    "meaning": "全面的"
+  },
+  {
+    "id": "zw-0315",
+    "day": 2,
+    "word": "pressing",
+    "equivalents": "exigent, critical",
+    "meaning": "紧迫的，重要的"
+  },
+  {
+    "id": "zw-0316",
+    "day": 2,
+    "word": "tenuous",
+    "equivalents": "exiguous",
+    "meaning": "纤细的，脆弱的"
+  },
+  {
+    "id": "zw-0317",
+    "day": 2,
+    "word": "absolve",
+    "equivalents": "exonerate",
+    "meaning": "免罪"
+  },
+  {
+    "id": "zw-0318",
+    "day": 2,
+    "word": "burgeon",
+    "equivalents": "expand, flourish",
+    "meaning": "迅速生长"
+  },
+  {
+    "id": "zw-0319",
+    "day": 2,
+    "word": "oust",
+    "equivalents": "expel, banish",
+    "meaning": "罢黜，驱逐，取代"
+  },
+  {
+    "id": "zw-0320",
+    "day": 2,
+    "word": "banish",
+    "equivalents": "expel, oust",
+    "meaning": "驱逐"
+  },
+  {
+    "id": "zw-0321",
+    "day": 2,
+    "word": "innovative",
+    "equivalents": "experimental",
+    "meaning": "创新的"
+  },
+  {
+    "id": "zw-0322",
+    "day": 2,
+    "word": "attributed to",
+    "equivalents": "explained by",
+    "meaning": "归因于"
+  },
+  {
+    "id": "zw-0323",
+    "day": 2,
+    "word": "augment",
+    "equivalents": "extend, expand, enhance",
+    "meaning": "增加"
+  },
+  {
+    "id": "zw-0324",
+    "day": 2,
+    "word": "douse",
+    "equivalents": "extinguish",
+    "meaning": "熄灭"
+  },
+  {
+    "id": "zw-0325",
+    "day": 2,
+    "word": "eliminate",
+    "equivalents": "extirpate, put to rest",
+    "meaning": "消除，淘汰"
+  },
+  {
+    "id": "zw-0326",
+    "day": 2,
+    "word": "profligate",
+    "equivalents": "extravagant, prodigal",
+    "meaning": "挥霍的"
+  },
+  {
+    "id": "zw-0327",
+    "day": 2,
+    "word": "zealot",
+    "equivalents": "extremist, ideologue",
+    "meaning": "狂热者"
+  },
+  {
+    "id": "zw-0328",
+    "day": 2,
+    "word": "forge",
+    "equivalents": "fabricate",
+    "meaning": "锻造，伪造"
+  },
+  {
+    "id": "zw-0329",
+    "day": 2,
+    "word": "expedite",
+    "equivalents": "facilitate",
+    "meaning": "促使"
+  },
+  {
+    "id": "zw-0330",
+    "day": 2,
+    "word": "schism",
+    "equivalents": "factiousness",
+    "meaning": "分裂"
+  },
+  {
+    "id": "zw-0331",
+    "day": 2,
+    "word": "objective",
+    "equivalents": "fair",
+    "meaning": "客观的，公正的"
+  },
+  {
+    "id": "zw-0332",
+    "day": 2,
+    "word": "disinterested",
+    "equivalents": "fair, impartial",
+    "meaning": "公正的，没有兴趣的"
+  },
+  {
+    "id": "zw-0333",
+    "day": 2,
+    "word": "eminent",
+    "equivalents": "famous",
+    "meaning": "杰出的，异乎寻常的"
+  },
+  {
+    "id": "zw-0334",
+    "day": 2,
+    "word": "shortcoming",
+    "equivalents": "fault",
+    "meaning": "缺点"
+  },
+  {
+    "id": "zw-0335",
+    "day": 2,
+    "word": "enamor",
+    "equivalents": "favor, captivate, hooked on",
+    "meaning": "使迷惑"
+  },
+  {
+    "id": "zw-0336",
+    "day": 2,
+    "word": "auspicious",
+    "equivalents": "favorable",
+    "meaning": "有望成功的"
+  },
+  {
+    "id": "zw-0337",
+    "day": 2,
+    "word": "debacle",
+    "equivalents": "fiasco",
+    "meaning": "彻底失败"
+  },
+  {
+    "id": "zw-0338",
+    "day": 2,
+    "word": "volatile",
+    "equivalents": "fickle, versatile, flighty, erratic, capricious",
+    "meaning": "善变的"
+  },
+  {
+    "id": "zw-0339",
+    "day": 2,
+    "word": "erratic",
+    "equivalents": "fickle, versatile, volatile, flighty, capricious",
+    "meaning": "难以预测的"
+  },
+  {
+    "id": "zw-0340",
+    "day": 2,
+    "word": "impassioned",
+    "equivalents": "fiery",
+    "meaning": "热情的"
+  },
+  {
+    "id": "zw-0341",
+    "day": 2,
+    "word": "apposite",
+    "equivalents": "fitting, germane",
+    "meaning": "合适的"
+  },
+  {
+    "id": "zw-0342",
+    "day": 2,
+    "word": "obsessed",
+    "equivalents": "fixated",
+    "meaning": "着迷的"
+  },
+  {
+    "id": "zw-0343",
+    "day": 2,
+    "word": "egregious",
+    "equivalents": "flagrant",
+    "meaning": "臭名昭著的"
+  },
+  {
+    "id": "zw-0344",
+    "day": 2,
+    "word": "wanting",
+    "equivalents": "flawed",
+    "meaning": "有缺陷的"
+  },
+  {
+    "id": "zw-0345",
+    "day": 2,
+    "word": "supple",
+    "equivalents": "flexible",
+    "meaning": "能适应的，灵活的，柔韧的"
+  },
+  {
+    "id": "zw-0346",
+    "day": 2,
+    "word": "spurn",
+    "equivalents": "flout",
+    "meaning": "拒绝"
+  },
+  {
+    "id": "zw-0347",
+    "day": 2,
+    "word": "precursor",
+    "equivalents": "forerunner",
+    "meaning": "先驱"
+  },
+  {
+    "id": "zw-0348",
+    "day": 2,
+    "word": "avert",
+    "equivalents": "forestall",
+    "meaning": "转移，防止"
+  },
+  {
+    "id": "zw-0349",
+    "day": 2,
+    "word": "stave off",
+    "equivalents": "forestall",
+    "meaning": "延缓"
+  },
+  {
+    "id": "zw-0350",
+    "day": 2,
+    "word": "daunting",
+    "equivalents": "formidable, sensational, forbidding",
+    "meaning": "使人畏惧的"
+  },
+  {
+    "id": "zw-0351",
+    "day": 2,
+    "word": "canned",
+    "equivalents": "formulaic",
+    "meaning": "无新意的"
+  },
+  {
+    "id": "zw-0352",
+    "day": 2,
+    "word": "adopt",
+    "equivalents": "foster",
+    "meaning": "收养，采用"
+  },
+  {
+    "id": "zw-0353",
+    "day": 2,
+    "word": "spur",
+    "equivalents": "foster",
+    "meaning": "激励"
+  },
+  {
+    "id": "zw-0354",
+    "day": 2,
+    "word": "bedrock",
+    "equivalents": "foundation",
+    "meaning": "基础"
+  },
+  {
+    "id": "zw-0355",
+    "day": 2,
+    "word": "inception",
+    "equivalents": "foundation",
+    "meaning": "开始"
+  },
+  {
+    "id": "zw-0356",
+    "day": 2,
+    "word": "restive",
+    "equivalents": "fractious",
+    "meaning": "躁动不安的"
+  },
+  {
+    "id": "zw-0357",
+    "day": 2,
+    "word": "malfeasance",
+    "equivalents": "fraudulence",
+    "meaning": "渎职"
+  },
+  {
+    "id": "zw-0358",
+    "day": 2,
+    "word": "genial",
+    "equivalents": "friendly",
+    "meaning": "友善的"
+  },
+  {
+    "id": "zw-0359",
+    "day": 2,
+    "word": "utilitarian",
+    "equivalents": "functional",
+    "meaning": "实用的"
+  },
+  {
+    "id": "zw-0360",
+    "day": 2,
+    "word": "interchangeable",
+    "equivalents": "fungible",
+    "meaning": "可交换的"
+  },
+  {
+    "id": "zw-0361",
+    "day": 2,
+    "word": "dynamic",
+    "equivalents": "mutable",
+    "meaning": "动态的，可变的"
+  },
+  {
+    "id": "zw-0362",
+    "day": 2,
+    "word": "levelheaded",
+    "equivalents": "sober",
+    "meaning": "头脑冷静的"
+  },
+  {
+    "id": "zw-0363",
+    "day": 3,
+    "word": "facilitate",
+    "equivalents": "further",
+    "meaning": "促进，加快"
+  },
+  {
+    "id": "zw-0364",
+    "day": 3,
+    "word": "synthesis",
+    "equivalents": "fusion",
+    "meaning": "合成，综合体"
+  },
+  {
+    "id": "zw-0365",
+    "day": 3,
+    "word": "pointless",
+    "equivalents": "futile",
+    "meaning": "无意义的"
+  },
+  {
+    "id": "zw-0366",
+    "day": 3,
+    "word": "animate",
+    "equivalents": "galvanize, rouse, inspire",
+    "meaning": "有生命力的，激励，推动"
+  },
+  {
+    "id": "zw-0367",
+    "day": 3,
+    "word": "loquacious",
+    "equivalents": "garrulous",
+    "meaning": "健谈的"
+  },
+  {
+    "id": "zw-0368",
+    "day": 3,
+    "word": "reckon",
+    "equivalents": "gauge",
+    "meaning": "认为，估计"
+  },
+  {
+    "id": "zw-0369",
+    "day": 3,
+    "word": "abstract",
+    "equivalents": "general",
+    "meaning": "笼统的，抽象的，深奥的，摘要，提取，分散注意力"
+  },
+  {
+    "id": "zw-0370",
+    "day": 3,
+    "word": "inclusive",
+    "equivalents": "generic, all-encompassing",
+    "meaning": "全包括的，包括首尾两项的"
+  },
+  {
+    "id": "zw-0371",
+    "day": 3,
+    "word": "seed",
+    "equivalents": "germ",
+    "meaning": "播种，萌芽"
+  },
+  {
+    "id": "zw-0372",
+    "day": 3,
+    "word": "obtain",
+    "equivalents": "glean",
+    "meaning": "获得"
+  },
+  {
+    "id": "zw-0373",
+    "day": 3,
+    "word": "cheerless",
+    "equivalents": "gloomy",
+    "meaning": "阴郁的"
+  },
+  {
+    "id": "zw-0374",
+    "day": 3,
+    "word": "lugubrious",
+    "equivalents": "gloomy",
+    "meaning": "悲伤的"
+  },
+  {
+    "id": "zw-0375",
+    "day": 3,
+    "word": "abundance",
+    "equivalents": "glut",
+    "meaning": "大量"
+  },
+  {
+    "id": "zw-0376",
+    "day": 3,
+    "word": "surfeit",
+    "equivalents": "glut, plethora",
+    "meaning": "过量"
+  },
+  {
+    "id": "zw-0377",
+    "day": 3,
+    "word": "imperceptible",
+    "equivalents": "gradual",
+    "meaning": "难以察觉的"
+  },
+  {
+    "id": "zw-0378",
+    "day": 3,
+    "word": "sociable",
+    "equivalents": "gregarious",
+    "meaning": "好交际的"
+  },
+  {
+    "id": "zw-0379",
+    "day": 3,
+    "word": "unwarranted",
+    "equivalents": "groundless",
+    "meaning": "无根据的"
+  },
+  {
+    "id": "zw-0380",
+    "day": 3,
+    "word": "devious",
+    "equivalents": "guile, indirect",
+    "meaning": "狡诈的，弯曲的"
+  },
+  {
+    "id": "zw-0381",
+    "day": 3,
+    "word": "acclaim",
+    "equivalents": "hail",
+    "meaning": "称赞"
+  },
+  {
+    "id": "zw-0382",
+    "day": 3,
+    "word": "impede",
+    "equivalents": "hamper",
+    "meaning": "阻碍"
+  },
+  {
+    "id": "zw-0383",
+    "day": 3,
+    "word": "impair",
+    "equivalents": "hamstring, undermine, vitiate, compromise, undercut",
+    "meaning": "损害"
+  },
+  {
+    "id": "zw-0384",
+    "day": 3,
+    "word": "helter-skelter",
+    "equivalents": "haphazard",
+    "meaning": "杂乱的"
+  },
+  {
+    "id": "zw-0385",
+    "day": 3,
+    "word": "innocuous",
+    "equivalents": "harmless, benign, inoffensive",
+    "meaning": "无害的，无意冒犯的"
+  },
+  {
+    "id": "zw-0386",
+    "day": 3,
+    "word": "callous",
+    "equivalents": "heartless",
+    "meaning": "冷酷无情的"
+  },
+  {
+    "id": "zw-0387",
+    "day": 3,
+    "word": "buoy",
+    "equivalents": "help",
+    "meaning": "使振奋"
+  },
+  {
+    "id": "zw-0388",
+    "day": 3,
+    "word": "diversity",
+    "equivalents": "heterogeneity",
+    "meaning": "多样性，差异化"
+  },
+  {
+    "id": "zw-0389",
+    "day": 3,
+    "word": "dissimilar",
+    "equivalents": "heterogeneous",
+    "meaning": "不同的"
+  },
+  {
+    "id": "zw-0390",
+    "day": 3,
+    "word": "disparate",
+    "equivalents": "heterogeneous, diverse, dissimilar, variant",
+    "meaning": "不同的"
+  },
+  {
+    "id": "zw-0391",
+    "day": 3,
+    "word": "pedantic",
+    "equivalents": "hidebound",
+    "meaning": "迂腐的"
+  },
+  {
+    "id": "zw-0392",
+    "day": 3,
+    "word": "stratified",
+    "equivalents": "hierarchical",
+    "meaning": "形成阶层的，分层的"
+  },
+  {
+    "id": "zw-0393",
+    "day": 3,
+    "word": "stymie",
+    "equivalents": "hinder",
+    "meaning": "阻碍"
+  },
+  {
+    "id": "zw-0394",
+    "day": 3,
+    "word": "inhibit",
+    "equivalents": "hinder, bridle, suppress",
+    "meaning": "抑制，禁止"
+  },
+  {
+    "id": "zw-0395",
+    "day": 3,
+    "word": "snag",
+    "equivalents": "hitch",
+    "meaning": "障碍"
+  },
+  {
+    "id": "zw-0396",
+    "day": 3,
+    "word": "patchwork",
+    "equivalents": "hodgepodge",
+    "meaning": "大杂烩"
+  },
+  {
+    "id": "zw-0397",
+    "day": 3,
+    "word": "welter",
+    "equivalents": "hodgepodge",
+    "meaning": "混乱无序"
+  },
+  {
+    "id": "zw-0398",
+    "day": 3,
+    "word": "resemblance",
+    "equivalents": "homogeneity",
+    "meaning": "相似"
+  },
+  {
+    "id": "zw-0399",
+    "day": 3,
+    "word": "enhance",
+    "equivalents": "hone",
+    "meaning": "提高，改善"
+  },
+  {
+    "id": "zw-0400",
+    "day": 3,
+    "word": "venerate",
+    "equivalents": "honor, respect",
+    "meaning": "崇敬"
+  },
+  {
+    "id": "zw-0401",
+    "day": 3,
+    "word": "arrogant",
+    "equivalents": "hubristic",
+    "meaning": "傲慢的"
+  },
+  {
+    "id": "zw-0402",
+    "day": 3,
+    "word": "exaggerate",
+    "equivalents": "hyperbole, overrate",
+    "meaning": "夸大"
+  },
+  {
+    "id": "zw-0403",
+    "day": 3,
+    "word": "mendacity",
+    "equivalents": "hypocrisy",
+    "meaning": "不诚实"
+  },
+  {
+    "id": "zw-0404",
+    "day": 3,
+    "word": "heterodox",
+    "equivalents": "iconoclastic",
+    "meaning": "异端的"
+  },
+  {
+    "id": "zw-0405",
+    "day": 3,
+    "word": "revolutionary",
+    "equivalents": "iconoclastic",
+    "meaning": "反传统的"
+  },
+  {
+    "id": "zw-0406",
+    "day": 3,
+    "word": "quixotic",
+    "equivalents": "idealistic",
+    "meaning": "不切实际的"
+  },
+  {
+    "id": "zw-0407",
+    "day": 3,
+    "word": "distinct",
+    "equivalents": "idiosyncratic",
+    "meaning": "独特的"
+  },
+  {
+    "id": "zw-0408",
+    "day": 3,
+    "word": "dismiss",
+    "equivalents": "ignore, neglect",
+    "meaning": "忽视"
+  },
+  {
+    "id": "zw-0409",
+    "day": 3,
+    "word": "chimera",
+    "equivalents": "illusion",
+    "meaning": "幻想"
+  },
+  {
+    "id": "zw-0410",
+    "day": 3,
+    "word": "quaff",
+    "equivalents": "imbibe",
+    "meaning": "痛饮"
+  },
+  {
+    "id": "zw-0411",
+    "day": 3,
+    "word": "emulate",
+    "equivalents": "imitate",
+    "meaning": "模仿，努力赶超"
+  },
+  {
+    "id": "zw-0412",
+    "day": 3,
+    "word": "colossal",
+    "equivalents": "immense",
+    "meaning": "巨大的"
+  },
+  {
+    "id": "zw-0413",
+    "day": 3,
+    "word": "unbounded",
+    "equivalents": "immoderate, expansive",
+    "meaning": "无限的"
+  },
+  {
+    "id": "zw-0414",
+    "day": 3,
+    "word": "hamstring",
+    "equivalents": "impair",
+    "meaning": "使无能为力"
+  },
+  {
+    "id": "zw-0415",
+    "day": 3,
+    "word": "vitiate",
+    "equivalents": "impair",
+    "meaning": "损害"
+  },
+  {
+    "id": "zw-0416",
+    "day": 3,
+    "word": "compromise",
+    "equivalents": "impair, concession",
+    "meaning": "妥协，危害"
+  },
+  {
+    "id": "zw-0417",
+    "day": 3,
+    "word": "undermine",
+    "equivalents": "impair, subvert, undercut",
+    "meaning": "暗中破坏"
+  },
+  {
+    "id": "zw-0418",
+    "day": 3,
+    "word": "evenhanded",
+    "equivalents": "impartial",
+    "meaning": "公平的"
+  },
+  {
+    "id": "zw-0419",
+    "day": 3,
+    "word": "neutrality",
+    "equivalents": "impartiality",
+    "meaning": "中立"
+  },
+  {
+    "id": "zw-0420",
+    "day": 3,
+    "word": "fiery",
+    "equivalents": "impassioned",
+    "meaning": "热烈的，暴躁的"
+  },
+  {
+    "id": "zw-0421",
+    "day": 3,
+    "word": "zealous",
+    "equivalents": "impassioned, fervent, fiery, passionate",
+    "meaning": "热情的，狂热的"
+  },
+  {
+    "id": "zw-0422",
+    "day": 3,
+    "word": "indigent",
+    "equivalents": "impecunious",
+    "meaning": "贫穷的"
+  },
+  {
+    "id": "zw-0423",
+    "day": 3,
+    "word": "hamper",
+    "equivalents": "impede",
+    "meaning": "阻碍"
+  },
+  {
+    "id": "zw-0424",
+    "day": 3,
+    "word": "indiscernible",
+    "equivalents": "imperceptible",
+    "meaning": "难以理解的"
+  },
+  {
+    "id": "zw-0425",
+    "day": 3,
+    "word": "unyielding",
+    "equivalents": "implacable",
+    "meaning": "不屈的"
+  },
+  {
+    "id": "zw-0426",
+    "day": 3,
+    "word": "hasty",
+    "equivalents": "impulsive, rapid",
+    "meaning": "匆忙的，草率的"
+  },
+  {
+    "id": "zw-0427",
+    "day": 3,
+    "word": "erroneous",
+    "equivalents": "inaccurate",
+    "meaning": "错误的"
+  },
+  {
+    "id": "zw-0428",
+    "day": 3,
+    "word": "ominous",
+    "equivalents": "inauspicious",
+    "meaning": "不祥的"
+  },
+  {
+    "id": "zw-0429",
+    "day": 3,
+    "word": "innate",
+    "equivalents": "inborn",
+    "meaning": "天生的"
+  },
+  {
+    "id": "zw-0430",
+    "day": 3,
+    "word": "foundation",
+    "equivalents": "inception, bedrock",
+    "meaning": "创建，基础，根据"
+  },
+  {
+    "id": "zw-0431",
+    "day": 3,
+    "word": "acute",
+    "equivalents": "incisive, severe",
+    "meaning": "敏锐的，严峻的"
+  },
+  {
+    "id": "zw-0432",
+    "day": 3,
+    "word": "all-encompassing",
+    "equivalents": "inclusive",
+    "meaning": "包罗万象的"
+  },
+  {
+    "id": "zw-0433",
+    "day": 3,
+    "word": "generic",
+    "equivalents": "inclusive",
+    "meaning": "通用的"
+  },
+  {
+    "id": "zw-0434",
+    "day": 3,
+    "word": "inexplicable",
+    "equivalents": "incomprehensible",
+    "meaning": "费解的"
+  },
+  {
+    "id": "zw-0435",
+    "day": 3,
+    "word": "discrepancy",
+    "equivalents": "incongruity",
+    "meaning": "矛盾"
+  },
+  {
+    "id": "zw-0436",
+    "day": 3,
+    "word": "immaterial",
+    "equivalents": "inconsequential",
+    "meaning": "不重要的"
+  },
+  {
+    "id": "zw-0437",
+    "day": 3,
+    "word": "trivial",
+    "equivalents": "inconsequential, immaterial",
+    "meaning": "不重要的"
+  },
+  {
+    "id": "zw-0438",
+    "day": 3,
+    "word": "mixed",
+    "equivalents": "inconsistent",
+    "meaning": "混合的，矛盾的"
+  },
+  {
+    "id": "zw-0439",
+    "day": 3,
+    "word": "indubitable",
+    "equivalents": "incontrovertible",
+    "meaning": "不容置疑的"
+  },
+  {
+    "id": "zw-0440",
+    "day": 3,
+    "word": "beholden",
+    "equivalents": "indebted",
+    "meaning": "欠.人情的"
+  },
+  {
+    "id": "zw-0441",
+    "day": 3,
+    "word": "unseemly",
+    "equivalents": "indecorous",
+    "meaning": "不得体的"
+  },
+  {
+    "id": "zw-0442",
+    "day": 3,
+    "word": "excoriate",
+    "equivalents": "indict, crab",
+    "meaning": "严厉指责"
+  },
+  {
+    "id": "zw-0443",
+    "day": 3,
+    "word": "impecunious",
+    "equivalents": "indigent",
+    "meaning": "贫穷的"
+  },
+  {
+    "id": "zw-0444",
+    "day": 3,
+    "word": "circuitous",
+    "equivalents": "indirect",
+    "meaning": "拐弯抹角的"
+  },
+  {
+    "id": "zw-0445",
+    "day": 3,
+    "word": "essential",
+    "equivalents": "indispensable",
+    "meaning": "完全必要的，基本的"
+  },
+  {
+    "id": "zw-0446",
+    "day": 3,
+    "word": "diligent",
+    "equivalents": "industrious",
+    "meaning": "勤奋的"
+  },
+  {
+    "id": "zw-0447",
+    "day": 3,
+    "word": "incomprehensible",
+    "equivalents": "inexplicable",
+    "meaning": "费解的"
+  },
+  {
+    "id": "zw-0448",
+    "day": 3,
+    "word": "surmise",
+    "equivalents": "infer",
+    "meaning": "推测，猜测"
+  },
+  {
+    "id": "zw-0449",
+    "day": 3,
+    "word": "entailed by",
+    "equivalents": "inferable from",
+    "meaning": "使需要，导致"
+  },
+  {
+    "id": "zw-0450",
+    "day": 3,
+    "word": "provocative",
+    "equivalents": "inflammatory",
+    "meaning": "引发的，挑衅的"
+  },
+  {
+    "id": "zw-0451",
+    "day": 3,
+    "word": "intrinsic",
+    "equivalents": "inherent",
+    "meaning": "本质的"
+  },
+  {
+    "id": "zw-0452",
+    "day": 3,
+    "word": "benign",
+    "equivalents": "innocuous, anodyne",
+    "meaning": "和善的"
+  },
+  {
+    "id": "zw-0453",
+    "day": 3,
+    "word": "experimental",
+    "equivalents": "innovative",
+    "meaning": "实验的，创新的"
+  },
+  {
+    "id": "zw-0454",
+    "day": 3,
+    "word": "unfathomable",
+    "equivalents": "inscrutable",
+    "meaning": "不能理解的"
+  },
+  {
+    "id": "zw-0455",
+    "day": 3,
+    "word": "uninformative",
+    "equivalents": "inscrutable",
+    "meaning": "缺乏信息的"
+  },
+  {
+    "id": "zw-0456",
+    "day": 3,
+    "word": "negligible",
+    "equivalents": "insignificant, inconsequential, trifling",
+    "meaning": "微不足道的，不重要的"
+  },
+  {
+    "id": "zw-0457",
+    "day": 3,
+    "word": "bland",
+    "equivalents": "insipid",
+    "meaning": "乏味的，无动于衷的"
+  },
+  {
+    "id": "zw-0458",
+    "day": 3,
+    "word": "nonchalant",
+    "equivalents": "insouciant",
+    "meaning": "冷漠的"
+  },
+  {
+    "id": "zw-0459",
+    "day": 3,
+    "word": "abet",
+    "equivalents": "instigate",
+    "meaning": "支持，怂恿"
+  },
+  {
+    "id": "zw-0460",
+    "day": 3,
+    "word": "meager",
+    "equivalents": "insufficient, paltry",
+    "meaning": "缺乏的，瘦削的"
+  },
+  {
+    "id": "zw-0461",
+    "day": 3,
+    "word": "provincial",
+    "equivalents": "insular",
+    "meaning": "狭隘的，省的"
+  },
+  {
+    "id": "zw-0462",
+    "day": 3,
+    "word": "readable",
+    "equivalents": "intelligible",
+    "meaning": "清晰易懂的，可读性强的"
+  },
+  {
+    "id": "zw-0463",
+    "day": 3,
+    "word": "fungible",
+    "equivalents": "interchangeable",
+    "meaning": "可取代的"
+  },
+  {
+    "id": "zw-0464",
+    "day": 3,
+    "word": "interrelated",
+    "equivalents": "interdependent",
+    "meaning": "互相联系的"
+  },
+  {
+    "id": "zw-0465",
+    "day": 3,
+    "word": "compelling",
+    "equivalents": "interesting",
+    "meaning": "激发兴趣的，令人信服的，强大的"
+  },
+  {
+    "id": "zw-0466",
+    "day": 3,
+    "word": "construe",
+    "equivalents": "interpret",
+    "meaning": "诠释，分析"
+  },
+  {
+    "id": "zw-0467",
+    "day": 3,
+    "word": "interdependent",
+    "equivalents": "interrelated",
+    "meaning": "互相依赖的"
+  },
+  {
+    "id": "zw-0468",
+    "day": 3,
+    "word": "scary",
+    "equivalents": "intimidating",
+    "meaning": "令人害怕的"
+  },
+  {
+    "id": "zw-0469",
+    "day": 3,
+    "word": "stubborn",
+    "equivalents": "intractable",
+    "meaning": "固执的，难除去的"
+  },
+  {
+    "id": "zw-0470",
+    "day": 3,
+    "word": "obdurate",
+    "equivalents": "intransigent, fortitude",
+    "meaning": "固执的"
+  },
+  {
+    "id": "zw-0471",
+    "day": 3,
+    "word": "convoluted",
+    "equivalents": "intricate, tortuous",
+    "meaning": "复杂难解的"
+  },
+  {
+    "id": "zw-0472",
+    "day": 3,
+    "word": "spontaneous",
+    "equivalents": "intuitive",
+    "meaning": "自发的"
+  },
+  {
+    "id": "zw-0473",
+    "day": 3,
+    "word": "exasperation",
+    "equivalents": "irascibility",
+    "meaning": "恼怒"
+  },
+  {
+    "id": "zw-0474",
+    "day": 3,
+    "word": "paradoxical",
+    "equivalents": "ironic",
+    "meaning": "矛盾的"
+  },
+  {
+    "id": "zw-0475",
+    "day": 3,
+    "word": "extraneous",
+    "equivalents": "irrelevant",
+    "meaning": "无关的"
+  },
+  {
+    "id": "zw-0476",
+    "day": 3,
+    "word": "vacillation",
+    "equivalents": "irresolution",
+    "meaning": "犹豫不决的"
+  },
+  {
+    "id": "zw-0477",
+    "day": 3,
+    "word": "peripatetic",
+    "equivalents": "itinerant",
+    "meaning": "巡回的"
+  },
+  {
+    "id": "zw-0478",
+    "day": 3,
+    "word": "impatient",
+    "equivalents": "keen",
+    "meaning": "急切的"
+  },
+  {
+    "id": "zw-0479",
+    "day": 3,
+    "word": "complicated",
+    "equivalents": "knotty",
+    "meaning": "复杂难懂的"
+  },
+  {
+    "id": "zw-0480",
+    "day": 3,
+    "word": "terse",
+    "equivalents": "laconic, curt, taciturn, succinct",
+    "meaning": "简短的"
+  },
+  {
+    "id": "zw-0481",
+    "day": 3,
+    "word": "taciturn",
+    "equivalents": "laconic, terse, curt",
+    "meaning": "沉默寡言的"
+  },
+  {
+    "id": "zw-0482",
+    "day": 3,
+    "word": "curt",
+    "equivalents": "laconic, terse, taciturn",
+    "meaning": "话少的，唐突无礼的"
+  },
+  {
+    "id": "zw-0483",
+    "day": 3,
+    "word": "denounce",
+    "equivalents": "lambast",
+    "meaning": "谴责"
+  },
+  {
+    "id": "zw-0484",
+    "day": 3,
+    "word": "nonspecialist",
+    "equivalents": "layperson",
+    "meaning": "非专业人士"
+  },
+  {
+    "id": "zw-0485",
+    "day": 3,
+    "word": "erudite",
+    "equivalents": "learned",
+    "meaning": "博学的"
+  },
+  {
+    "id": "zw-0486",
+    "day": 3,
+    "word": "cede to",
+    "equivalents": "left to",
+    "meaning": "让与"
+  },
+  {
+    "id": "zw-0487",
+    "day": 3,
+    "word": "slumberous",
+    "equivalents": "lethargic",
+    "meaning": "昏睡的"
+  },
+  {
+    "id": "zw-0488",
+    "day": 3,
+    "word": "somnolent",
+    "equivalents": "lethargic",
+    "meaning": "昏睡的，催眠的"
+  },
+  {
+    "id": "zw-0489",
+    "day": 3,
+    "word": "rejection",
+    "equivalents": "liberation from",
+    "meaning": "拒绝，排斥"
+  },
+  {
+    "id": "zw-0490",
+    "day": 3,
+    "word": "bound",
+    "equivalents": "limit",
+    "meaning": "界限"
+  },
+  {
+    "id": "zw-0491",
+    "day": 3,
+    "word": "confine",
+    "equivalents": "limit, circumscribe",
+    "meaning": "限制"
+  },
+  {
+    "id": "zw-0492",
+    "day": 3,
+    "word": "scant",
+    "equivalents": "limited",
+    "meaning": "缺乏的"
+  },
+  {
+    "id": "zw-0493",
+    "day": 3,
+    "word": "pellucid",
+    "equivalents": "limpid",
+    "meaning": "清晰的"
+  },
+  {
+    "id": "zw-0494",
+    "day": 3,
+    "word": "eulogize",
+    "equivalents": "lionize",
+    "meaning": "赞美"
+  },
+  {
+    "id": "zw-0495",
+    "day": 3,
+    "word": "mutable",
+    "equivalents": "liquid",
+    "meaning": "易变的"
+  },
+  {
+    "id": "zw-0496",
+    "day": 3,
+    "word": "tilt",
+    "equivalents": "list",
+    "meaning": "倾斜，偏见"
+  },
+  {
+    "id": "zw-0497",
+    "day": 3,
+    "word": "perennial",
+    "equivalents": "long-standing",
+    "meaning": "持久的"
+  },
+  {
+    "id": "zw-0498",
+    "day": 3,
+    "word": "garrulous",
+    "equivalents": "loquacious",
+    "meaning": "喋喋不休的"
+  },
+  {
+    "id": "zw-0499",
+    "day": 3,
+    "word": "remunerative",
+    "equivalents": "lucrative",
+    "meaning": "盈利的"
+  },
+  {
+    "id": "zw-0500",
+    "day": 3,
+    "word": "risible",
+    "equivalents": "ludicrous",
+    "meaning": "可笑的"
+  },
+  {
+    "id": "zw-0501",
+    "day": 3,
+    "word": "gloomy",
+    "equivalents": "lugubrious, cheerless",
+    "meaning": "忧郁的"
+  },
+  {
+    "id": "zw-0502",
+    "day": 3,
+    "word": "respite",
+    "equivalents": "lull, relief, break",
+    "meaning": "喘息"
+  },
+  {
+    "id": "zw-0503",
+    "day": 3,
+    "word": "rampant",
+    "equivalents": "luxuriant",
+    "meaning": "泛滥的，疯长的"
+  },
+  {
+    "id": "zw-0504",
+    "day": 3,
+    "word": "fraudulent",
+    "equivalents": "malfeasant",
+    "meaning": "欺骗性的"
+  },
+  {
+    "id": "zw-0505",
+    "day": 3,
+    "word": "plastic",
+    "equivalents": "malleable",
+    "meaning": "可塑的，做作的"
+  },
+  {
+    "id": "zw-0506",
+    "day": 3,
+    "word": "noisome",
+    "equivalents": "malodorous",
+    "meaning": "令人讨厌的，恶臭的"
+  },
+  {
+    "id": "zw-0507",
+    "day": 3,
+    "word": "self-evident",
+    "equivalents": "manifest",
+    "meaning": "不证自明的"
+  },
+  {
+    "id": "zw-0508",
+    "day": 3,
+    "word": "peripheral",
+    "equivalents": "marginal",
+    "meaning": "边缘的，补充的"
+  },
+  {
+    "id": "zw-0509",
+    "day": 3,
+    "word": "fringe",
+    "equivalents": "marginal, peripheral",
+    "meaning": "边缘"
+  },
+  {
+    "id": "zw-0510",
+    "day": 3,
+    "word": "belie",
+    "equivalents": "mask",
+    "meaning": "证明.是错误的，掩饰，与…….不符"
+  },
+  {
+    "id": "zw-0511",
+    "day": 3,
+    "word": "precocious",
+    "equivalents": "mature",
+    "meaning": "早熟的"
+  },
+  {
+    "id": "zw-0512",
+    "day": 3,
+    "word": "nonconformist",
+    "equivalents": "maverick",
+    "meaning": "不守成规者"
+  },
+  {
+    "id": "zw-0513",
+    "day": 3,
+    "word": "insufficient",
+    "equivalents": "meager",
+    "meaning": "不充足的"
+  },
+  {
+    "id": "zw-0514",
+    "day": 3,
+    "word": "paltry",
+    "equivalents": "meager, insufficient",
+    "meaning": "很少的，无意义的"
+  },
+  {
+    "id": "zw-0515",
+    "day": 3,
+    "word": "condign",
+    "equivalents": "meet",
+    "meaning": "适当的"
+  },
+  {
+    "id": "zw-0516",
+    "day": 3,
+    "word": "hypocrisy",
+    "equivalents": "mendacity, insincerity",
+    "meaning": "伪善"
+  },
+  {
+    "id": "zw-0517",
+    "day": 3,
+    "word": "showy",
+    "equivalents": "meretricious",
+    "meaning": "虚有其表的，炫耀的"
+  },
+  {
+    "id": "zw-0518",
+    "day": 3,
+    "word": "painstaking",
+    "equivalents": "meticulous",
+    "meaning": "煞费苦心的"
+  },
+  {
+    "id": "zw-0519",
+    "day": 3,
+    "word": "thorough",
+    "equivalents": "meticulous",
+    "meaning": "周密的，彻底的"
+  },
+  {
+    "id": "zw-0520",
+    "day": 3,
+    "word": "exactitude",
+    "equivalents": "meticulousness",
+    "meaning": "精确性"
+  },
+  {
+    "id": "zw-0521",
+    "day": 3,
+    "word": "trifling",
+    "equivalents": "minimal",
+    "meaning": "微不足道的"
+  },
+  {
+    "id": "zw-0522",
+    "day": 3,
+    "word": "diminutive",
+    "equivalents": "minuscule",
+    "meaning": "极小的"
+  },
+  {
+    "id": "zw-0523",
+    "day": 3,
+    "word": "trepidation",
+    "equivalents": "misgiving, apprehension",
+    "meaning": "不安"
+  },
+  {
+    "id": "zw-0524",
+    "day": 3,
+    "word": "abuse",
+    "equivalents": "misuse",
+    "meaning": "虐待，误用，恶习"
+  },
+  {
+    "id": "zw-0525",
+    "day": 3,
+    "word": "abate",
+    "equivalents": "mitigate",
+    "meaning": "减弱"
+  },
+  {
+    "id": "zw-0526",
+    "day": 3,
+    "word": "alleviate",
+    "equivalents": "mitigate",
+    "meaning": "减轻"
+  },
+  {
+    "id": "zw-0527",
+    "day": 3,
+    "word": "curtail",
+    "equivalents": "mitigate",
+    "meaning": "缩減"
+  },
+  {
+    "id": "zw-0528",
+    "day": 3,
+    "word": "inconsistent",
+    "equivalents": "mixed",
+    "meaning": "不一致的，矛盾的"
+  },
+  {
+    "id": "zw-0529",
+    "day": 3,
+    "word": "derision",
+    "equivalents": "mockery",
+    "meaning": "嘲笑"
+  },
+  {
+    "id": "zw-0530",
+    "day": 3,
+    "word": "rebuke",
+    "equivalents": "mockery",
+    "meaning": "指责"
+  },
+  {
+    "id": "zw-0531",
+    "day": 3,
+    "word": "exemplary",
+    "equivalents": "model",
+    "meaning": "楷模的，典型的"
+  },
+  {
+    "id": "zw-0532",
+    "day": 3,
+    "word": "paradigm",
+    "equivalents": "model",
+    "meaning": "模板，典范"
+  },
+  {
+    "id": "zw-0533",
+    "day": 3,
+    "word": "unostentatious",
+    "equivalents": "modest",
+    "meaning": "不夸耀的"
+  },
+  {
+    "id": "zw-0534",
+    "day": 3,
+    "word": "unassuming",
+    "equivalents": "modest, humble",
+    "meaning": "谦逊的"
+  },
+  {
+    "id": "zw-0535",
+    "day": 3,
+    "word": "humility",
+    "equivalents": "modesty",
+    "meaning": "谦逊"
+  },
+  {
+    "id": "zw-0536",
+    "day": 3,
+    "word": "temper",
+    "equivalents": "modulate, mitigate, neutralize",
+    "meaning": "缓和"
+  },
+  {
+    "id": "zw-0537",
+    "day": 3,
+    "word": "evanescent",
+    "equivalents": "momentary",
+    "meaning": "短暂的"
+  },
+  {
+    "id": "zw-0538",
+    "day": 3,
+    "word": "fleeting",
+    "equivalents": "momentary",
+    "meaning": "短暂的"
+  },
+  {
+    "id": "zw-0539",
+    "day": 3,
+    "word": "acerbic",
+    "equivalents": "mordant, vitriolic, caustic, cutting, scathing",
+    "meaning": "尖刻的"
+  },
+  {
+    "id": "zw-0540",
+    "day": 3,
+    "word": "confused",
+    "equivalents": "muddled",
+    "meaning": "迷惑的"
+  },
+  {
+    "id": "zw-0541",
+    "day": 3,
+    "word": "ambiguous",
+    "equivalents": "mute",
+    "meaning": "模棱两可的"
+  },
+  {
+    "id": "zw-0542",
+    "day": 3,
+    "word": "fraud",
+    "equivalents": "duplicity",
+    "meaning": "欺诈"
+  },
+  {
+    "id": "zw-0543",
+    "day": 3,
+    "word": "hauteur",
+    "equivalents": "superciliousness",
+    "meaning": "傲慢"
+  },
+  {
+    "id": "zw-0544",
+    "day": 4,
+    "word": "budding",
+    "equivalents": "nascent",
+    "meaning": "萌芽期的"
+  },
+  {
+    "id": "zw-0545",
+    "day": 4,
+    "word": "endemic",
+    "equivalents": "native, domestic, indigenous",
+    "meaning": "地方性的"
+  },
+  {
+    "id": "zw-0546",
+    "day": 4,
+    "word": "vague",
+    "equivalents": "nebulous",
+    "meaning": "模糊的，不确定的"
+  },
+  {
+    "id": "zw-0547",
+    "day": 4,
+    "word": "forsake",
+    "equivalents": "neglect",
+    "meaning": "拋弃"
+  },
+  {
+    "id": "zw-0548",
+    "day": 4,
+    "word": "dexterous",
+    "equivalents": "nimble",
+    "meaning": "机敏的"
+  },
+  {
+    "id": "zw-0549",
+    "day": 4,
+    "word": "adroit",
+    "equivalents": "nimble, dexterous, deft, acumen",
+    "meaning": "精明的，灵巧的"
+  },
+  {
+    "id": "zw-0550",
+    "day": 4,
+    "word": "businesslike",
+    "equivalents": "no-nonsense",
+    "meaning": "高效率的"
+  },
+  {
+    "id": "zw-0551",
+    "day": 4,
+    "word": "malodorous",
+    "equivalents": "noisome",
+    "meaning": "难闻的"
+  },
+  {
+    "id": "zw-0552",
+    "day": 4,
+    "word": "maverick",
+    "equivalents": "nonconformist",
+    "meaning": "特立独行的人"
+  },
+  {
+    "id": "zw-0553",
+    "day": 4,
+    "word": "unexceptional",
+    "equivalents": "nondescript",
+    "meaning": "普通的"
+  },
+  {
+    "id": "zw-0554",
+    "day": 4,
+    "word": "layperson",
+    "equivalents": "nonspecialist",
+    "meaning": "门外汉"
+  },
+  {
+    "id": "zw-0555",
+    "day": 4,
+    "word": "original",
+    "equivalents": "novel",
+    "meaning": "原创的，新颖的"
+  },
+  {
+    "id": "zw-0556",
+    "day": 4,
+    "word": "unexampled",
+    "equivalents": "novel",
+    "meaning": "前所未有的"
+  },
+  {
+    "id": "zw-0557",
+    "day": 4,
+    "word": "tyro",
+    "equivalents": "novice, neophyte",
+    "meaning": "新手"
+  },
+  {
+    "id": "zw-0558",
+    "day": 4,
+    "word": "occult",
+    "equivalents": "numinous",
+    "meaning": "神秘的"
+  },
+  {
+    "id": "zw-0559",
+    "day": 4,
+    "word": "intransigent",
+    "equivalents": "obdurate, resolute",
+    "meaning": "不妥协的"
+  },
+  {
+    "id": "zw-0560",
+    "day": 4,
+    "word": "fairness",
+    "equivalents": "objectivity",
+    "meaning": "公平"
+  },
+  {
+    "id": "zw-0561",
+    "day": 4,
+    "word": "anonymous",
+    "equivalents": "obscure",
+    "meaning": "无名的，匿名的，无个性的"
+  },
+  {
+    "id": "zw-0562",
+    "day": 4,
+    "word": "opaque",
+    "equivalents": "obscure, inaccessible",
+    "meaning": "不透明的，难懂的"
+  },
+  {
+    "id": "zw-0563",
+    "day": 4,
+    "word": "obfuscate",
+    "equivalents": "obscure, mystify",
+    "meaning": "混淆，使迷惑"
+  },
+  {
+    "id": "zw-0564",
+    "day": 4,
+    "word": "sycophantic",
+    "equivalents": "obsequious, adulating",
+    "meaning": "谄媚的"
+  },
+  {
+    "id": "zw-0565",
+    "day": 4,
+    "word": "fixated",
+    "equivalents": "obsessed",
+    "meaning": "过分迷恋的"
+  },
+  {
+    "id": "zw-0566",
+    "day": 4,
+    "word": "fusty",
+    "equivalents": "obsolete, outmoded",
+    "meaning": "霉臭的，守旧的"
+  },
+  {
+    "id": "zw-0567",
+    "day": 4,
+    "word": "glean",
+    "equivalents": "obtain",
+    "meaning": "搜集，获取"
+  },
+  {
+    "id": "zw-0568",
+    "day": 4,
+    "word": "conspicuous",
+    "equivalents": "obtrusive, prominent, salient, remarkable",
+    "meaning": "显眼的"
+  },
+  {
+    "id": "zw-0569",
+    "day": 4,
+    "word": "displace",
+    "equivalents": "obviate",
+    "meaning": "取代，迫使离开"
+  },
+  {
+    "id": "zw-0570",
+    "day": 4,
+    "word": "sporadic",
+    "equivalents": "occasional, fitful",
+    "meaning": "零星的"
+  },
+  {
+    "id": "zw-0571",
+    "day": 4,
+    "word": "numinous",
+    "equivalents": "occult",
+    "meaning": "神圣的，超自然的，神秘的"
+  },
+  {
+    "id": "zw-0572",
+    "day": 4,
+    "word": "universal",
+    "equivalents": "omnipresent, ubiquitous",
+    "meaning": "广泛的，普遍适用的，无处不在的"
+  },
+  {
+    "id": "zw-0573",
+    "day": 4,
+    "word": "ubiquitous",
+    "equivalents": "omnipresent, universal",
+    "meaning": "无处不在的"
+  },
+  {
+    "id": "zw-0574",
+    "day": 4,
+    "word": "burdensome",
+    "equivalents": "onerous",
+    "meaning": "繁重的"
+  },
+  {
+    "id": "zw-0575",
+    "day": 4,
+    "word": "erstwhile",
+    "equivalents": "onetime",
+    "meaning": "过去的"
+  },
+  {
+    "id": "zw-0576",
+    "day": 4,
+    "word": "inaccessible",
+    "equivalents": "opaque",
+    "meaning": "难以到达的，难以理解的"
+  },
+  {
+    "id": "zw-0577",
+    "day": 4,
+    "word": "timely",
+    "equivalents": "opportune",
+    "meaning": "适时的"
+  },
+  {
+    "id": "zw-0578",
+    "day": 4,
+    "word": "disdain",
+    "equivalents": "opprobrium, contempt",
+    "meaning": "鄙视"
+  },
+  {
+    "id": "zw-0579",
+    "day": 4,
+    "word": "sanguine",
+    "equivalents": "optimistic",
+    "meaning": "乐观的"
+  },
+  {
+    "id": "zw-0580",
+    "day": 4,
+    "word": "stability",
+    "equivalents": "order",
+    "meaning": "稳定"
+  },
+  {
+    "id": "zw-0581",
+    "day": 4,
+    "word": "coherent",
+    "equivalents": "orderly",
+    "meaning": "连贯的，条理清楚的"
+  },
+  {
+    "id": "zw-0582",
+    "day": 4,
+    "word": "provenance",
+    "equivalents": "origin",
+    "meaning": "起源"
+  },
+  {
+    "id": "zw-0583",
+    "day": 4,
+    "word": "unconventional",
+    "equivalents": "original",
+    "meaning": "非传统的"
+  },
+  {
+    "id": "zw-0584",
+    "day": 4,
+    "word": "novel",
+    "equivalents": "original, unexampled, unprecedented",
+    "meaning": "新颖的"
+  },
+  {
+    "id": "zw-0585",
+    "day": 4,
+    "word": "generate",
+    "equivalents": "originate",
+    "meaning": "产生"
+  },
+  {
+    "id": "zw-0586",
+    "day": 4,
+    "word": "waver",
+    "equivalents": "oscillate",
+    "meaning": "摇摆"
+  },
+  {
+    "id": "zw-0587",
+    "day": 4,
+    "word": "expel",
+    "equivalents": "oust",
+    "meaning": "开除，驱逐"
+  },
+  {
+    "id": "zw-0588",
+    "day": 4,
+    "word": "eclipse",
+    "equivalents": "outdo",
+    "meaning": "衰退，使……不重要，胜过"
+  },
+  {
+    "id": "zw-0589",
+    "day": 4,
+    "word": "overshadow",
+    "equivalents": "outlast, obscure",
+    "meaning": "超越"
+  },
+  {
+    "id": "zw-0590",
+    "day": 4,
+    "word": "obsolete",
+    "equivalents": "outmoded, fusty",
+    "meaning": "废弃的，老式的"
+  },
+  {
+    "id": "zw-0591",
+    "day": 4,
+    "word": "belabor",
+    "equivalents": "overemphasize",
+    "meaning": "过分强调，抨击"
+  },
+  {
+    "id": "zw-0592",
+    "day": 4,
+    "word": "dovish",
+    "equivalents": "pacific",
+    "meaning": "和平主义的"
+  },
+  {
+    "id": "zw-0593",
+    "day": 4,
+    "word": "damp",
+    "equivalents": "palliate",
+    "meaning": "使減弱"
+  },
+  {
+    "id": "zw-0594",
+    "day": 4,
+    "word": "cure-all",
+    "equivalents": "panacea",
+    "meaning": "万灵药"
+  },
+  {
+    "id": "zw-0595",
+    "day": 4,
+    "word": "remedy",
+    "equivalents": "panacea",
+    "meaning": "治疗药物，改进措施，纠正，弥补"
+  },
+  {
+    "id": "zw-0596",
+    "day": 4,
+    "word": "ironic",
+    "equivalents": "paradoxical",
+    "meaning": "讽刺的"
+  },
+  {
+    "id": "zw-0597",
+    "day": 4,
+    "word": "counterpart",
+    "equivalents": "parallel",
+    "meaning": "对应的人或物"
+  },
+  {
+    "id": "zw-0598",
+    "day": 4,
+    "word": "stingy",
+    "equivalents": "parsimonious",
+    "meaning": "吝啬的，微小的"
+  },
+  {
+    "id": "zw-0599",
+    "day": 4,
+    "word": "minutiae",
+    "equivalents": "particular",
+    "meaning": "细节"
+  },
+  {
+    "id": "zw-0600",
+    "day": 4,
+    "word": "inert",
+    "equivalents": "passive, dormant",
+    "meaning": "迟钝的，呆滞的"
+  },
+  {
+    "id": "zw-0601",
+    "day": 4,
+    "word": "apathy",
+    "equivalents": "passivity",
+    "meaning": "冷漠"
+  },
+  {
+    "id": "zw-0602",
+    "day": 4,
+    "word": "bucolic",
+    "equivalents": "pastoral",
+    "meaning": "乡村的"
+  },
+  {
+    "id": "zw-0603",
+    "day": 4,
+    "word": "hodgepodge",
+    "equivalents": "patchwork, welter, pastiche",
+    "meaning": "大杂烩"
+  },
+  {
+    "id": "zw-0604",
+    "day": 4,
+    "word": "vacuous",
+    "equivalents": "paucity",
+    "meaning": "空洞的"
+  },
+  {
+    "id": "zw-0605",
+    "day": 4,
+    "word": "dearth",
+    "equivalents": "paucity, modicum",
+    "meaning": "缺乏"
+  },
+  {
+    "id": "zw-0606",
+    "day": 4,
+    "word": "economic",
+    "equivalents": "pecuniary",
+    "meaning": "有利可图的"
+  },
+  {
+    "id": "zw-0607",
+    "day": 4,
+    "word": "limpid",
+    "equivalents": "pellucid",
+    "meaning": "清晰的"
+  },
+  {
+    "id": "zw-0608",
+    "day": 4,
+    "word": "indigence",
+    "equivalents": "penury",
+    "meaning": "贫穷"
+  },
+  {
+    "id": "zw-0609",
+    "day": 4,
+    "word": "faultless",
+    "equivalents": "perfect",
+    "meaning": "无可挑剔的"
+  },
+  {
+    "id": "zw-0610",
+    "day": 4,
+    "word": "cursory",
+    "equivalents": "perfunctory, casual",
+    "meaning": "草率的"
+  },
+  {
+    "id": "zw-0611",
+    "day": 4,
+    "word": "precarious",
+    "equivalents": "perilous",
+    "meaning": "危险的，不稳固的"
+  },
+  {
+    "id": "zw-0612",
+    "day": 4,
+    "word": "itinerant",
+    "equivalents": "peripatetic",
+    "meaning": "流动的，巡回的"
+  },
+  {
+    "id": "zw-0613",
+    "day": 4,
+    "word": "marginal",
+    "equivalents": "peripheral",
+    "meaning": "不重要的，边缘的"
+  },
+  {
+    "id": "zw-0614",
+    "day": 4,
+    "word": "porous",
+    "equivalents": "permeable",
+    "meaning": "多孔的，能渗透的"
+  },
+  {
+    "id": "zw-0615",
+    "day": 4,
+    "word": "confound",
+    "equivalents": "perplex, flummox",
+    "meaning": "1.使迷惑2.挫败"
+  },
+  {
+    "id": "zw-0616",
+    "day": 4,
+    "word": "enigmatic",
+    "equivalents": "perplexing",
+    "meaning": "神秘难懂的"
+  },
+  {
+    "id": "zw-0617",
+    "day": 4,
+    "word": "durability",
+    "equivalents": "persistence",
+    "meaning": "持久"
+  },
+  {
+    "id": "zw-0618",
+    "day": 4,
+    "word": "commonplace",
+    "equivalents": "pervasive",
+    "meaning": "常见，陈词滥调"
+  },
+  {
+    "id": "zw-0619",
+    "day": 4,
+    "word": "conciliatory",
+    "equivalents": "placatory",
+    "meaning": "愿意和解的"
+  },
+  {
+    "id": "zw-0620",
+    "day": 4,
+    "word": "elegiac",
+    "equivalents": "plaintive",
+    "meaning": "哀悼的"
+  },
+  {
+    "id": "zw-0621",
+    "day": 4,
+    "word": "malleable",
+    "equivalents": "plastic",
+    "meaning": "可塑的，易变的"
+  },
+  {
+    "id": "zw-0622",
+    "day": 4,
+    "word": "conceivable",
+    "equivalents": "plausible",
+    "meaning": "可想象的"
+  },
+  {
+    "id": "zw-0623",
+    "day": 4,
+    "word": "gratify",
+    "equivalents": "please",
+    "meaning": "使满足，使高兴"
+  },
+  {
+    "id": "zw-0624",
+    "day": 4,
+    "word": "futile",
+    "equivalents": "pointless",
+    "meaning": "无用的"
+  },
+  {
+    "id": "zw-0625",
+    "day": 4,
+    "word": "contemplate",
+    "equivalents": "ponder",
+    "meaning": "深入思考"
+  },
+  {
+    "id": "zw-0626",
+    "day": 4,
+    "word": "permeable",
+    "equivalents": "porous",
+    "meaning": "可渗透的"
+  },
+  {
+    "id": "zw-0627",
+    "day": 4,
+    "word": "presage",
+    "equivalents": "portend",
+    "meaning": "预示"
+  },
+  {
+    "id": "zw-0628",
+    "day": 4,
+    "word": "didactic",
+    "equivalents": "preachy",
+    "meaning": "说教的"
+  },
+  {
+    "id": "zw-0629",
+    "day": 4,
+    "word": "sanctimonious",
+    "equivalents": "preachy, didactic",
+    "meaning": "假装(比别人)圣洁的"
+  },
+  {
+    "id": "zw-0630",
+    "day": 4,
+    "word": "impetuous",
+    "equivalents": "precipitate",
+    "meaning": "鲁莽的"
+  },
+  {
+    "id": "zw-0631",
+    "day": 4,
+    "word": "rule out",
+    "equivalents": "preclude",
+    "meaning": "排除"
+  },
+  {
+    "id": "zw-0632",
+    "day": 4,
+    "word": "prejudice",
+    "equivalents": "preconception",
+    "meaning": "偏见，先入之见"
+  },
+  {
+    "id": "zw-0633",
+    "day": 4,
+    "word": "forerunner",
+    "equivalents": "precursor",
+    "meaning": "先驱，预兆"
+  },
+  {
+    "id": "zw-0634",
+    "day": 4,
+    "word": "precede",
+    "equivalents": "predate, antedate",
+    "meaning": "比⋯先发生"
+  },
+  {
+    "id": "zw-0635",
+    "day": 4,
+    "word": "portend",
+    "equivalents": "predict, presage",
+    "meaning": "预言"
+  },
+  {
+    "id": "zw-0636",
+    "day": 4,
+    "word": "proclivity",
+    "equivalents": "predilection",
+    "meaning": "倾向，嗜好"
+  },
+  {
+    "id": "zw-0637",
+    "day": 4,
+    "word": "anticipate",
+    "equivalents": "prefigure, foresee",
+    "meaning": "预期，先于某人做某事"
+  },
+  {
+    "id": "zw-0638",
+    "day": 4,
+    "word": "preconception",
+    "equivalents": "prejudice",
+    "meaning": "先入之见"
+  },
+  {
+    "id": "zw-0639",
+    "day": 4,
+    "word": "prophetic",
+    "equivalents": "prescient",
+    "meaning": "有预见的"
+  },
+  {
+    "id": "zw-0640",
+    "day": 4,
+    "word": "exacting",
+    "equivalents": "prescriptive, rigorous, demanding",
+    "meaning": "严格的"
+  },
+  {
+    "id": "zw-0641",
+    "day": 4,
+    "word": "safeguard",
+    "equivalents": "preserve",
+    "meaning": "保卫"
+  },
+  {
+    "id": "zw-0642",
+    "day": 4,
+    "word": "exigent",
+    "equivalents": "pressing",
+    "meaning": "迫切的"
+  },
+  {
+    "id": "zw-0643",
+    "day": 4,
+    "word": "exceptional",
+    "equivalents": "preternatural",
+    "meaning": "不同寻常的，杰出的"
+  },
+  {
+    "id": "zw-0644",
+    "day": 4,
+    "word": "preclude",
+    "equivalents": "prevent, rule out",
+    "meaning": "排除，防止"
+  },
+  {
+    "id": "zw-0645",
+    "day": 4,
+    "word": "rudimentary",
+    "equivalents": "primitive, sketchy, embryonic, sketchy, elemental",
+    "meaning": "基本的，未完全发布的"
+  },
+  {
+    "id": "zw-0646",
+    "day": 4,
+    "word": "unblemished",
+    "equivalents": "pristine",
+    "meaning": "暂新的，清白的"
+  },
+  {
+    "id": "zw-0647",
+    "day": 4,
+    "word": "profess",
+    "equivalents": "proclaim",
+    "meaning": "公开宣称，信奉"
+  },
+  {
+    "id": "zw-0648",
+    "day": 4,
+    "word": "predilection",
+    "equivalents": "proclivity, preference",
+    "meaning": "偏爱"
+  },
+  {
+    "id": "zw-0649",
+    "day": 4,
+    "word": "voracious",
+    "equivalents": "prodigious, insatiable",
+    "meaning": "贪吃的，贪得无厌的"
+  },
+  {
+    "id": "zw-0650",
+    "day": 4,
+    "word": "proclaim",
+    "equivalents": "profess",
+    "meaning": "宣布，表明"
+  },
+  {
+    "id": "zw-0651",
+    "day": 4,
+    "word": "trenchant",
+    "equivalents": "profound, incisive",
+    "meaning": "有力的，有效的"
+  },
+  {
+    "id": "zw-0652",
+    "day": 4,
+    "word": "wealth",
+    "equivalents": "profusion",
+    "meaning": "财富，大量"
+  },
+  {
+    "id": "zw-0653",
+    "day": 4,
+    "word": "abound",
+    "equivalents": "proliferate",
+    "meaning": "充满"
+  },
+  {
+    "id": "zw-0654",
+    "day": 4,
+    "word": "verbose",
+    "equivalents": "prolix, long-winded",
+    "meaning": "啰嗦的"
+  },
+  {
+    "id": "zw-0655",
+    "day": 4,
+    "word": "prescient",
+    "equivalents": "prophetic",
+    "meaning": "有预知能力的"
+  },
+  {
+    "id": "zw-0656",
+    "day": 4,
+    "word": "commensurate",
+    "equivalents": "proportionate",
+    "meaning": "相称的"
+  },
+  {
+    "id": "zw-0657",
+    "day": 4,
+    "word": "versatile",
+    "equivalents": "protean, fickle, volatile, flighty, erratic, capricious",
+    "meaning": "多才多艺的，多功能的"
+  },
+  {
+    "id": "zw-0658",
+    "day": 4,
+    "word": "parochial",
+    "equivalents": "provincial",
+    "meaning": "狭隘的"
+  },
+  {
+    "id": "zw-0659",
+    "day": 4,
+    "word": "insular",
+    "equivalents": "provincial, private",
+    "meaning": "狭隘的"
+  },
+  {
+    "id": "zw-0660",
+    "day": 4,
+    "word": "inflammatory",
+    "equivalents": "provocative",
+    "meaning": "煽动性的"
+  },
+  {
+    "id": "zw-0661",
+    "day": 4,
+    "word": "circumspect",
+    "equivalents": "prudent, chary, cautious",
+    "meaning": "谨慎的"
+  },
+  {
+    "id": "zw-0662",
+    "day": 4,
+    "word": "belligerent",
+    "equivalents": "pugnacious",
+    "meaning": "好战的"
+  },
+  {
+    "id": "zw-0663",
+    "day": 4,
+    "word": "truculent",
+    "equivalents": "pugnacious, bellicose, combative, aggressive",
+    "meaning": "好斗的"
+  },
+  {
+    "id": "zw-0664",
+    "day": 4,
+    "word": "design",
+    "equivalents": "purposefulness",
+    "meaning": "故意，设计"
+  },
+  {
+    "id": "zw-0665",
+    "day": 4,
+    "word": "elude",
+    "equivalents": "puzzle",
+    "meaning": "避开，不能被⋯.理解"
+  },
+  {
+    "id": "zw-0666",
+    "day": 4,
+    "word": "imbibe",
+    "equivalents": "quaff",
+    "meaning": "饮酒，吸收，接受"
+  },
+  {
+    "id": "zw-0667",
+    "day": 4,
+    "word": "abeyance",
+    "equivalents": "quiescence",
+    "meaning": "中止"
+  },
+  {
+    "id": "zw-0668",
+    "day": 4,
+    "word": "idealistic",
+    "equivalents": "quixotic",
+    "meaning": "空想的"
+  },
+  {
+    "id": "zw-0669",
+    "day": 4,
+    "word": "banter",
+    "equivalents": "raillery",
+    "meaning": "打趣"
+  },
+  {
+    "id": "zw-0670",
+    "day": 4,
+    "word": "luxuriant",
+    "equivalents": "rampant",
+    "meaning": "茂盛的，丰富的"
+  },
+  {
+    "id": "zw-0671",
+    "day": 4,
+    "word": "haphazard",
+    "equivalents": "random, helter-skelter",
+    "meaning": "随意的"
+  },
+  {
+    "id": "zw-0672",
+    "day": 4,
+    "word": "diatribe",
+    "equivalents": "rant",
+    "meaning": "抨击"
+  },
+  {
+    "id": "zw-0673",
+    "day": 4,
+    "word": "avaricious",
+    "equivalents": "rapacious",
+    "meaning": "贪婪的"
+  },
+  {
+    "id": "zw-0674",
+    "day": 4,
+    "word": "reconciliation",
+    "equivalents": "rapprochement",
+    "meaning": "和解"
+  },
+  {
+    "id": "zw-0675",
+    "day": 4,
+    "word": "intelligible",
+    "equivalents": "readable",
+    "meaning": "可理解的"
+  },
+  {
+    "id": "zw-0676",
+    "day": 4,
+    "word": "verisimilitude",
+    "equivalents": "realism",
+    "meaning": "逼真"
+  },
+  {
+    "id": "zw-0677",
+    "day": 4,
+    "word": "pragmatic",
+    "equivalents": "realistic",
+    "meaning": "务实的"
+  },
+  {
+    "id": "zw-0678",
+    "day": 4,
+    "word": "repudiate",
+    "equivalents": "recant",
+    "meaning": "拒绝承认，与…….断绝关系"
+  },
+  {
+    "id": "zw-0679",
+    "day": 4,
+    "word": "undogmatic",
+    "equivalents": "receptive",
+    "meaning": "能容纳的，不教条的"
+  },
+  {
+    "id": "zw-0680",
+    "day": 4,
+    "word": "gauge",
+    "equivalents": "reckon",
+    "meaning": "估计，判断，衡量仪器"
+  },
+  {
+    "id": "zw-0681",
+    "day": 4,
+    "word": "shrink",
+    "equivalents": "recoil",
+    "meaning": "退缩，回避，缩小，减少"
+  },
+  {
+    "id": "zw-0682",
+    "day": 4,
+    "word": "rapprochement",
+    "equivalents": "reconciliation",
+    "meaning": "和解"
+  },
+  {
+    "id": "zw-0683",
+    "day": 4,
+    "word": "esoteric",
+    "equivalents": "recondite, arcane, abstruse",
+    "meaning": "深奥难懂的"
+  },
+  {
+    "id": "zw-0684",
+    "day": 4,
+    "word": "rehash",
+    "equivalents": "recycle",
+    "meaning": "老调重弹，炒冷饭"
+  },
+  {
+    "id": "zw-0685",
+    "day": 4,
+    "word": "liberation",
+    "equivalents": "rejection",
+    "meaning": "解放，解脱"
+  },
+  {
+    "id": "zw-0686",
+    "day": 4,
+    "word": "kinfolk",
+    "equivalents": "relative",
+    "meaning": "亲戚"
+  },
+  {
+    "id": "zw-0687",
+    "day": 4,
+    "word": "germane",
+    "equivalents": "relevant, apposite",
+    "meaning": "密切相关的"
+  },
+  {
+    "id": "zw-0688",
+    "day": 4,
+    "word": "vestige",
+    "equivalents": "relic",
+    "meaning": "残留部分"
+  },
+  {
+    "id": "zw-0689",
+    "day": 4,
+    "word": "delight",
+    "equivalents": "relish",
+    "meaning": "高兴，使高兴"
+  },
+  {
+    "id": "zw-0690",
+    "day": 4,
+    "word": "loath",
+    "equivalents": "reluctant, unwilling, disinclined",
+    "meaning": "不情愿的"
+  },
+  {
+    "id": "zw-0691",
+    "day": 4,
+    "word": "panacea",
+    "equivalents": "remedy, cure-all",
+    "meaning": "万能药"
+  },
+  {
+    "id": "zw-0692",
+    "day": 4,
+    "word": "strip away",
+    "equivalents": "remove",
+    "meaning": "除去"
+  },
+  {
+    "id": "zw-0693",
+    "day": 4,
+    "word": "anathema",
+    "equivalents": "repellent",
+    "meaning": "厌恶"
+  },
+  {
+    "id": "zw-0694",
+    "day": 4,
+    "word": "censure",
+    "equivalents": "reprehend",
+    "meaning": "谴责"
+  },
+  {
+    "id": "zw-0695",
+    "day": 4,
+    "word": "deplorable",
+    "equivalents": "reprehensible",
+    "meaning": "可悲的，应受谴责的"
+  },
+  {
+    "id": "zw-0696",
+    "day": 4,
+    "word": "recant",
+    "equivalents": "repudiate",
+    "meaning": "宣布放弃"
+  },
+  {
+    "id": "zw-0697",
+    "day": 4,
+    "word": "homogeneity",
+    "equivalents": "resemblance, uniform",
+    "meaning": "同质"
+  },
+  {
+    "id": "zw-0698",
+    "day": 4,
+    "word": "tenacity",
+    "equivalents": "resolve, endurance",
+    "meaning": "顽强"
+  },
+  {
+    "id": "zw-0699",
+    "day": 4,
+    "word": "ring true",
+    "equivalents": "resonate",
+    "meaning": "听来真实"
+  },
+  {
+    "id": "zw-0700",
+    "day": 4,
+    "word": "hallow",
+    "equivalents": "respect",
+    "meaning": "极其崇敬"
+  },
+  {
+    "id": "zw-0701",
+    "day": 4,
+    "word": "deferential",
+    "equivalents": "respectful",
+    "meaning": "恭敬的"
+  },
+  {
+    "id": "zw-0702",
+    "day": 4,
+    "word": "lull",
+    "equivalents": "respite",
+    "meaning": "使平静，蒙蔽，间歇"
+  },
+  {
+    "id": "zw-0703",
+    "day": 4,
+    "word": "relief",
+    "equivalents": "respite",
+    "meaning": "解脱"
+  },
+  {
+    "id": "zw-0704",
+    "day": 4,
+    "word": "skittish",
+    "equivalents": "restive, fractious",
+    "meaning": "易受惊的"
+  },
+  {
+    "id": "zw-0705",
+    "day": 4,
+    "word": "fractious",
+    "equivalents": "restive, skittish",
+    "meaning": "易怒的，难对付的"
+  },
+  {
+    "id": "zw-0706",
+    "day": 4,
+    "word": "tonic",
+    "equivalents": "restorative",
+    "meaning": "恢复健康的"
+  },
+  {
+    "id": "zw-0707",
+    "day": 4,
+    "word": "rehabilitate",
+    "equivalents": "restore",
+    "meaning": "恢复"
+  },
+  {
+    "id": "zw-0708",
+    "day": 4,
+    "word": "recrudescent",
+    "equivalents": "resurgent",
+    "meaning": "复发的"
+  },
+  {
+    "id": "zw-0709",
+    "day": 4,
+    "word": "manifest",
+    "equivalents": "reveal, self-evident, obvious",
+    "meaning": "明显的，清楚显示"
+  },
+  {
+    "id": "zw-0710",
+    "day": 4,
+    "word": "emendation",
+    "equivalents": "revision",
+    "meaning": "修订"
+  },
+  {
+    "id": "zw-0711",
+    "day": 4,
+    "word": "renaissance",
+    "equivalents": "revival",
+    "meaning": "复兴"
+  },
+  {
+    "id": "zw-0712",
+    "day": 4,
+    "word": "eloquent",
+    "equivalents": "rhetoric",
+    "meaning": "雄辩的"
+  },
+  {
+    "id": "zw-0713",
+    "day": 4,
+    "word": "conundrum",
+    "equivalents": "riddle, puzzle, enigma",
+    "meaning": "复杂难解的问题"
+  },
+  {
+    "id": "zw-0714",
+    "day": 4,
+    "word": "pervasive",
+    "equivalents": "rife",
+    "meaning": "普遍的，弥漫的"
+  },
+  {
+    "id": "zw-0715",
+    "day": 4,
+    "word": "resonate",
+    "equivalents": "ring true",
+    "meaning": "对某人有重要性，共振，一致"
+  },
+  {
+    "id": "zw-0716",
+    "day": 4,
+    "word": "ludicrous",
+    "equivalents": "risible",
+    "meaning": "荒唐可笑的"
+  },
+  {
+    "id": "zw-0717",
+    "day": 4,
+    "word": "elemental",
+    "equivalents": "rudimentary",
+    "meaning": "基本的"
+  },
+  {
+    "id": "zw-0718",
+    "day": 4,
+    "word": "embryonic",
+    "equivalents": "rudimentary",
+    "meaning": "萌芽期的"
+  },
+  {
+    "id": "zw-0719",
+    "day": 4,
+    "word": "apogee",
+    "equivalents": "pinnacle",
+    "meaning": "顶点"
+  },
+  {
+    "id": "zw-0720",
+    "day": 4,
+    "word": "deploy",
+    "equivalents": "marshal",
+    "meaning": "安排，部署"
+  },
+  {
+    "id": "zw-0721",
+    "day": 5,
+    "word": "primitive",
+    "equivalents": "rudimentary, ancient",
+    "meaning": "原始的，初级的，简陋的"
+  },
+  {
+    "id": "zw-0722",
+    "day": 5,
+    "word": "sketchy",
+    "equivalents": "rudimentary, superficial, undeveloped",
+    "meaning": "粗略的，不完全的"
+  },
+  {
+    "id": "zw-0723",
+    "day": 5,
+    "word": "visible",
+    "equivalents": "salient",
+    "meaning": "看得见的，明显的"
+  },
+  {
+    "id": "zw-0724",
+    "day": 5,
+    "word": "preachy",
+    "equivalents": "sanctimonious, didactic",
+    "meaning": "爱说教的"
+  },
+  {
+    "id": "zw-0725",
+    "day": 5,
+    "word": "endorse",
+    "equivalents": "sanction, commend, support, authorize",
+    "meaning": "支持"
+  },
+  {
+    "id": "zw-0726",
+    "day": 5,
+    "word": "factious",
+    "equivalents": "schism",
+    "meaning": "宗派的，派系的"
+  },
+  {
+    "id": "zw-0727",
+    "day": 5,
+    "word": "admonish",
+    "equivalents": "scold",
+    "meaning": "反对，批评，告诫"
+  },
+  {
+    "id": "zw-0728",
+    "day": 5,
+    "word": "capture",
+    "equivalents": "secure",
+    "meaning": "俘获"
+  },
+  {
+    "id": "zw-0729",
+    "day": 5,
+    "word": "narcissism",
+    "equivalents": "self-flattery",
+    "meaning": "自恋"
+  },
+  {
+    "id": "zw-0730",
+    "day": 5,
+    "word": "decrepitude",
+    "equivalents": "senescence",
+    "meaning": "衰老，老柘"
+  },
+  {
+    "id": "zw-0731",
+    "day": 5,
+    "word": "unrelated",
+    "equivalents": "separate",
+    "meaning": "无关的"
+  },
+  {
+    "id": "zw-0732",
+    "day": 5,
+    "word": "successive",
+    "equivalents": "sequential",
+    "meaning": "连续的"
+  },
+  {
+    "id": "zw-0733",
+    "day": 5,
+    "word": "unerring",
+    "equivalents": "settled",
+    "meaning": "万无一失的"
+  },
+  {
+    "id": "zw-0734",
+    "day": 5,
+    "word": "stifle",
+    "equivalents": "shackle",
+    "meaning": "阻止"
+  },
+  {
+    "id": "zw-0735",
+    "day": 5,
+    "word": "superficial",
+    "equivalents": "shallow",
+    "meaning": "肤浅的，表面的"
+  },
+  {
+    "id": "zw-0736",
+    "day": 5,
+    "word": "truncate",
+    "equivalents": "shorten, foreshorten",
+    "meaning": "截短"
+  },
+  {
+    "id": "zw-0737",
+    "day": 5,
+    "word": "artful",
+    "equivalents": "shrewd",
+    "meaning": "巧妙的"
+  },
+  {
+    "id": "zw-0738",
+    "day": 5,
+    "word": "canny",
+    "equivalents": "shrewd, deft",
+    "meaning": "精明的"
+  },
+  {
+    "id": "zw-0739",
+    "day": 5,
+    "word": "acumen",
+    "equivalents": "shrewdness",
+    "meaning": "敏锐"
+  },
+  {
+    "id": "zw-0740",
+    "day": 5,
+    "word": "caterwaul",
+    "equivalents": "shriek",
+    "meaning": "发出让人不爽的噪音"
+  },
+  {
+    "id": "zw-0741",
+    "day": 5,
+    "word": "recoil",
+    "equivalents": "shrink",
+    "meaning": "畏缩，后退"
+  },
+  {
+    "id": "zw-0742",
+    "day": 5,
+    "word": "deflect",
+    "equivalents": "shrug off",
+    "meaning": "使转向"
+  },
+  {
+    "id": "zw-0743",
+    "day": 5,
+    "word": "betoken",
+    "equivalents": "signify",
+    "meaning": "表示"
+  },
+  {
+    "id": "zw-0744",
+    "day": 5,
+    "word": "artless",
+    "equivalents": "simplistic",
+    "meaning": "纯真的，朴素的"
+  },
+  {
+    "id": "zw-0745",
+    "day": 5,
+    "word": "disparage",
+    "equivalents": "slight",
+    "meaning": "贬低"
+  },
+  {
+    "id": "zw-0746",
+    "day": 5,
+    "word": "snub",
+    "equivalents": "slight",
+    "meaning": "冷落"
+  },
+  {
+    "id": "zw-0747",
+    "day": 5,
+    "word": "elusive",
+    "equivalents": "slippery, evasive, cryptic",
+    "meaning": "难抓住的，难理解的"
+  },
+  {
+    "id": "zw-0748",
+    "day": 5,
+    "word": "dilatory",
+    "equivalents": "sluggish, remiss, laggard",
+    "meaning": "拖延的"
+  },
+  {
+    "id": "zw-0749",
+    "day": 5,
+    "word": "aspersion",
+    "equivalents": "slur",
+    "meaning": "诽谤"
+  },
+  {
+    "id": "zw-0750",
+    "day": 5,
+    "word": "hitch",
+    "equivalents": "snag",
+    "meaning": "故障"
+  },
+  {
+    "id": "zw-0751",
+    "day": 5,
+    "word": "staid",
+    "equivalents": "sober",
+    "meaning": "古板的，严肃的"
+  },
+  {
+    "id": "zw-0752",
+    "day": 5,
+    "word": "gregarious",
+    "equivalents": "sociable",
+    "meaning": "爱交际的，群居的"
+  },
+  {
+    "id": "zw-0753",
+    "day": 5,
+    "word": "somber",
+    "equivalents": "solemn",
+    "meaning": "严肃的，昏暗的"
+  },
+  {
+    "id": "zw-0754",
+    "day": 5,
+    "word": "camaraderie",
+    "equivalents": "solidarity",
+    "meaning": "情谊，友情"
+  },
+  {
+    "id": "zw-0755",
+    "day": 5,
+    "word": "solemn",
+    "equivalents": "somber",
+    "meaning": "严肃的"
+  },
+  {
+    "id": "zw-0756",
+    "day": 5,
+    "word": "lethargic",
+    "equivalents": "somnolent, slumberous",
+    "meaning": "无精打采的"
+  },
+  {
+    "id": "zw-0757",
+    "day": 5,
+    "word": "deflate",
+    "equivalents": "soothe",
+    "meaning": "使减少"
+  },
+  {
+    "id": "zw-0758",
+    "day": 5,
+    "word": "sleazy",
+    "equivalents": "sordid",
+    "meaning": "肮脏的，不诚实的，邪恶的"
+  },
+  {
+    "id": "zw-0759",
+    "day": 5,
+    "word": "unassailable",
+    "equivalents": "sound",
+    "meaning": "毋庸置疑的"
+  },
+  {
+    "id": "zw-0760",
+    "day": 5,
+    "word": "dramatic",
+    "equivalents": "spectacular",
+    "meaning": "剧烈的，引人注目的"
+  },
+  {
+    "id": "zw-0761",
+    "day": 5,
+    "word": "conjecture",
+    "equivalents": "speculation",
+    "meaning": "推测"
+  },
+  {
+    "id": "zw-0762",
+    "day": 5,
+    "word": "vigorous",
+    "equivalents": "spirited",
+    "meaning": "精力充沛的"
+  },
+  {
+    "id": "zw-0763",
+    "day": 5,
+    "word": "intuitive",
+    "equivalents": "spontaneous",
+    "meaning": "凭直觉的"
+  },
+  {
+    "id": "zw-0764",
+    "day": 5,
+    "word": "diffuse",
+    "equivalents": "spread, disperse, wordy",
+    "meaning": "分散的，传播，话多的"
+  },
+  {
+    "id": "zw-0765",
+    "day": 5,
+    "word": "foster",
+    "equivalents": "spur, adopt",
+    "meaning": "养育，促进"
+  },
+  {
+    "id": "zw-0766",
+    "day": 5,
+    "word": "artificial",
+    "equivalents": "spurious",
+    "meaning": "虚假的，人造的"
+  },
+  {
+    "id": "zw-0767",
+    "day": 5,
+    "word": "counterfeit",
+    "equivalents": "spurious",
+    "meaning": "虚假的"
+  },
+  {
+    "id": "zw-0768",
+    "day": 5,
+    "word": "flout",
+    "equivalents": "spurn, defy, disregard",
+    "meaning": "公然蔑视"
+  },
+  {
+    "id": "zw-0769",
+    "day": 5,
+    "word": "conform to",
+    "equivalents": "square with",
+    "meaning": "遵从，与。一致"
+  },
+  {
+    "id": "zw-0770",
+    "day": 5,
+    "word": "sobering",
+    "equivalents": "staid",
+    "meaning": "严肃的"
+  },
+  {
+    "id": "zw-0771",
+    "day": 5,
+    "word": "banal",
+    "equivalents": "stale",
+    "meaning": "陈腐的，平凡的"
+  },
+  {
+    "id": "zw-0772",
+    "day": 5,
+    "word": "invariable",
+    "equivalents": "static",
+    "meaning": "不变的，静止的"
+  },
+  {
+    "id": "zw-0773",
+    "day": 5,
+    "word": "forestall",
+    "equivalents": "stave off, avert, prevent",
+    "meaning": "预先阻止，提前行动"
+  },
+  {
+    "id": "zw-0774",
+    "day": 5,
+    "word": "check",
+    "equivalents": "stem",
+    "meaning": "阻止"
+  },
+  {
+    "id": "zw-0775",
+    "day": 5,
+    "word": "shackle",
+    "equivalents": "stifle",
+    "meaning": "東缚"
+  },
+  {
+    "id": "zw-0776",
+    "day": 5,
+    "word": "parsimonious",
+    "equivalents": "stingy, illiberal",
+    "meaning": "吝啬的"
+  },
+  {
+    "id": "zw-0777",
+    "day": 5,
+    "word": "hierarchical",
+    "equivalents": "stratified",
+    "meaning": "等级制度的"
+  },
+  {
+    "id": "zw-0778",
+    "day": 5,
+    "word": "audacious",
+    "equivalents": "striking",
+    "meaning": "大胆的"
+  },
+  {
+    "id": "zw-0779",
+    "day": 5,
+    "word": "robust",
+    "equivalents": "strong",
+    "meaning": "健壮的，强有力的"
+  },
+  {
+    "id": "zw-0780",
+    "day": 5,
+    "word": "neutralize",
+    "equivalents": "stymie",
+    "meaning": "阻止"
+  },
+  {
+    "id": "zw-0781",
+    "day": 5,
+    "word": "hinder",
+    "equivalents": "stymie, inhibit, block",
+    "meaning": "妨碍"
+  },
+  {
+    "id": "zw-0782",
+    "day": 5,
+    "word": "obedience",
+    "equivalents": "submission",
+    "meaning": "服从"
+  },
+  {
+    "id": "zw-0783",
+    "day": 5,
+    "word": "nuance",
+    "equivalents": "subtlety",
+    "meaning": "细微差别"
+  },
+  {
+    "id": "zw-0784",
+    "day": 5,
+    "word": "undercut",
+    "equivalents": "subvert, impair, undermine",
+    "meaning": "削弱"
+  },
+  {
+    "id": "zw-0785",
+    "day": 5,
+    "word": "triumph",
+    "equivalents": "success",
+    "meaning": "伟大胜利"
+  },
+  {
+    "id": "zw-0786",
+    "day": 5,
+    "word": "sequential",
+    "equivalents": "successive",
+    "meaning": "连续的，顺序的"
+  },
+  {
+    "id": "zw-0787",
+    "day": 5,
+    "word": "yield",
+    "equivalents": "succumb, engender, output",
+    "meaning": "产生，屈服"
+  },
+  {
+    "id": "zw-0788",
+    "day": 5,
+    "word": "surly",
+    "equivalents": "sullen",
+    "meaning": "阴郁的"
+  },
+  {
+    "id": "zw-0789",
+    "day": 5,
+    "word": "supplant",
+    "equivalents": "supersede",
+    "meaning": "取代"
+  },
+  {
+    "id": "zw-0790",
+    "day": 5,
+    "word": "ancillary",
+    "equivalents": "supplementary",
+    "meaning": "补充的"
+  },
+  {
+    "id": "zw-0791",
+    "day": 5,
+    "word": "plethora",
+    "equivalents": "surfeit, glut",
+    "meaning": "过量"
+  },
+  {
+    "id": "zw-0792",
+    "day": 5,
+    "word": "glut",
+    "equivalents": "surfeit, plethora",
+    "meaning": "过量"
+  },
+  {
+    "id": "zw-0793",
+    "day": 5,
+    "word": "sullen",
+    "equivalents": "surly, grumpy",
+    "meaning": "郁郁寡欢的"
+  },
+  {
+    "id": "zw-0794",
+    "day": 5,
+    "word": "dubious",
+    "equivalents": "suspect",
+    "meaning": "不确定的，可疑的"
+  },
+  {
+    "id": "zw-0795",
+    "day": 5,
+    "word": "defraud",
+    "equivalents": "swindle",
+    "meaning": "欺骗"
+  },
+  {
+    "id": "zw-0796",
+    "day": 5,
+    "word": "obsequious",
+    "equivalents": "sycophantic",
+    "meaning": "谄媚的"
+  },
+  {
+    "id": "zw-0797",
+    "day": 5,
+    "word": "figurative",
+    "equivalents": "symbolic",
+    "meaning": "比喻的，象征的"
+  },
+  {
+    "id": "zw-0798",
+    "day": 5,
+    "word": "tantamount",
+    "equivalents": "synonymous",
+    "meaning": "等同于"
+  },
+  {
+    "id": "zw-0799",
+    "day": 5,
+    "word": "fusion",
+    "equivalents": "synthesis",
+    "meaning": "融合"
+  },
+  {
+    "id": "zw-0800",
+    "day": 5,
+    "word": "laconic",
+    "equivalents": "taciturn, terse, curt",
+    "meaning": "简洁的"
+  },
+  {
+    "id": "zw-0801",
+    "day": 5,
+    "word": "impolitic",
+    "equivalents": "tactless",
+    "meaning": "不明智的"
+  },
+  {
+    "id": "zw-0802",
+    "day": 5,
+    "word": "synonymous",
+    "equivalents": "tantamount",
+    "meaning": "同义的"
+  },
+  {
+    "id": "zw-0803",
+    "day": 5,
+    "word": "dreary",
+    "equivalents": "tedious",
+    "meaning": "枯燥乏味的"
+  },
+  {
+    "id": "zw-0804",
+    "day": 5,
+    "word": "modulate",
+    "equivalents": "temper",
+    "meaning": "调节"
+  },
+  {
+    "id": "zw-0805",
+    "day": 5,
+    "word": "dispassionate",
+    "equivalents": "temperate, analytical",
+    "meaning": "公正客观的，冷静客观的"
+  },
+  {
+    "id": "zw-0806",
+    "day": 5,
+    "word": "resolve",
+    "equivalents": "tenacity",
+    "meaning": "解决，决定，决心"
+  },
+  {
+    "id": "zw-0807",
+    "day": 5,
+    "word": "slanted",
+    "equivalents": "tendentious",
+    "meaning": "有倾向的"
+  },
+  {
+    "id": "zw-0808",
+    "day": 5,
+    "word": "exiguous",
+    "equivalents": "tenuous",
+    "meaning": "稀少的"
+  },
+  {
+    "id": "zw-0809",
+    "day": 5,
+    "word": "halfhearted",
+    "equivalents": "tepid, lukewarm",
+    "meaning": "不热情的"
+  },
+  {
+    "id": "zw-0810",
+    "day": 5,
+    "word": "meticulous",
+    "equivalents": "thorough, exact, painstaking",
+    "meaning": "周密的，一丝不苟的"
+  },
+  {
+    "id": "zw-0811",
+    "day": 5,
+    "word": "frugal",
+    "equivalents": "thrifty",
+    "meaning": "简朴的"
+  },
+  {
+    "id": "zw-0812",
+    "day": 5,
+    "word": "list",
+    "equivalents": "tilt",
+    "meaning": "倾斜"
+  },
+  {
+    "id": "zw-0813",
+    "day": 5,
+    "word": "opportune",
+    "equivalents": "timely",
+    "meaning": "适时的"
+  },
+  {
+    "id": "zw-0814",
+    "day": 5,
+    "word": "brook",
+    "equivalents": "tolerate",
+    "meaning": "容忍"
+  },
+  {
+    "id": "zw-0815",
+    "day": 5,
+    "word": "restorative",
+    "equivalents": "tonic",
+    "meaning": "恢复健康的"
+  },
+  {
+    "id": "zw-0816",
+    "day": 5,
+    "word": "emblematic",
+    "equivalents": "totemic",
+    "meaning": "象征的"
+  },
+  {
+    "id": "zw-0817",
+    "day": 5,
+    "word": "ephemeral",
+    "equivalents": "transitory, short-lived",
+    "meaning": "短暂的"
+  },
+  {
+    "id": "zw-0818",
+    "day": 5,
+    "word": "understandable",
+    "equivalents": "transparent",
+    "meaning": "容易理解的"
+  },
+  {
+    "id": "zw-0819",
+    "day": 5,
+    "word": "profound",
+    "equivalents": "trenchant",
+    "meaning": "渊博的，深奥的，深刻的"
+  },
+  {
+    "id": "zw-0820",
+    "day": 5,
+    "word": "misgiving",
+    "equivalents": "trepidation, qualm",
+    "meaning": "疑虑，担忧"
+  },
+  {
+    "id": "zw-0821",
+    "day": 5,
+    "word": "encomium",
+    "equivalents": "tribute",
+    "meaning": "赞美"
+  },
+  {
+    "id": "zw-0822",
+    "day": 5,
+    "word": "inconsequential",
+    "equivalents": "trivial, immaterial",
+    "meaning": "不重要的"
+  },
+  {
+    "id": "zw-0823",
+    "day": 5,
+    "word": "pugnacious",
+    "equivalents": "truculent, belligerent",
+    "meaning": "好斗的"
+  },
+  {
+    "id": "zw-0824",
+    "day": 5,
+    "word": "credulous",
+    "equivalents": "trusting",
+    "meaning": "轻信的"
+  },
+  {
+    "id": "zw-0825",
+    "day": 5,
+    "word": "novice",
+    "equivalents": "tyro",
+    "meaning": "新手"
+  },
+  {
+    "id": "zw-0826",
+    "day": 5,
+    "word": "omnipresent",
+    "equivalents": "ubiquitous, universal",
+    "meaning": "无处不在的"
+  },
+  {
+    "id": "zw-0827",
+    "day": 5,
+    "word": "unqualified",
+    "equivalents": "unalloyed",
+    "meaning": "完全的，不受限制的，无资格的"
+  },
+  {
+    "id": "zw-0828",
+    "day": 5,
+    "word": "sound",
+    "equivalents": "unassailable, valid",
+    "meaning": "健康的，正确的，可靠的"
+  },
+  {
+    "id": "zw-0829",
+    "day": 5,
+    "word": "modest",
+    "equivalents": "unassuming, unostentatious",
+    "meaning": "谦虚的，朴实无华的，适度的，有限的"
+  },
+  {
+    "id": "zw-0830",
+    "day": 5,
+    "word": "inevitable",
+    "equivalents": "unavoidable, preordained, ineluctable",
+    "meaning": "必然的"
+  },
+  {
+    "id": "zw-0831",
+    "day": 5,
+    "word": "pristine",
+    "equivalents": "unblemished",
+    "meaning": "原始的，暂新的"
+  },
+  {
+    "id": "zw-0832",
+    "day": 5,
+    "word": "unremitting",
+    "equivalents": "unceasing",
+    "meaning": "不停的"
+  },
+  {
+    "id": "zw-0833",
+    "day": 5,
+    "word": "quirky",
+    "equivalents": "unconventional",
+    "meaning": "奇怪的"
+  },
+  {
+    "id": "zw-0834",
+    "day": 5,
+    "word": "unorthodox",
+    "equivalents": "unconventional",
+    "meaning": "非正统的"
+  },
+  {
+    "id": "zw-0835",
+    "day": 5,
+    "word": "irrefutable",
+    "equivalents": "undeniable",
+    "meaning": "无法反驳的"
+  },
+  {
+    "id": "zw-0836",
+    "day": 5,
+    "word": "asymmetrical",
+    "equivalents": "uneven",
+    "meaning": "不对称的"
+  },
+  {
+    "id": "zw-0837",
+    "day": 5,
+    "word": "nondescript",
+    "equivalents": "unexceptional",
+    "meaning": "无个性的"
+  },
+  {
+    "id": "zw-0838",
+    "day": 5,
+    "word": "counterintuitive",
+    "equivalents": "unexpected",
+    "meaning": "违反直觉的"
+  },
+  {
+    "id": "zw-0839",
+    "day": 5,
+    "word": "ignorance",
+    "equivalents": "unfamiliarity",
+    "meaning": "无知"
+  },
+  {
+    "id": "zw-0840",
+    "day": 5,
+    "word": "outmoded",
+    "equivalents": "unfashionable, obsolete, fusty",
+    "meaning": "过时的"
+  },
+  {
+    "id": "zw-0841",
+    "day": 5,
+    "word": "unflagging",
+    "equivalents": "unfatigued",
+    "meaning": "不知疲倦的"
+  },
+  {
+    "id": "zw-0842",
+    "day": 5,
+    "word": "adverse",
+    "equivalents": "unfavorable",
+    "meaning": "不利的，逆的"
+  },
+  {
+    "id": "zw-0843",
+    "day": 5,
+    "word": "baseless",
+    "equivalents": "unfounded, untenable",
+    "meaning": "无根据的"
+  },
+  {
+    "id": "zw-0844",
+    "day": 5,
+    "word": "awkward",
+    "equivalents": "ungainly",
+    "meaning": "笨拙的，不适合的，尴尬的，棘手的"
+  },
+  {
+    "id": "zw-0845",
+    "day": 5,
+    "word": "blameless",
+    "equivalents": "unimpeachable",
+    "meaning": "无可指责的"
+  },
+  {
+    "id": "zw-0846",
+    "day": 5,
+    "word": "skeptical",
+    "equivalents": "unimpressed",
+    "meaning": "怀疑的"
+  },
+  {
+    "id": "zw-0847",
+    "day": 5,
+    "word": "inscrutable",
+    "equivalents": "uninformative, impenetrable, abstruse",
+    "meaning": "难以理解的"
+  },
+  {
+    "id": "zw-0848",
+    "day": 5,
+    "word": "singular",
+    "equivalents": "unique",
+    "meaning": "单一的，非凡的，异常的"
+  },
+  {
+    "id": "zw-0849",
+    "day": 5,
+    "word": "unfounded",
+    "equivalents": "unjustified, baseless, groundless, unwarranted",
+    "meaning": "无根据的"
+  },
+  {
+    "id": "zw-0850",
+    "day": 5,
+    "word": "estrange",
+    "equivalents": "unlinked, disaffect",
+    "meaning": "使疏远"
+  },
+  {
+    "id": "zw-0851",
+    "day": 5,
+    "word": "decisive",
+    "equivalents": "unmistakable",
+    "meaning": "果断的，毋庸置疑的"
+  },
+  {
+    "id": "zw-0852",
+    "day": 5,
+    "word": "composed",
+    "equivalents": "unperturbed, collected, coolheaded",
+    "meaning": "镇定的"
+  },
+  {
+    "id": "zw-0853",
+    "day": 5,
+    "word": "capricious",
+    "equivalents": "unpredictable, impulsive, cavalier, versatile",
+    "meaning": "变化无常的"
+  },
+  {
+    "id": "zw-0854",
+    "day": 5,
+    "word": "unremunerative",
+    "equivalents": "unprofitable",
+    "meaning": "不挣钱的"
+  },
+  {
+    "id": "zw-0855",
+    "day": 5,
+    "word": "unalloyed",
+    "equivalents": "unqualified",
+    "meaning": "纯粹的"
+  },
+  {
+    "id": "zw-0856",
+    "day": 5,
+    "word": "undeniable",
+    "equivalents": "unquestionable, irrefutable",
+    "meaning": "不可否认的"
+  },
+  {
+    "id": "zw-0857",
+    "day": 5,
+    "word": "unprepossessing",
+    "equivalents": "unremarkable",
+    "meaning": "不吸引人的"
+  },
+  {
+    "id": "zw-0858",
+    "day": 5,
+    "word": "unceasing",
+    "equivalents": "unremitting",
+    "meaning": "不停的"
+  },
+  {
+    "id": "zw-0859",
+    "day": 5,
+    "word": "untrammeled",
+    "equivalents": "unrestrained",
+    "meaning": "没有限制的"
+  },
+  {
+    "id": "zw-0860",
+    "day": 5,
+    "word": "simpleminded",
+    "equivalents": "unsophisticated",
+    "meaning": "心思简单的，淳朴的"
+  },
+  {
+    "id": "zw-0861",
+    "day": 5,
+    "word": "fluid",
+    "equivalents": "unstable",
+    "meaning": "不稳定的"
+  },
+  {
+    "id": "zw-0862",
+    "day": 5,
+    "word": "divorced",
+    "equivalents": "untethered, abstracted",
+    "meaning": "分离的"
+  },
+  {
+    "id": "zw-0863",
+    "day": 5,
+    "word": "groundless",
+    "equivalents": "unwarranted",
+    "meaning": "无根据的"
+  },
+  {
+    "id": "zw-0864",
+    "day": 5,
+    "word": "cumbersome",
+    "equivalents": "unwieldy",
+    "meaning": "笨重的，复杂难做的"
+  },
+  {
+    "id": "zw-0865",
+    "day": 5,
+    "word": "reluctant",
+    "equivalents": "unwilling, loath",
+    "meaning": "不情愿的"
+  },
+  {
+    "id": "zw-0866",
+    "day": 5,
+    "word": "implacable",
+    "equivalents": "unyielding, inexorable",
+    "meaning": "无法安抚的"
+  },
+  {
+    "id": "zw-0867",
+    "day": 5,
+    "word": "convulsion",
+    "equivalents": "upheaval",
+    "meaning": "动乱"
+  },
+  {
+    "id": "zw-0868",
+    "day": 5,
+    "word": "irresolution",
+    "equivalents": "vacillation",
+    "meaning": "犹豫不决"
+  },
+  {
+    "id": "zw-0869",
+    "day": 5,
+    "word": "nebulous",
+    "equivalents": "vague",
+    "meaning": "模糊的"
+  },
+  {
+    "id": "zw-0870",
+    "day": 5,
+    "word": "exalt",
+    "equivalents": "valorize",
+    "meaning": "赞扬"
+  },
+  {
+    "id": "zw-0871",
+    "day": 5,
+    "word": "jejune",
+    "equivalents": "vapid",
+    "meaning": "乏味的，幼稚的"
+  },
+  {
+    "id": "zw-0872",
+    "day": 5,
+    "word": "fluctuate",
+    "equivalents": "vary, vacillate",
+    "meaning": "波动，摇摆不定"
+  },
+  {
+    "id": "zw-0873",
+    "day": 5,
+    "word": "honor",
+    "equivalents": "venerate",
+    "meaning": "荣誉，尊敬"
+  },
+  {
+    "id": "zw-0874",
+    "day": 5,
+    "word": "reverence",
+    "equivalents": "veneration",
+    "meaning": "尊敬"
+  },
+  {
+    "id": "zw-0875",
+    "day": 5,
+    "word": "prolix",
+    "equivalents": "verbose, long-winded",
+    "meaning": "冗长的"
+  },
+  {
+    "id": "zw-0876",
+    "day": 5,
+    "word": "long-winded",
+    "equivalents": "verbose, prolix",
+    "meaning": "冗长的"
+  },
+  {
+    "id": "zw-0877",
+    "day": 5,
+    "word": "protean",
+    "equivalents": "versatile",
+    "meaning": "变化多端的，多才多艺的"
+  },
+  {
+    "id": "zw-0878",
+    "day": 5,
+    "word": "fickle",
+    "equivalents": "versatile, volatile, flighty, erratic, capricious",
+    "meaning": "善变的"
+  },
+  {
+    "id": "zw-0879",
+    "day": 5,
+    "word": "relic",
+    "equivalents": "vestige",
+    "meaning": "遗迹"
+  },
+  {
+    "id": "zw-0880",
+    "day": 5,
+    "word": "chagrin",
+    "equivalents": "vexation",
+    "meaning": "失望"
+  },
+  {
+    "id": "zw-0881",
+    "day": 5,
+    "word": "exculpate",
+    "equivalents": "vindicate",
+    "meaning": "开脱罪行"
+  },
+  {
+    "id": "zw-0882",
+    "day": 5,
+    "word": "contravene",
+    "equivalents": "violate",
+    "meaning": "触犯"
+  },
+  {
+    "id": "zw-0883",
+    "day": 5,
+    "word": "salient",
+    "equivalents": "visible, prominent, obtrusive, conspicuous",
+    "meaning": "显著的，重要的"
+  },
+  {
+    "id": "zw-0884",
+    "day": 5,
+    "word": "mercurial",
+    "equivalents": "volatile, inconstant",
+    "meaning": "变化无常的"
+  },
+  {
+    "id": "zw-0885",
+    "day": 5,
+    "word": "prodigious",
+    "equivalents": "voracious",
+    "meaning": "巨大的"
+  },
+  {
+    "id": "zw-0886",
+    "day": 5,
+    "word": "insatiable",
+    "equivalents": "voracious, quenchless",
+    "meaning": "不满足的"
+  },
+  {
+    "id": "zw-0887",
+    "day": 5,
+    "word": "decline",
+    "equivalents": "wane",
+    "meaning": "衰落，拒绝"
+  },
+  {
+    "id": "zw-0888",
+    "day": 5,
+    "word": "ebb",
+    "equivalents": "wane, decline",
+    "meaning": "衰退"
+  },
+  {
+    "id": "zw-0889",
+    "day": 5,
+    "word": "errant",
+    "equivalents": "wayward",
+    "meaning": "不定的，行为错误的"
+  },
+  {
+    "id": "zw-0890",
+    "day": 5,
+    "word": "destabilize",
+    "equivalents": "weaken",
+    "meaning": "削弱"
+  },
+  {
+    "id": "zw-0891",
+    "day": 5,
+    "word": "profusion",
+    "equivalents": "wealth",
+    "meaning": "大量"
+  },
+  {
+    "id": "zw-0892",
+    "day": 5,
+    "word": "prevalent",
+    "equivalents": "widespread, extensive",
+    "meaning": "流行的，普遍的"
+  },
+  {
+    "id": "zw-0893",
+    "day": 5,
+    "word": "engaging",
+    "equivalents": "winning",
+    "meaning": "迷人的"
+  },
+  {
+    "id": "zw-0894",
+    "day": 5,
+    "word": "quotidian",
+    "equivalents": "workday",
+    "meaning": "普通的，常见的，日常的"
+  },
+  {
+    "id": "zw-0895",
+    "day": 5,
+    "word": "succumb",
+    "equivalents": "yield",
+    "meaning": "屈服，死亡"
+  },
+  {
+    "id": "zw-0896",
+    "day": 5,
+    "word": "engender",
+    "equivalents": "yield, induce",
+    "meaning": "导致"
+  },
+  {
+    "id": "zw-0897",
+    "day": 5,
+    "word": "extremist",
+    "equivalents": "zealot",
+    "meaning": "极端分子"
+  },
+  {
+    "id": "zw-0898",
+    "day": 5,
+    "word": "ideologue",
+    "equivalents": "zealot",
+    "meaning": "狂热支持某种理念的人"
+  },
+  {
+    "id": "zw-0899",
+    "day": 5,
+    "word": "indolence",
+    "equivalents": "sloth",
+    "meaning": "懒惰"
+  },
+  {
+    "id": "zw-0900",
+    "day": 5,
+    "word": "refractory",
+    "equivalents": "recalcitrant",
+    "meaning": "难以约束的"
+  },
+  {
+    "id": "zw-0901",
+    "day": 5,
+    "word": "enthrall",
+    "equivalents": "captivate",
+    "meaning": "吸引"
+  },
+  {
+    "id": "zw-0902",
+    "day": 5,
+    "word": "supplemental",
+    "equivalents": "complementary",
+    "meaning": "补充的"
+  },
+  {
+    "id": "zw-0903",
+    "day": 5,
+    "word": "ignoble",
+    "equivalents": "reprehensible",
+    "meaning": "可耻的，应受谴责的"
+  },
+  {
+    "id": "zw-0904",
+    "day": 5,
+    "word": "inapposite",
+    "equivalents": "misguided",
+    "meaning": "不合适的，误导的"
+  },
+  {
+    "id": "zw-0905",
+    "day": 5,
+    "word": "peculiar",
+    "equivalents": "idiosyncratic",
+    "meaning": "奇怪的"
+  }
+]
