@@ -1,9 +1,9 @@
-const CACHE_NAME = "gre-fast-pass-v2";
+const CACHE_NAME = "gre-fast-pass-v3";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css",
-  "./app.js",
+  "./styles.css?v=3",
+  "./app.js?v=3",
   "./words.json",
   "./og.png",
 ];
