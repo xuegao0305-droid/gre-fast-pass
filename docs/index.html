@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="一张一张快速复习 905 个 GRE 等价词，并按熟悉程度自动安排下一轮。"
+    />
+    <meta property="og:title" content="等价词快刷" />
+    <meta
+      property="og:description"
+      content="905 张 GRE 等价词卡，支持分轮复习和本地进度保存。"
+    />
+    <meta
+      property="og:image"
+      content="https://xuegao0305-droid.github.io/gre-fast-pass/og.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#f3f0e8" />
+    <title>等价词快刷</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="loading-shell" id="loadingView" aria-live="polite">
+      <div class="loading-mark">GRE</div>
+      <p>正在读取你的进度</p>
+    </main>
+
+    <main class="app-shell hidden" id="appView">
+      <header class="topbar">
+        <button class="brand" id="brandButton">
+          <span class="brand-mark">G</span>
+          <span>
+            <strong>等价词快刷</strong>
+            <small>905 张词卡</small>
+          </span>
+        </button>
+
+        <div class="top-actions">
+          <button class="quiet-button" id="libraryButton">
+            词库
+            <span class="button-count" id="knownCount">0</span>
+          </button>
+          <button class="quiet-button" id="settingsButton">设置</button>
+        </div>
+      </header>
+
+      <section class="study-stage" aria-label="单词学习区">
+        <div class="progress-row">
+          <div>
+            <span class="eyebrow" id="roundLabel">第 1 轮</span>
+            <strong id="positionLabel">1<span> / 905</span></strong>
+          </div>
+          <div class="progress-track" id="progressTrack" aria-label="本轮进度">
+            <span id="progressBar"></span>
+          </div>
+          <button class="scope-button" id="scopeButton">
+            <span id="scopeLabel">全部词表</span>
+            <span aria-hidden="true">⌄</span>
+          </button>
+        </div>
+
+        <div id="studyView">
+          <article class="word-card" id="wordCard">
+            <div class="card-topline">
+              <span id="dayLabel">Day 1</span>
+              <button class="speak-button" id="speakButton" aria-label="朗读单词">
+                <span aria-hidden="true">▶</span>
+                朗读
+              </button>
+            </div>
+
+            <div class="word-center">
+              <h1 id="wordText">mitigate</h1>
+              <button class="reveal-button" id="revealButton" aria-expanded="false">
+                <span id="revealLabel">显示等价词</span>
+                <kbd>空格</kbd>
+              </button>
+            </div>
+
+            <div class="answer-area" id="answerArea" aria-hidden="true">
+              <div class="answer-rule"></div>
+              <div class="answer-grid">
+                <div>
+                  <span>等价词</span>
+                  <p id="equivalentsText"></p>
+                </div>
+                <div>
+                  <span>汉语解释</span>
+                  <p id="meaningText"></p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div class="decision-area">
+            <p>你对这个词的熟悉程度</p>
+            <div class="decision-buttons">
+              <button class="decision-button unknown" data-status="unknown">
+                <span>不认识</span><kbd>1</kbd>
+              </button>
+              <button class="decision-button known" data-status="known">
+                <span>认识</span><kbd>2</kbd>
+              </button>
+              <button class="decision-button mastered" data-status="mastered">
+                <span>完全熟悉</span><kbd>3</kbd>
+              </button>
+            </div>
+            <div class="decision-note">
+              <span>不认识的词下轮先出现，认识的词随后出现。</span>
+              <button id="undoButton" disabled>撤销 <kbd>Z</kbd></button>
+            </div>
+          </div>
+        </div>
+
+        <section class="round-summary hidden" id="summaryView">
+          <span class="summary-kicker" id="summaryKicker">第 1 轮完成</span>
+          <h1 id="summaryTitle">休息一下，再过一轮</h1>
+          <p id="summaryText"></p>
+          <div class="summary-counts">
+            <div class="unknown">
+              <strong id="summaryUnknown">0</strong>
+              <span>不认识</span>
+            </div>
+            <div class="known">
+              <strong id="summaryKnown">0</strong>
+              <span>认识</span>
+            </div>
+            <div class="mastered">
+              <strong id="summaryMastered">0</strong>
+              <span>完全熟悉</span>
+            </div>
+          </div>
+          <button class="next-round-button" id="nextRoundButton">
+            <span id="nextRoundLabel">开始第 2 轮</span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <button class="summary-undo" id="summaryUndoButton" disabled>
+            撤销最后一次选择
+          </button>
+        </section>
+      </section>
+
+      <footer class="status-footer">
+        <span>本轮还剩 <strong id="remainingCount">905</strong> 个</span>
+        <span class="footer-separator"></span>
+        <span>已完全熟悉 <strong id="masteredCount">0</strong> / 905</span>
+        <span class="footer-save sync-saved" id="saveStatus">
+          进度已保存在此浏览器
+        </span>
+      </footer>
+    </main>
+
+    <div class="panel-backdrop hidden" id="panelBackdrop">
+      <aside class="side-panel" id="sidePanel" aria-label="设置">
+        <div class="panel-header">
+          <div>
+            <span id="panelKicker">学习设置</span>
+            <h2 id="panelTitle">设置本轮范围</h2>
+          </div>
+          <button id="closePanelButton" aria-label="关闭">×</button>
+        </div>
+
+        <div id="libraryPanel" class="hidden">
+          <div class="library-tabs" id="libraryTabs">
+            <button class="active" data-library-status="known">
+              认识 <span id="libraryKnownCount">0</span>
+            </button>
+            <button data-library-status="unknown">
+              不认识 <span id="libraryUnknownCount">0</span>
+            </button>
+            <button data-library-status="mastered">
+              熟悉 <span id="libraryMasteredCount">0</span>
+            </button>
+          </div>
+          <label class="search-field">
+            <span aria-hidden="true">⌕</span>
+            <input id="searchInput" placeholder="搜索单词、等价词或中文" />
+          </label>
+          <div class="library-list" id="libraryList"></div>
+        </div>
+
+        <div class="settings-content hidden" id="settingsPanel">
+          <section>
+            <span class="settings-label">学习范围</span>
+            <div class="scope-list" id="scopeList"></div>
+          </section>
+
+          <section class="toggle-section">
+            <div>
+              <span class="settings-label">每组内打乱顺序</span>
+              <p>不认识、认识和未看过的词仍按这个顺序出现。</p>
+            </div>
+            <button class="toggle" id="shuffleToggle" aria-pressed="false">
+              <span></span>
+            </button>
+          </section>
+
+          <div class="browser-storage-note">
+            <span>✓</span>
+            <div>关闭页面后进度仍会保留。请在同一个浏览器中再次打开。</div>
+          </div>
+
+          <section class="backup-section">
+            <span class="settings-label">进度备份</span>
+            <p>换浏览器或换设备前，请下载备份并在新设备中导入。</p>
+            <div>
+              <button id="exportButton">下载备份</button>
+              <button id="importButton">导入备份</button>
+              <input id="importInput" type="file" accept="application/json" hidden />
+            </div>
+          </section>
+
+          <section class="source-note">
+            <span class="settings-label">词表说明</span>
+            <p>
+              本站整理自公开分享的《真经 GRE 等价词汇总》和《等价词 900
+              组》。PDF 中共有 905 个主词条。本工具用于个人学习，不是官方产品。
+            </p>
+          </section>
+
+          <button class="reset-button" id="resetButton">清空全部进度</button>
+        </div>
+      </aside>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
