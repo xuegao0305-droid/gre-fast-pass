@@ -16,6 +16,7 @@ type LastAction = {
   id: string;
   previousStatus?: WordStatus;
   cursor: number;
+  historyOffset: number;
 };
 
 const STORAGE_KEY = "gre-fast-pass-progress-v1";
@@ -46,6 +47,7 @@ export default function Home() {
   const [cursor, setCursor] = useState(0);
   const [shuffle, setShuffle] = useState(false);
   const [revealed, setRevealed] = useState(false);
+  const [historyOffset, setHistoryOffset] = useState(0);
   const [lastAction, setLastAction] = useState<LastAction | null>(null);
   const [panel, setPanel] = useState<"library" | "settings" | null>(null);
   const [libraryStatus, setLibraryStatus] =
@@ -81,9 +83,11 @@ export default function Home() {
     [statuses],
   );
 
-  const currentId = queue[cursor];
+  const displayIndex = cursor - historyOffset;
+  const currentId = queue[displayIndex];
   const currentWord = currentId ? wordById.get(currentId) : undefined;
-  const roundFinished = loaded && cursor >= queue.length;
+  const roundFinished =
+    loaded && cursor >= queue.length && historyOffset === 0;
   const roundRemaining = Math.max(queue.length - cursor, 0);
   const roundProgress =
     queue.length === 0 ? 100 : Math.round((cursor / queue.length) * 100);
@@ -269,16 +273,25 @@ export default function Home() {
       if (!currentId || roundFinished || panel) return;
       const previousStatus = statuses[currentId];
       const nextStatuses = { ...statuses, [currentId]: status };
-      const nextCursor = cursor + 1;
-      setLastAction({ id: currentId, previousStatus, cursor });
+      const nextCursor = historyOffset > 0 ? cursor : cursor + 1;
+      setLastAction({
+        id: currentId,
+        previousStatus,
+        cursor,
+        historyOffset,
+      });
       setStatuses(nextStatuses);
       setCursor(nextCursor);
-      setRevealed(false);
+      const nextHistoryOffset =
+        historyOffset > 0 ? historyOffset - 1 : 0;
+      if (historyOffset > 0) setHistoryOffset(nextHistoryOffset);
+      setRevealed(nextHistoryOffset > 0);
       persist(nextStatuses, queue, nextCursor);
     },
     [
       currentId,
       cursor,
+      historyOffset,
       panel,
       persist,
       queue,
@@ -297,6 +310,7 @@ export default function Home() {
     }
     setStatuses(nextStatuses);
     setCursor(lastAction.cursor);
+    setHistoryOffset(lastAction.historyOffset);
     setLastAction(null);
     setRevealed(false);
     persist(nextStatuses, queue, lastAction.cursor);
@@ -308,6 +322,7 @@ export default function Home() {
     setRound(nextRound);
     setQueue(nextQueue);
     setCursor(0);
+    setHistoryOffset(0);
     setLastAction(null);
     setRevealed(false);
     persist(statuses, nextQueue, 0, nextRound);
@@ -323,6 +338,7 @@ export default function Home() {
     setRound(1);
     setQueue(nextQueue);
     setCursor(0);
+    setHistoryOffset(0);
     setLastAction(null);
     setPanel(null);
     persist(statuses, nextQueue, 0, 1, nextScope);
@@ -341,6 +357,19 @@ export default function Home() {
     utterance.lang = "en-US";
     utterance.rate = 0.82;
     window.speechSynthesis.speak(utterance);
+  };
+
+  const goPrevious = () => {
+    if (displayIndex <= 0) return;
+    setHistoryOffset((value) => value + 1);
+    setRevealed(true);
+  };
+
+  const goForward = () => {
+    if (historyOffset <= 0) return;
+    const nextOffset = historyOffset - 1;
+    setHistoryOffset(nextOffset);
+    setRevealed(nextOffset > 0);
   };
 
   const changeLibraryStatus = (id: string, status: WordStatus) => {
@@ -485,7 +514,9 @@ export default function Home() {
           <div>
             <span className="eyebrow">第 {round} 轮</span>
             <strong>
-              {roundFinished ? queue.length : Math.min(cursor + 1, queue.length)}
+              {roundFinished
+                ? queue.length
+                : Math.min(displayIndex + 1, queue.length)}
               <span> / {queue.length}</span>
             </strong>
           </div>
@@ -520,7 +551,7 @@ export default function Home() {
                   onClick={() => setRevealed((value) => !value)}
                   aria-expanded={revealed}
                 >
-                  {revealed ? "收起答案" : "显示等价词"}
+                  {revealed ? "收起答案" : "查看等价词和中文释义"}
                   <kbd>空格</kbd>
                 </button>
               </div>
@@ -533,7 +564,7 @@ export default function Home() {
                     <p>{currentWord.equivalents}</p>
                   </div>
                   <div>
-                    <span>汉语解释</span>
+                    <span>中文释义</span>
                     <p>{currentWord.meaning}</p>
                   </div>
                 </div>
@@ -546,8 +577,11 @@ export default function Home() {
                 {(Object.keys(statusMeta) as WordStatus[]).map((status) => (
                   <button
                     key={status}
-                    className={`decision-button ${status}`}
+                    className={`decision-button ${status} ${
+                      statuses[currentWord.id] === status ? "selected" : ""
+                    }`}
                     onClick={() => classify(status)}
+                    aria-pressed={statuses[currentWord.id] === status}
                   >
                     <span>{statusMeta[status].label}</span>
                     <kbd>{statusMeta[status].key}</kbd>
@@ -555,6 +589,14 @@ export default function Home() {
                 ))}
               </div>
               <div className="decision-note">
+                <div className="history-navigation">
+                  <button onClick={goPrevious} disabled={displayIndex <= 0}>
+                    ← 上一个
+                  </button>
+                  {historyOffset > 0 && (
+                    <button onClick={goForward}>下一个 →</button>
+                  )}
+                </div>
                 <span>不认识的词下轮先出现，认识的词随后出现。</span>
                 <button onClick={undo} disabled={!lastAction}>
                   撤销 <kbd>Z</kbd>
@@ -599,6 +641,13 @@ export default function Home() {
                 <span aria-hidden="true">→</span>
               </button>
             )}
+            <button
+              className="summary-history-button"
+              onClick={goPrevious}
+              disabled={cursor === 0}
+            >
+              ← 查看上一个单词
+            </button>
             <button className="summary-undo" onClick={undo} disabled={!lastAction}>
               撤销最后一次选择
             </button>

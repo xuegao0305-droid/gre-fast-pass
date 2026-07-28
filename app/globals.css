@@ -448,6 +448,10 @@ kbd {
   transform: translateY(-1px);
 }
 
+.decision-button.selected {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
 .decision-button:active {
   box-shadow: none;
   transform: translateY(1px);
@@ -482,7 +486,8 @@ kbd {
 }
 
 .decision-note button,
-.summary-undo {
+.summary-undo,
+.summary-history-button {
   background: transparent;
   border: 0;
   color: var(--muted);
@@ -492,9 +497,15 @@ kbd {
 }
 
 .decision-note button:disabled,
-.summary-undo:disabled {
+.summary-undo:disabled,
+.summary-history-button:disabled {
   cursor: default;
   opacity: 0.34;
+}
+
+.history-navigation {
+  display: flex;
+  gap: 4px;
 }
 
 .status-footer {
@@ -646,6 +657,10 @@ kbd {
 
 .summary-undo {
   margin-top: 10px;
+}
+
+.summary-history-button {
+  margin-top: 12px;
 }
 
 .panel-backdrop {

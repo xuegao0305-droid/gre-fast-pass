@@ -74,7 +74,7 @@
             <div class="word-center">
               <h1 id="wordText">mitigate</h1>
               <button class="reveal-button" id="revealButton" aria-expanded="false">
-                <span id="revealLabel">显示等价词</span>
+                <span id="revealLabel">查看等价词和中文释义</span>
                 <kbd>空格</kbd>
               </button>
             </div>
@@ -87,7 +87,7 @@
                   <p id="equivalentsText"></p>
                 </div>
                 <div>
-                  <span>汉语解释</span>
+                  <span>中文释义</span>
                   <p id="meaningText"></p>
                 </div>
               </div>
@@ -108,6 +108,10 @@
               </button>
             </div>
             <div class="decision-note">
+              <div class="history-navigation">
+                <button id="previousButton" disabled>← 上一个</button>
+                <button id="forwardButton" class="hidden">下一个 →</button>
+              </div>
               <span>不认识的词下轮先出现，认识的词随后出现。</span>
               <button id="undoButton" disabled>撤销 <kbd>Z</kbd></button>
             </div>
@@ -135,6 +139,9 @@
           <button class="next-round-button" id="nextRoundButton">
             <span id="nextRoundLabel">开始第 2 轮</span>
             <span aria-hidden="true">→</span>
+          </button>
+          <button class="summary-history-button" id="summaryPreviousButton">
+            ← 查看上一个单词
           </button>
           <button class="summary-undo" id="summaryUndoButton" disabled>
             撤销最后一次选择

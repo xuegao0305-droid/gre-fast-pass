@@ -32,6 +32,8 @@ const elements = Object.fromEntries(
     "answerArea",
     "equivalentsText",
     "meaningText",
+    "previousButton",
+    "forwardButton",
     "undoButton",
     "summaryView",
     "summaryKicker",
@@ -42,6 +44,7 @@ const elements = Object.fromEntries(
     "summaryMastered",
     "nextRoundButton",
     "nextRoundLabel",
+    "summaryPreviousButton",
     "summaryUndoButton",
     "remainingCount",
     "masteredCount",
@@ -78,6 +81,7 @@ let state = loadState();
 let revealed = false;
 let lastAction = null;
 let libraryStatus = "known";
+let historyOffset = 0;
 
 function normalizeState(value) {
   if (!value || typeof value !== "object") return null;
@@ -190,7 +194,7 @@ function buildQueue(list) {
 }
 
 function currentWord() {
-  return wordById.get(state.queue[state.cursor]);
+  return wordById.get(state.queue[state.cursor - historyOffset]);
 }
 
 function setRevealed(nextValue) {
@@ -198,14 +202,18 @@ function setRevealed(nextValue) {
   elements.wordCard.classList.toggle("is-revealed", revealed);
   elements.answerArea.setAttribute("aria-hidden", String(!revealed));
   elements.revealButton.setAttribute("aria-expanded", String(revealed));
-  elements.revealLabel.textContent = revealed ? "收起答案" : "显示等价词";
+  elements.revealLabel.textContent = revealed
+    ? "收起答案"
+    : "查看等价词和中文释义";
 }
 
 function render() {
   const active = activeWords();
   const activeSummary = summarize(active);
   const totalSummary = summarize();
-  const finished = state.cursor >= state.queue.length;
+  const displayIndex = state.cursor - historyOffset;
+  const finished =
+    state.cursor >= state.queue.length && historyOffset === 0;
   const remaining = Math.max(state.queue.length - state.cursor, 0);
   const progress =
     state.queue.length === 0
@@ -214,7 +222,7 @@ function render() {
 
   elements.roundLabel.textContent = `第 ${state.round} 轮`;
   elements.positionLabel.innerHTML = `${
-    finished ? state.queue.length : Math.min(state.cursor + 1, state.queue.length)
+    finished ? state.queue.length : Math.min(displayIndex + 1, state.queue.length)
   }<span> / ${state.queue.length}</span>`;
   elements.progressBar.style.width = `${progress}%`;
   elements.progressTrack.setAttribute("aria-label", `本轮完成 ${progress}%`);
@@ -230,6 +238,9 @@ function render() {
   elements.shuffleToggle.setAttribute("aria-pressed", String(state.shuffle));
   elements.undoButton.disabled = !lastAction;
   elements.summaryUndoButton.disabled = !lastAction;
+  elements.previousButton.disabled = displayIndex <= 0;
+  elements.forwardButton.classList.toggle("hidden", historyOffset === 0);
+  elements.summaryPreviousButton.disabled = state.cursor === 0;
 
   if (!finished && currentWord()) {
     const word = currentWord();
@@ -240,6 +251,16 @@ function render() {
     elements.equivalentsText.textContent = word.equivalents;
     elements.meaningText.textContent = word.meaning;
     elements.speakButton.setAttribute("aria-label", `朗读 ${word.word}`);
+    for (const button of document.querySelectorAll(".decision-button")) {
+      button.classList.toggle(
+        "selected",
+        button.dataset.status === state.statuses[word.id],
+      );
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.status === state.statuses[word.id]),
+      );
+    }
   } else {
     elements.studyView.classList.add("hidden");
     elements.summaryView.classList.remove("hidden");
@@ -270,10 +291,12 @@ function classify(status) {
     id: word.id,
     previousStatus: state.statuses[word.id],
     cursor: state.cursor,
+    historyOffset,
   };
   state.statuses[word.id] = status;
-  state.cursor += 1;
-  setRevealed(false);
+  if (historyOffset > 0) historyOffset -= 1;
+  else state.cursor += 1;
+  setRevealed(historyOffset > 0);
   persist();
   render();
 }
@@ -286,6 +309,7 @@ function undo() {
     delete state.statuses[lastAction.id];
   }
   state.cursor = lastAction.cursor;
+  historyOffset = lastAction.historyOffset;
   lastAction = null;
   setRevealed(false);
   persist();
@@ -296,6 +320,7 @@ function startNextRound() {
   state.round += 1;
   state.queue = buildQueue(activeWords());
   state.cursor = 0;
+  historyOffset = 0;
   lastAction = null;
   setRevealed(false);
   persist();
@@ -308,6 +333,7 @@ function changeScope(scope) {
   state.round = 1;
   state.queue = buildQueue(activeWords());
   state.cursor = 0;
+  historyOffset = 0;
   lastAction = null;
   setRevealed(false);
   persist();
@@ -326,6 +352,21 @@ function changeLibraryStatus(id, status) {
     }
   }
   persist();
+  render();
+}
+
+function goPrevious() {
+  const displayIndex = state.cursor - historyOffset;
+  if (displayIndex <= 0) return;
+  historyOffset += 1;
+  setRevealed(true);
+  render();
+}
+
+function goForward() {
+  if (historyOffset <= 0) return;
+  historyOffset -= 1;
+  setRevealed(historyOffset > 0);
   render();
 }
 
@@ -464,6 +505,9 @@ for (const button of document.querySelectorAll(".decision-button")) {
 }
 elements.undoButton.addEventListener("click", undo);
 elements.summaryUndoButton.addEventListener("click", undo);
+elements.previousButton.addEventListener("click", goPrevious);
+elements.forwardButton.addEventListener("click", goForward);
+elements.summaryPreviousButton.addEventListener("click", goPrevious);
 elements.nextRoundButton.addEventListener("click", startNextRound);
 elements.shuffleToggle.addEventListener("click", () => {
   state.shuffle = !state.shuffle;

@@ -1,4 +1,4 @@
-const CACHE_NAME = "gre-fast-pass-v1";
+const CACHE_NAME = "gre-fast-pass-v2";
 const ASSETS = [
   "./",
   "./index.html",
