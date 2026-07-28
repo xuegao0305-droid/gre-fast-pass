@@ -1,6 +1,6 @@
 const STORAGE_KEY = "gre-fast-pass-pages-v1";
 const validStatuses = new Set(["unknown", "known", "mastered"]);
-const validScopes = new Set(["all", "1", "2", "3", "4", "5"]);
+const validScopes = new Set(["all", "1", "2", "3", "4", "5", "custom"]);
 const scopeLabels = {
   all: "全部 905 词",
   1: "第 1 天，180 词",
@@ -20,8 +20,7 @@ const elements = Object.fromEntries(
     "scopeLabel",
     "roundLabel",
     "positionLabel",
-    "progressTrack",
-    "progressBar",
+    "progressSlider",
     "studyView",
     "wordCard",
     "dayLabel",
@@ -64,7 +63,11 @@ const elements = Object.fromEntries(
     "searchInput",
     "libraryList",
     "scopeList",
+    "rangeStartInput",
+    "rangeEndInput",
+    "applyRangeButton",
     "shuffleToggle",
+    "installButton",
     "exportButton",
     "importButton",
     "importInput",
@@ -85,6 +88,12 @@ let historyOffset = 0;
 
 function normalizeState(value) {
   if (!value || typeof value !== "object") return null;
+  const rangeStart = Number.isInteger(value.rangeStart)
+    ? Math.min(Math.max(value.rangeStart, 1), words.length)
+    : 1;
+  const rangeEnd = Number.isInteger(value.rangeEnd)
+    ? Math.min(Math.max(value.rangeEnd, 1), words.length)
+    : words.length;
   if (
     !Number.isInteger(value.round) ||
     value.round < 1 ||
@@ -114,6 +123,8 @@ function normalizeState(value) {
     round: value.round,
     statuses,
     scope: value.scope,
+    rangeStart: Math.min(rangeStart, rangeEnd),
+    rangeEnd: Math.max(rangeStart, rangeEnd),
     queue,
     cursor: Math.min(value.cursor, queue.length),
     shuffle: value.shuffle,
@@ -135,6 +146,8 @@ function loadState() {
     round: 1,
     statuses: {},
     scope: "all",
+    rangeStart: 1,
+    rangeEnd: words.length,
     queue: words.map((word) => word.id),
     cursor: 0,
     shuffle: false,
@@ -148,9 +161,11 @@ function persist() {
 }
 
 function activeWords() {
-  return state.scope === "all"
-    ? words
-    : words.filter((word) => word.day === Number(state.scope));
+  if (state.scope === "all") return words;
+  if (state.scope === "custom") {
+    return words.slice(state.rangeStart - 1, state.rangeEnd);
+  }
+  return words.filter((word) => word.day === Number(state.scope));
 }
 
 function summarize(list = words) {
@@ -204,7 +219,7 @@ function setRevealed(nextValue) {
   elements.revealButton.setAttribute("aria-expanded", String(revealed));
   elements.revealLabel.textContent = revealed
     ? "收起答案"
-    : "查看等价词和中文释义";
+    : "查看等价词";
 }
 
 function render() {
@@ -215,19 +230,36 @@ function render() {
   const finished =
     state.cursor >= state.queue.length && historyOffset === 0;
   const remaining = Math.max(state.queue.length - state.cursor, 0);
-  const progress =
-    state.queue.length === 0
-      ? 100
-      : Math.round((state.cursor / state.queue.length) * 100);
+  const sliderIndex = Math.min(
+    Math.max(displayIndex, 0),
+    Math.max(state.queue.length - 1, 0),
+  );
 
   elements.roundLabel.textContent = `第 ${state.round} 轮`;
   elements.positionLabel.innerHTML = `${
     finished ? state.queue.length : Math.min(displayIndex + 1, state.queue.length)
   }<span> / ${state.queue.length}</span>`;
-  elements.progressBar.style.width = `${progress}%`;
-  elements.progressTrack.setAttribute("aria-label", `本轮完成 ${progress}%`);
+  elements.progressSlider.max = String(Math.max(state.queue.length - 1, 0));
+  elements.progressSlider.value = String(sliderIndex);
+  elements.progressSlider.disabled = state.queue.length <= 1;
+  elements.progressSlider.style.setProperty(
+    "--slider-progress",
+    state.queue.length <= 1
+      ? "0%"
+      : `${(sliderIndex / (state.queue.length - 1)) * 100}%`,
+  );
+  elements.progressSlider.setAttribute(
+    "aria-label",
+    state.queue.length
+      ? `拖动定位单词，当前第 ${sliderIndex + 1} 个，共 ${state.queue.length} 个`
+      : "本轮没有待学单词",
+  );
   elements.scopeLabel.textContent =
-    state.scope === "all" ? "全部词表" : `第 ${state.scope} 天`;
+    state.scope === "all"
+      ? "全部词表"
+      : state.scope === "custom"
+        ? `第 ${state.rangeStart} 到 ${state.rangeEnd} 词`
+        : `第 ${state.scope} 天`;
   elements.remainingCount.textContent = String(remaining);
   elements.masteredCount.textContent = String(totalSummary.mastered);
   elements.knownCount.textContent = String(totalSummary.known);
@@ -239,7 +271,8 @@ function render() {
   elements.undoButton.disabled = !lastAction;
   elements.summaryUndoButton.disabled = !lastAction;
   elements.previousButton.disabled = displayIndex <= 0;
-  elements.forwardButton.classList.toggle("hidden", historyOffset === 0);
+  elements.forwardButton.disabled =
+    state.queue.length === 0 || displayIndex >= state.queue.length - 1;
   elements.summaryPreviousButton.disabled = state.cursor === 0;
 
   if (!finished && currentWord()) {
@@ -364,9 +397,28 @@ function goPrevious() {
 }
 
 function goForward() {
-  if (historyOffset <= 0) return;
-  historyOffset -= 1;
-  setRevealed(historyOffset > 0);
+  const displayIndex = state.cursor - historyOffset;
+  if (displayIndex >= state.queue.length - 1) return;
+  if (historyOffset > 0) historyOffset -= 1;
+  else state.cursor += 1;
+  lastAction = null;
+  setRevealed(false);
+  persist();
+  render();
+}
+
+function goToQueueIndex(index) {
+  if (!state.queue.length) return;
+  const target = Math.min(Math.max(index, 0), state.queue.length - 1);
+  if (target <= state.cursor) {
+    historyOffset = state.cursor - target;
+  } else {
+    state.cursor = target;
+    historyOffset = 0;
+  }
+  lastAction = null;
+  setRevealed(false);
+  persist();
   render();
 }
 
@@ -469,6 +521,36 @@ function renderSettings() {
     button.addEventListener("click", () => changeScope(scope));
     elements.scopeList.append(button);
   }
+  elements.rangeStartInput.value = String(state.rangeStart);
+  elements.rangeEndInput.value = String(state.rangeEnd);
+  elements.rangeStartInput.max = String(words.length);
+  elements.rangeEndInput.max = String(words.length);
+  elements.applyRangeButton.classList.toggle("active", state.scope === "custom");
+  elements.applyRangeButton.textContent =
+    state.scope === "custom" ? "正在使用这个范围" : "使用这个范围";
+}
+
+function applyCustomRange() {
+  const rawStart = Number.parseInt(elements.rangeStartInput.value, 10);
+  const rawEnd = Number.parseInt(elements.rangeEndInput.value, 10);
+  if (!Number.isFinite(rawStart) || !Number.isFinite(rawEnd)) {
+    window.alert("请填写开始和结束位置。");
+    return;
+  }
+  const start = Math.min(Math.max(rawStart, 1), words.length);
+  const end = Math.min(Math.max(rawEnd, 1), words.length);
+  state.rangeStart = Math.min(start, end);
+  state.rangeEnd = Math.max(start, end);
+  state.scope = "custom";
+  state.round = 1;
+  state.queue = buildQueue(activeWords());
+  state.cursor = 0;
+  historyOffset = 0;
+  lastAction = null;
+  setRevealed(false);
+  persist();
+  closePanel();
+  render();
 }
 
 function exportProgress() {
@@ -507,8 +589,12 @@ elements.undoButton.addEventListener("click", undo);
 elements.summaryUndoButton.addEventListener("click", undo);
 elements.previousButton.addEventListener("click", goPrevious);
 elements.forwardButton.addEventListener("click", goForward);
+elements.progressSlider.addEventListener("input", () =>
+  goToQueueIndex(Number(elements.progressSlider.value)),
+);
 elements.summaryPreviousButton.addEventListener("click", goPrevious);
 elements.nextRoundButton.addEventListener("click", startNextRound);
+elements.applyRangeButton.addEventListener("click", applyCustomRange);
 elements.shuffleToggle.addEventListener("click", () => {
   state.shuffle = !state.shuffle;
   persist();
@@ -562,7 +648,23 @@ window.addEventListener("keydown", (event) => {
   } else if (event.key === "1") classify("unknown");
   else if (event.key === "2") classify("known");
   else if (event.key === "3") classify("mastered");
+  else if (event.key === "ArrowLeft") goPrevious();
+  else if (event.key === "ArrowRight") goForward();
   else if (event.key.toLowerCase() === "z") undo();
+});
+
+let installPrompt = null;
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  installPrompt = event;
+  elements.installButton.classList.remove("hidden");
+});
+elements.installButton.addEventListener("click", async () => {
+  if (!installPrompt) return;
+  installPrompt.prompt();
+  await installPrompt.userChoice;
+  installPrompt = null;
+  elements.installButton.classList.add("hidden");
 });
 
 persist();

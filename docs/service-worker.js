@@ -1,11 +1,15 @@
-const CACHE_NAME = "gre-fast-pass-v3";
+const CACHE_NAME = "gre-fast-pass-v4";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=3",
-  "./app.js?v=3",
+  "./styles.css?v=4",
+  "./app.js?v=4",
   "./words.json",
   "./og.png",
+  "./manifest.webmanifest?v=4",
+  "./icon-180.png?v=4",
+  "./icon-192.png",
+  "./icon-512.png",
 ];
 
 self.addEventListener("install", (event) => {

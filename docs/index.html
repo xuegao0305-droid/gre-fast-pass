@@ -18,8 +18,13 @@
     />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#f3f0e8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="等价词快刷" />
     <title>等价词快刷</title>
-    <link rel="stylesheet" href="./styles.css?v=3" />
+    <link rel="manifest" href="./manifest.webmanifest?v=4" />
+    <link rel="apple-touch-icon" href="./icon-180.png?v=4" />
+    <link rel="stylesheet" href="./styles.css?v=4" />
   </head>
   <body>
     <main class="loading-shell" id="loadingView" aria-live="polite">
@@ -52,9 +57,15 @@
             <span class="eyebrow" id="roundLabel">第 1 轮</span>
             <strong id="positionLabel">1<span> / 905</span></strong>
           </div>
-          <div class="progress-track" id="progressTrack" aria-label="本轮进度">
-            <span id="progressBar"></span>
-          </div>
+          <input
+            class="progress-slider"
+            id="progressSlider"
+            type="range"
+            min="0"
+            max="904"
+            value="0"
+            aria-label="拖动定位单词"
+          />
           <button class="scope-button" id="scopeButton">
             <span id="scopeLabel">全部词表</span>
             <span aria-hidden="true">⌄</span>
@@ -62,37 +73,58 @@
         </div>
 
         <div id="studyView">
-          <article class="word-card" id="wordCard">
-            <div class="card-topline">
-              <span id="dayLabel">Day 1</span>
-              <button class="speak-button" id="speakButton" aria-label="朗读单词">
-                <span aria-hidden="true">▶</span>
-                朗读
-              </button>
-            </div>
+          <div class="card-frame">
+            <button
+              class="side-nav previous"
+              id="previousButton"
+              aria-label="上一个单词"
+              disabled
+            >
+              <span aria-hidden="true">←</span>
+              <strong>上一个</strong>
+            </button>
 
-            <div class="word-center">
-              <h1 id="wordText">mitigate</h1>
-              <button class="reveal-button" id="revealButton" aria-expanded="false">
-                <span id="revealLabel">查看等价词和中文释义</span>
-                <kbd>空格</kbd>
-              </button>
-            </div>
+            <article class="word-card" id="wordCard">
+              <div class="card-topline">
+                <span id="dayLabel">Day 1</span>
+                <button class="speak-button" id="speakButton" aria-label="朗读单词">
+                  <span aria-hidden="true">▶</span>
+                  朗读
+                </button>
+              </div>
 
-            <div class="answer-area" id="answerArea" aria-hidden="true">
-              <div class="answer-rule"></div>
-              <div class="answer-grid">
-                <div>
-                  <span>等价词</span>
-                  <p id="equivalentsText"></p>
-                </div>
-                <div>
+              <div class="word-center">
+                <h1 id="wordText">mitigate</h1>
+                <div class="direct-meaning">
                   <span>中文释义</span>
                   <p id="meaningText"></p>
                 </div>
+                <button class="reveal-button" id="revealButton" aria-expanded="false">
+                  <span id="revealLabel">查看等价词</span>
+                  <kbd>空格</kbd>
+                </button>
               </div>
-            </div>
-          </article>
+
+              <div class="answer-area" id="answerArea" aria-hidden="true">
+                <div class="answer-rule"></div>
+                <div class="answer-grid">
+                  <div>
+                    <span>等价词</span>
+                    <p id="equivalentsText"></p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <button
+              class="side-nav next"
+              id="forwardButton"
+              aria-label="下一个单词"
+            >
+              <strong>下一个</strong>
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
 
           <div class="decision-area">
             <p>你对这个词的熟悉程度</p>
@@ -108,10 +140,6 @@
               </button>
             </div>
             <div class="decision-note">
-              <div class="history-navigation">
-                <button id="previousButton" disabled>← 上一个</button>
-                <button id="forwardButton" class="hidden">下一个 →</button>
-              </div>
               <span>不认识的词下轮先出现，认识的词随后出现。</span>
               <button id="undoButton" disabled>撤销 <kbd>Z</kbd></button>
             </div>
@@ -192,6 +220,22 @@
           <section>
             <span class="settings-label">学习范围</span>
             <div class="scope-list" id="scopeList"></div>
+            <div class="custom-range">
+              <span class="settings-label">自定义范围</span>
+              <div class="custom-range-inputs">
+                <label>
+                  从第
+                  <input id="rangeStartInput" type="number" min="1" max="905" />
+                  词
+                </label>
+                <label>
+                  到第
+                  <input id="rangeEndInput" type="number" min="1" max="905" />
+                  词
+                </label>
+              </div>
+              <button id="applyRangeButton">使用这个范围</button>
+            </div>
           </section>
 
           <section class="toggle-section">
@@ -208,6 +252,17 @@
             <span>✓</span>
             <div>关闭页面后进度仍会保留。请在同一个浏览器中再次打开。</div>
           </div>
+
+          <section class="install-section">
+            <span class="settings-label">安装到手机或电脑</span>
+            <p>
+              安卓手机可在浏览器菜单中选择安装应用。iPhone 请用 Safari
+              打开，再选择分享和添加到主屏幕。
+            </p>
+            <button class="install-button hidden" id="installButton">
+              安装到这台设备
+            </button>
+          </section>
 
           <section class="backup-section">
             <span class="settings-label">进度备份</span>
@@ -232,6 +287,6 @@
       </aside>
     </div>
 
-    <script type="module" src="./app.js?v=3"></script>
+    <script type="module" src="./app.js?v=4"></script>
   </body>
 </html>

@@ -17,6 +17,10 @@ test("the GitHub Pages files are complete and use browser persistence", () => {
     "docs/app.js",
     "docs/words.json",
     "docs/og.png",
+    "docs/icon-180.png",
+    "docs/icon-192.png",
+    "docs/icon-512.png",
+    "docs/manifest.webmanifest",
     "docs/service-worker.js",
   ]) {
     assert.equal(existsSync(file), true, `${file} should exist`);
@@ -27,10 +31,16 @@ test("the GitHub Pages files are complete and use browser persistence", () => {
   assert.match(html, /等价词快刷/);
   assert.match(html, /xuegao0305-droid\.github\.io\/gre-fast-pass/);
   assert.match(html, /id="previousButton"/);
-  assert.match(html, /中文释义/);
+  assert.match(html, /id="meaningText"/);
+  assert.match(html, /id="progressSlider"/);
+  assert.match(html, /id="rangeStartInput"/);
+  assert.match(html, /id="rangeEndInput"/);
+  assert.match(html, /rel="manifest"/);
   assert.match(app, /localStorage\.setItem/);
   assert.match(app, /buildQueue/);
   assert.match(app, /function goPrevious/);
+  assert.match(app, /function goToQueueIndex/);
+  assert.match(app, /function applyCustomRange/);
   assert.match(app, /historyOffset/);
 });
 
